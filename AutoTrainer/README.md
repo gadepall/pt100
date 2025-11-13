@@ -27,9 +27,9 @@ This script will work with any webcam that OpenCV can detect, including built-in
 
 For reference, the development and testing for this project were done using a virtual camera setup:
 
-DroidCam: An application to use a smartphone as a high-quality webcam.
+[DroidCam](https://droidcam.app/obs/): An application to use a smartphone as a high-quality webcam.
 
-OBS Studio: This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
+[OBS Studio](https://obsproject.com/): This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
 
 Again, this specific setup is not required. It is just one example of how to provide a camera feed to the script. Any simple webcam will work perfectly fine.
 
@@ -127,7 +127,7 @@ It is also preferred to hide the decimal point, either physically or by further 
 
 #### b. Voltage
 In this case, the cropped voltage frame, is converted to grayscale before it is used for OCR. Make sure the voltage reading is visible in the voltage frame. It is also preferred to hide the decimal point, either physically or by further image processing.
----
+  
 ##  Data Collection Methodology
 
 The dataset is collected by simulating a **real-world thermal change (cooling cycle)** to capture paired temperature readings.
@@ -149,7 +149,8 @@ The dataset is collected by simulating a **real-world thermal change (cooling cy
 5. **Data Extraction:**  
    - The recorded video acts as the raw dataset.  
    - Extract frames and apply **OCR (Optical Character Recognition)** to detect readings from both displays.  
- 
+
+ ---
 
 ## Output
 
