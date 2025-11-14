@@ -10,6 +10,8 @@
 \usepackage{listings}
 \usepackage{xurl}
 \usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{float}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -31,195 +33,226 @@
     numbersep=5pt,
     showspaces=false,
     showstringspaces=false,
-    showtabs=false,
+proptabs=false,
     tabsize=2
 }
 \lstset{style=mystyle}
 
-\title{High-Precision Temperature Measurement using PT100: A Comparative Model Analysis}
+\title{High-Precision Temperature Measurement for PT100: A Comparative Model Analysis}
 
 \author{
-    \IEEEauthorblockN{Puni Aditya, Vivek K Kumar and Dr. G.V.V. Sharma}
-    \IEEEauthorblockA{Department of Electrical Engineering,
-    \\Indian Institute of Technology Hyderabad,\\
-    Kandi, India 502284
-    \\ gadepall@ee.iith.ac.in}
+    \IEEEauthorblockN{Puni Aditya, Vivek K Kumar and Dr. G.V.V.
+Sharma}
+    \IEEEauthorblockA{Department of Electrical Engineering, \\Indian Institute of Technology Hyderabad,\\ Kandi, India 502284 \\ gadepall@ee.iith.ac.in}
 }
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This paper details the design, implementation, and comparative analysis of multiple calibration models for a temperature measurement system. The system utilizes a PT100 resistance temperature detector (RTD), a high-precision ADS1115 ADC, and an Arduino microcontroller. Two distinct experimental setups are presented. The first employs a Wheatstone bridge, the ADS1115 ADC, and a Least Squares (LSQ) model of the form $V = f(T)$ on a low-voltage dataset. The second experiment, using a simpler circuit and the Arduino's internal 10-bit ADC, compares a Stochastic Gradient Descent (SGD) model and an Inverse LSQ model, both of the form $T = f(V)$, on a high-voltage dataset. The models are validated against unseen data, and their performance is compared to determine the most effective calibration strategy.
+This report details the calibration of a PT100 RTD sensor by comparing two hardware setups (a simple voltage divider and a Wheatstone bridge with an ADS1115 ADC).
+We first analyze the suitability of a quadratic LSQ model for both setups.
+We then compare the accuracy of three different models for the superior Wheatstone bridge data: the LSQ quadratic, an SGD-trained model, and a non-linear Rational model ($V=f(T)$).
+The coefficients, equations, and validation accuracy for each model are presented.
 \end{abstract}
 
 \section{Introduction}
-Accurate temperature measurement is critical in various scientific and industrial applications. While many sensors exist, platinum resistance thermometers like the PT100 offer high accuracy and stability. However, their small resistance change necessitates precise measurement techniques. This project explores two hardware and three software approaches to this problem.
+Accurately measuring temperature with a PT100 sensor requires a precise calibration model to convert its resistance (or a corresponding voltage) to temperature.
+This project analyzes different hardware and software models to find an optimal solution.
 
-The first experiment (Exp. 1) aims for maximum hardware precision by using a Wheatstone bridge to linearize the sensor response and a 16-bit ADS1115 ADC to capture the small signal. A quadratic model of the form $V = f(T)$ is then fitted.
+\section{Hardware Setup}
+Two main analog front-ends were tested.
+\begin{itemize}
+    \item \textbf{Setup 1:} A Wheatstone bridge with an external 16-bit ADS1115 ADC.
+\item \textbf{Setup 2:} A simple voltage divider with the Arduino's internal 10-bit ADC.
+\end{itemize}
+Component lists and connection diagrams are provided in the appendix tables.
 
-The second experiment (Exp. 2) tests a simpler, more software-centric approach. It uses a simpler circuit with the Arduino's internal 10-bit ADC and applies more advanced machine learning models (SGD and Inverse LSQ) of the form $T = f(V)$ to achieve high accuracy from simpler hardware. This paper presents both hardware setups, their respective software, and a comparative analysis of all three mathematical models.
+\section{Models Used}
+This report details the development and evaluation of several regression models for predicting sensor output based on input values. Specifically, we focus on two scenarios: predicting temperature from voltage using a Wheatstone bridge with ADC, and predicting resistance from voltage using a voltage divider without ADC. We investigate Random Forest Regressor, Inverse Quadratic Least Squares (LSQ) for both Wheatstone and Voltage Divider setups, and a Stochastic Gradient Descent (SGD) Regressor.
 
-\section{Experiment 1: Wheatstone Bridge with ADS1115}
-\subsection{Hardware Setup (Exp. 1)}
-This experiment uses a Wheatstone bridge to isolate the small change in resistance from the PT100. The bridge consists of the 100$\Omega$ PT100, a 100$\Omega$ precision resistor, and two 4k$\Omega$ resistors. The output is fed into the ADS1115 ADC. The components are listed in Table \ref{table:list}. The complete circuit schematic is shown in Fig. \ref{fig:schematic}.
+\section{Model Evaluation and Comparison}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\columnwidth]{figs/circuit_schematic.png}
-    \caption{Circuit schematic of the Experiment 1 system, featuring a Wheatstone bridge and the ADS1115 ADC.}
-    \label{fig:schematic}
-\end{figure}
+This section presents the evaluation of the trained models and a comparison of their performance based on Mean Squared Error (MSE) and R-squared (R2) metrics.
 
-\begin{table}[!h]
-  \centering
-  \caption{List of Components (Exp. 1)}
-  \label{table:list}
-  \input{tables/list_table.tex}
-\end{table}
+\subsection{Model Explanations}
+
+\subsubsection{Random Forest Regressor (Wheatstone with ADC)}
+The Random Forest Regressor is an ensemble learning method that constructs a multitude of decision trees during training. For regression tasks, it averages the predictions of individual trees to produce a more stable and accurate prediction. This model was applied to the Wheatstone bridge dataset, where the goal was to predict temperature (Y) from voltage (X) directly, leveraging its ability to capture complex non-linear relationships without explicit feature engineering of the target variable.
+
+\subsubsection{Inverse LSQ (Quadratic) for Wheatstone with ADC}
+This model approaches the Wheatstone bridge problem by fitting a quadratic equation of the form \(X = aY^2 + bY + c\), where Y is temperature and X is voltage. The coefficients \(a\), \(b\), and \(c\) are determined through linear least squares regression.
+The fitted equation for the Wheatstone bridge is:
+\[ X = -0.000006742Y^2 + 0.004346059Y + 0.055941163 \]
+To predict Y from a given X, we rearrange the equation into a standard quadratic form: \(aY^2 + bY + (c - X) = 0\).
+The solution for Y is then given by the quadratic formula, taking the positive root:
+\[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
+This method assumes an underlying quadratic relationship between voltage and temperature, and its performance depends on how well this assumption holds for the given data.
+
+\subsubsection{Inverse LSQ (Quadratic) for Voltage Divider without ADC}
+Similar to the Wheatstone LSQ model, this model also uses a quadratic inverse approach. It models the relationship between resistance (Y) and voltage (X) from the voltage divider circuit as \(X = aY^2 + bY + c\).
+The fitted equation for the Voltage Divider is:
+\[ X = -0.000014990Y^2 + 0.005589496Y + 2.526066163 \]
+The coefficients are determined through linear least squares regression, and then the model predicts resistance (Y) from measured voltage (X) using the positive root of the quadratic equation:
+\[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
+This method is suitable for circuits where the voltage-resistance relationship can be approximated quadratically.
+
+\subsubsection{Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC)}
+The SGD Regressor is a linear model trained with Stochastic Gradient Descent, which is an efficient optimization algorithm. This model was applied to the Wheatstone bridge data. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
+
+\subsection{Performance Metrics Summary}
+
+The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) scores for all evaluated models.
 
 \begin{table}[h!]
-  \centering
-  \caption{ADS1115 and Arduino Connections (Exp. 1)}
-  \label{table:ads_connections}
-  \input{tables/ads1115_connections.tex}
+    \centering
+    \caption{Model Performance Metrics}
+    \label{tab:model_performance}
+    \begin{tabular}{|l|c|c|}
+        \toprule
+        \textbf{Model} & \textbf{MSE} & \textbf{R2} \\
+        \midrule
+        Random Forest Regressor (Wheatstone w/ ADC) & 0.0053 & 1.0000 \\
+        Inverse LSQ (Quadratic) (Wheatstone w/ ADC) & 0.0128 & 0.9999 \\
+        Inverse LSQ (Quadratic) (Voltage Divider w/o ADC) & 0.6612 & 0.9977 \\
+        SGD Regressor (Wheatstone w/ ADC) & 0.2327 & 0.9990 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
+
+\subsection{Validation Data and Model Predictions (Subset)}
+
+The below table presents a small subset of test data, showing the actual and predicted temperature values for the Voltage Divider setup.
 
 \begin{table}[h!]
-  \centering
-  \caption{JHD 162A Parallel LCD and Arduino Connections}
-  \label{table:lcd_connections}
-  \input{tables/lcd_connections.tex}
+\centering
+\caption{Voltage Divider Validation Table with Predictions}
+\label{tab:voltage_divider_validation_predictions}
+\begin{tabular}{|l|c|c|}
+\hline
+Voltage & Actual Temperature & Prediction \\
+\hline
+2.7300 & 39.7000 & 40.9900 \\
+2.7500 & 46.4000 & 45.6500 \\
+2.8400 & 68.3000 & 68.8900 \\
+2.8920 & 85.6000 & 84.7100 \\
+2.9100 & 90.0000 & 90.8000 \\
+2.8700 & 77.8000 & 77.7400 \\
+\hline
+\end{tabular}
 \end{table}
 
-\subsection{Role of the ADS1115 ADC}
-The ADS1115 is a high-precision, 16-bit Analog-to-Digital Converter.
-\begin{itemize}
-    \item \textbf{High Resolution}: The 16-bit (65,536 steps) ADS1115 detects the microvolt-level changes from the bridge, which the Arduino's 10-bit (1,024 steps) ADC would miss.
-    \item \textbf{Differential Measurement}: The code reads the voltage difference between bridge output terminals (A0 and A1). This \texttt{ads.readADC\_Differential\_0\_1()} function is crucial for rejecting common-mode noise.
-    \item \textbf{Programmable Gain}: The code sets the internal amplifier gain to 8x (\texttt{GAIN\_EIGHT}) using \texttt{ads.setGain()}, amplifying the small signal to use more of the ADC's range.
-\end{itemize}
+The following table presents a small subset of the test data, showing the actual temperature values alongside the predictions from the Random Forest, Inverse LSQ, and SGD Regressor models for the Wheatstone bridge setup.
 
-\subsection{Software \& Modeling (Exp. 1)}
-The Arduino code (`code.cpp`, Listing \ref{lst:arduino_code_exp1}) implements the model derived from `lsq.py`. This model is a quadratic fit of the form $V = aT^2 + bT + c$, based on the training data in Table \ref{table:training_data_exp1}.
-
-The derived coefficients are:
-\begin{itemize}
-    \item $a = 1.7826 \times 10^{-5}$
-    \item $b = 1.4987 \times 10^{-3}$
-    \item $c = 0.1570$
-\end{itemize}
-
-To convert the measured voltage ($V$) back to temperature ($T$), the Arduino code solves the quadratic formula:
-\\[10pt]
-$T = \frac{-b + \sqrt{b^2 - 4a(c - V)}}{2a}$
-\\[10pt]
-
-This model was validated against a separate dataset (Table \ref{table:validation_data_exp1}), with results in Table \ref{table:validation_results_exp1}.
-
-\begin{table}[!h]
-  \centering
-  \caption{Training Data: Experiment 1 (Low Voltage)}
-  \label{table:training_data_exp1}
-  \input{tables/training_data_exp1.tex}
+\begin{table}
+\caption{Validation Data and Model Predictions Sample (Subset)}
+\label{tab:validation_data_subset}
+\begin{tabular}{|l|c|c|}
+\hline
+Voltage & Actual Temperature & RF Prediction \\
+\hline
+0.202 & 35.500 & 35.522 \\
+0.290 & 59.400 & 59.354 \\
+0.237 & 44.700 & 44.662 \\
+0.403 & 92.900 & 92.720 \\
+0.285 & 57.900 & 57.870 \\
+0.223 & 41.000 & 41.022 \\
+0.209 & 37.500 & 37.434 \\
+0.246 & 47.100 & 47.082 \\
+0.221 & 40.500 & 40.502 \\
+0.176 & 28.800 & 28.890 \\
+\hline
+\hline
+Voltage & Inverse LSQ Prediction & SGD Prediction \\
+\hline
+0.202 & 35.596 & 35.127 \\
+0.290 & 59.341 & 59.796 \\
+0.237 & 44.690 & 44.827 \\
+0.403 & 93.449 & 91.502 \\
+0.285 & 57.823 & 58.282 \\
+0.223 & 40.922 & 40.846 \\
+0.209 & 37.438 & 37.117 \\
+0.246 & 47.077 & 47.321 \\
+0.221 & 40.448 & 40.341 \\
+0.176 & 28.847 & 27.726 \\
+\hline
+\end{tabular}
 \end{table}
-
-\begin{table}[!h]
-  \centering
-  \caption{Validation Data: Experiment 1 (Low Voltage)}
-  \label{table:validation_data_exp1}
-  \input{tables/validation_data_exp1.tex}
-\end{table}
-
-\begin{table}[!h]
-  \centering
-  \caption{Validation Results: LSQ Model (Exp. 1)}
-  \label{table:validation_results_exp1}
-  \input{tables/validation_results_exp1.tex}
-\end{table}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{figs/training_data.png}
-    \caption{Exp. 1: Training data vs. LSQ parabola.}
-    \label{fig:training_plot}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{figs/validation_data.png}
-    \caption{Exp. 1: Validation data vs. LSQ parabola.}
-    \label{fig:validation_plot}
-\end{figure}
 
 \newpage
-\section{Experiment 2: Internal ADC with Direct T=f(V) Models}
-A second, simpler experiment was conducted to test "direct" models that predict Temperature from Voltage. This setup used a simpler circuit (likely a voltage divider) and the Arduino's built-in 10-bit ADC (\texttt{analogRead()}). This resulted in a higher voltage range ($\sim$2.6-2.9V). The training and validation data for this experiment are shown in Tables \ref{table:training_data_exp2} and \ref{table:validation_data_exp2}.
 
-\begin{table}[!h]
-  \centering
-  \caption{Training Data: Experiment 2 (High Voltage)}
-  \label{table:training_data_exp2}
-  \input{tables/training_data_exp2.tex}
-\end{table}
+\subsection{Graphical Comparison of Wheatstone ADC Models}
 
-\begin{table}[!h]
-  \centering
-  \caption{Validation Data: Experiment 2 (High Voltage)}
-  \label{table:validation_data_exp2}
-  \input{tables/validation_data_exp2.tex}
-\end{table}
-
-\subsection{Model 2: Stochastic Gradient Descent (SGD)}
-This approach employs a two-part machine learning workflow. First, an offline training script (\texttt{model\_trainer.py}) uses a 2nd-degree polynomial feature set, feature scaling, and a Stochastic Gradient Descent Regressor (\texttt{SGDRegressor}) to learn a baseline model from a static dataset. The complete processing pipeline (polynomial transformer, scaler, and model) is then persisted using \texttt{joblib}.
-
-This method uses \texttt{PolynomialFeatures} to create $V$ and $V^2$ terms, and \texttt{StandardScaler} to normalize these features. Normalization ensures that all features contribute appropriately to the gradient descent, leading to a more stable model. The resulting equation, while complex, is implemented directly on the Arduino (Listing \ref{lst:arduino_code_sgd}). A key feature of this method is the ability to use \texttt{partial\_fit} for "online learning," allowing the model to adapt to new data in real-time and compensate for sensor drift, a significant advantage over static calibration methods.
-
-\subsection{Model 3: Inverse Least Squares}
-As a direct comparison to the SGD model, a standard LSQ regression was performed on the same high-voltage dataset, but with the model inverted to $T = aV^2 + bV + c$. This provides a direct, non-scaled polynomial fit. The coefficients found are:
-\begin{itemize}
-    \item $a \approx 269.84$
-    \item $b \approx -953.11$
-    \item $c \approx 874.19$
-\end{itemize}
-
-\subsection{Model Comparison}
-To visualize all three models and both datasets, the data from Experiment 1 was artificially scaled by adding a voltage offset. Figure \ref{fig:combined_plot} shows all data points and all three predictive models on a single graph. Validation results for the Experiment 2 models are in Tables \ref{table:sgd_results} and \ref{table:inverse_lsq_results}.
-
-\begin{figure*}[!t]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figs/combined_model_plot.png}
-    \caption{Comparison of all models. Exp 1 data is scaled by an offset (approx. +2.4V) to be plotted on the same axis as Exp 2 data for visualization.}
-    \label{fig:combined_plot}
-\end{figure*}
+    \includegraphics[width=0.8\linewidth]{figs/wheatstone_model_comparison.png}
+    \caption{Comparison of Random Forest, Inverse LSQ, and SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC.}
+    \label{fig:wheatstone_model_comparison}
+\end{figure}
 
-\begin{table}[!h]
-  \centering
-  \caption{Validation Results: SGD Model (Exp. 2)}
-  \label{table:sgd_results}
-  \input{tables/sgd_results.tex}
-\end{table}
+\subsection{Model Comparison and Conclusion}
 
-\begin{table}[!h]
-  \centering
-  \caption{Validation Results: Inverse LSQ Model (Exp. 2)}
-  \label{table:inverse_lsq_results}
-  \input{tables/inverse_lsq_results.tex}
-\end{table}
+Comparing the performance metrics, the Random Forest Regressor, the Inverse LSQ (Quadratic) model for the Wheatstone bridge with ADC data, and the SGD Regressor (after scaling) all achieved exceptionally high R-squared scores (approximately 0.999 to 0.9999) and very low Mean Squared Error (MSE) values (approximately 0.0000). This indicates that these three models are highly accurate in predicting temperature from voltage for this specific Wheatstone setup.
 
-\section{Conclusion and Final Recommendation}
-This paper successfully designed and tested a PT100-based thermometer using two different hardware setups and three calibration models.
+The Inverse LSQ (Quadratic) model for the Voltage Divider without ADC also showed a strong performance with an R-squared of 0.9977, but its MSE of 0.6612 is significantly higher than the models for the Wheatstone bridge. This suggests that while the quadratic relationship generally holds, the predictions for the voltage divider might have slightly more error compared to the Wheatstone bridge models.
 
+Based on the Mean Squared Error (MSE), the best performing models are the \textbf{Inverse LSQ (Quadratic) model for Wheatstone with ADC} and the \textbf{Random Forest Regressor (Wheatstone with ADC)} with an MSE of 0.0128 and 0.0053 respectively. Both are closely followed by the SGD Regressor for Wheatstone with ADC. The minimal difference in performance among these three indicates all are highly suitable for the Wheatstone bridge, but the LSQ model might offer a simpler deployment due to its explicit functional form. The SGD Regressor also performs commendably, especially considering its linear nature, after proper data scaling.
+
+\section*{Appendix - Data Collection Using Optical Character Recognition (OCR)}
+
+This project utilizes an auxiliary script for \textbf{automated data collection} by employing Computer Vision and Optical Character Recognition (OCR) to capture paired voltage and temperature readings from physical displays.
+
+\subsection{Script Description: The Auto Trainer}
+This Python script is designed to capture video from a webcam, identify and read text from two specific screen regions (voltage and temperature), and log the data. It is pre-configured for a fixed-camera setup, reading data from an LCD screen and a separate standard thermometer.
+
+\subsubsection{Prerequisites and Setup}
 \begin{itemize}
-    \item \textbf{Model 1 (LSQ `V=f(T)`):} This model, paired with the ADS1115 and Wheatstone bridge, is hardware-intensive but precise. It requires solving a quadratic equation on the microcontroller.
-    \item \textbf{Model 2 (SGD `T=f(V)`):} This model, paired with the internal ADC, is complex to derive (requiring a ML pipeline) but results in a simple (though long) equation on the Arduino.
-    \item \textbf{Model 3 (Inverse LSQ `T=f(V)`):} This model uses the same simple hardware as Model 2 but is the simplest to derive and implement, providing a direct $T = aV^2 + bV + c$ formula.
+    \item \textbf{Hardware:} A stable webcam connection. An NVIDIA GPU with CUDA is optional but recommended for faster processing (script defaults to $\text{gpu}=\text{True}$).
+    \item \textbf{Software:} Python 3.x with the libraries $\texttt{opencv-python}$, $\texttt{easyocr}$, and $\texttt{numpy}$. The $\texttt{img/}$ folder must be created in the script directory for saving debug images.
 \end{itemize}
 
-Conclusion: Comparing the validation results from Experiment 2 (Tables \ref{table:sgd_results} and \ref{table:inverse_lsq_results}), both the SGD and Inverse LSQ models perform exceptionally well, with predictions very close to the actual temperatures. The **Inverse Least Squares model (Model 3) is arguably the best method**, as it provides nearly identical accuracy to the complex SGD pipeline while being far simpler to calculate, debug, and implement.
+\subsubsection{Calibration Requirement}
+The script requires calibration to match the specific camera, lighting, and display setup. The critical sections to modify are:
+\begin{itemize}
+    \item \textbf{GPU Usage:} Set $\texttt{gpu}=\text{False}$ if an NVIDIA GPU is unavailable.
+    \item \textbf{Frame Cropping:} The regions of interest for voltage and temperature must be precisely defined using Python slicing in the format $\texttt{[y1:y2, x1:x2]}$.
+    \item \textbf{Image Processing:} Values for $\texttt{cv2.threshold}$ (e.g., $130$), kernel size in $\texttt{cv2.getStructuringElement}$, and Gaussian blur kernel size must be adjusted to ensure clear and solid text for the OCR engine.
+\end{itemize}
 
-The hardware from Experiment 1 (Wheatstone bridge + ADS1115) is the most robust and accurate.
+\subsection{Data Collection Methodology}
+The dataset is collected by simulating a controlled \textbf{cooling cycle} to capture paired readings.
+\begin{enumerate}
+    \item \textbf{Setup:} The PT100 probe and a reference thermometer are placed in an electric kettle filled with water.
+    \item \textbf{Heating Phase:} The water is heated to boiling.
+    \item \textbf{Recording Phase:} Upon reaching boiling, the kettle is switched off, and a video is recorded, ensuring both the PT100's LCD display and the reference thermometer are visible.
+    \item \textbf{Cooling Phase:} The video captures the natural temperature drop.
+    \item \textbf{Data Extraction:} Frames are extracted from the video, and OCR is applied to detect the voltage and temperature readings.
+\end{enumerate}
 
-Therefore, the optimal system would be a combination of the superior hardware from Experiment 1 (Wheatstone bridge, ADS1115) and the simpler, direct modeling approach from Experiment 2 (an Inverse LSQ model trained on the low-voltage data).
+\subsection{Output Format}
+The script generates two outputs for debugging and data logging:
+\begin{itemize}
+    \item $\texttt{out.txt}$: A log file where every $15$ frames, a new line is added with the format $\texttt{[voltage\_reading] [temperature\_reading]}$ if both readings are successfully detected.
+    \item $\texttt{img/}$ Directory: This folder saves debug images ($\texttt{voltageXX.png}$ and $\texttt{tempXX.png}$), showing the exact frames sent to EasyOCR for calibration and error checking.
+\end{itemize}
+
+\subsection{Python Script Snippet}
+A sample of the calibration-critical code (Calibration Snippet from a.py) is shown below:
+\begin{lstlisting}[language=Python]
+# GPU Usage
+reader = easyocr.Reader(['en'], gpu=True) 
+
+# Frame Cropping (h, w are frame height/width)
+voltage_frame = frame[0:int(h/2), :]
+temp_frame = frame[int(h/2):, 0:int(w/3)]
+
+# Image Processing (Temperature)
+gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
+_,thres = cv2.threshold(gray_t,130, 255, cv2.THRESH_BINARY_INV)
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11,11))
+closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
+pretemp = cv2.bitwise_not(closed_img)
+temp = cv2.GaussianBlur(pretemp, (17,17), 0)
+\end{lstlisting}
 
 \end{document}

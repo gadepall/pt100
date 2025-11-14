@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.7.29)  4 NOV 2025 14:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.8.11)  14 NOV 2025 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -429,10 +429,48 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip56
 )
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen186
+\lightrulewidth=\dimen187
+\cmidrulewidth=\dimen188
+\belowrulesep=\dimen189
+\belowbottomsep=\dimen190
+\aboverulesep=\dimen191
+\abovetopsep=\dimen192
+\cmidrulesep=\dimen193
+\cmidrulekern=\dimen194
+\defaultaddspace=\dimen195
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen196
+\@belowrulesep=\dimen197
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen198
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count302
+\float@exts=\toks26
+\float@box=\box59
+\@float@everytoks=\toks27
+\@floatcapt=\box60
+)
+
+! Package keyval Error: proptabs undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 \lstset{style=mystyle}
+                           
+? 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count298
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box61
 )
 (./main.aux)
 \openout1 = `main.aux'.
@@ -459,17 +497,17 @@ LaTeX Font Info:    ... okay on input line 49.
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen186
-\scratchbox=\box60
-\nofMPsegments=\count300
-\nofMParguments=\count301
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen187
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count304
+\scratchdimen=\dimen199
+\scratchbox=\box62
+\nofMPsegments=\count305
+\nofMParguments=\count306
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen256
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -479,108 +517,101 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count305
+\c@lstlisting=\count310
 Package hyperref Info: Link coloring OFF on input line 49.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<figs/circuit_schematic.png, id=46, 1238.6275pt x 610.28pt>
-File: figs/circuit_schematic.png Graphic file (type png)
-<use figs/circuit_schematic.png>
-Package pdftex.def Info: figs/circuit_schematic.png  used on input line 69.
-(pdftex.def)             Requested size: 252.0pt x 124.15837pt.
-
-(./tables/list_table.tex
-Underfull \hbox (badness 2894) in paragraph at lines 7--8
-[]|\OT1/ptm/m/n/8 16-bit ex-ter-nal ADC for high-
- []
-
-) (./tables/ads1115_connections.tex)
-Overfull \hbox (25.52663pt too wide) in paragraph at lines 1--86
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./tables/lcd_connections.tex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 9
-9.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./figs/circuit_schematic.png>]
-
-LaTeX Warning: Reference `lst:arduino_code_exp1' on page 2 undefined on input l
-ine 104.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--117
-
+]
+Overfull \hbox (4.239pt too wide) in paragraph at lines 111--121
+ [][] 
  []
 
-(./tables/training_data_exp1.tex)
+<figs/wheatstone_model_comparison.png, id=97, 719.8092pt x 450.9648pt>
+File: figs/wheatstone_model_comparison.png Graphic file (type png)
+<use figs/wheatstone_model_comparison.png>
+Package pdftex.def Info: figs/wheatstone_model_comparison.png  used on input li
+ne 188.
+(pdftex.def)             Requested size: 201.60077pt x 126.30368pt.
+[2
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.200 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.200 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.200 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.200 
+       <./figs/wheatstone_model_comparison.png>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
+11.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./tables/validation_data_exp1.tex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./tables/validation_results_exp1.tex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figs/training_data.png, id=69, 722.7pt x 433.62pt>
-File: figs/training_data.png Graphic file (type png)
-<use figs/training_data.png>
-Package pdftex.def Info: figs/training_data.png  used on input line 143.
-(pdftex.def)             Requested size: 226.79846pt x 136.07494pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figs/validation_data.png, id=70, 722.7pt x 433.62pt>
-File: figs/validation_data.png Graphic file (type png)
-<use figs/validation_data.png>
-Package pdftex.def Info: figs/validation_data.png  used on input line 150.
-(pdftex.def)             Requested size: 226.79846pt x 136.07494pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+[]\OT1/ptm/b/n/10 Software: \OT1/ptm/m/n/10 Python 3.x with the li-braries
+ []
 
 
-Underfull \vbox (badness 1297) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+[]$\OT1/ptm/m/n/10 , $[]$, and $[]$. The
+ []
 
- [2 <./figs/training_data.png> <./figs/validation_data.png>]
-(./tables/training_data_exp2.tex) (./tables/validation_data_exp2.tex)
 
-LaTeX Warning: Reference `lst:arduino_code_sgd' on page 3 undefined on input li
-ne 176.
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+[]$[]$\OT1/ptm/m/n/10 : A log file where ev-ery $\OT1/cmr/m/n/10 15$
+ []
 
-<figs/combined_model_plot.png, id=95, 867.24pt x 505.89pt>
-File: figs/combined_model_plot.png Graphic file (type png)
-<use figs/combined_model_plot.png>
-Package pdftex.def Info: figs/combined_model_plot.png  used on input line 191.
-(pdftex.def)             Requested size: 516.0pt x 301.01213pt.
-(./tables/sgd_results.tex) (./tables/inverse_lsq_results.tex) [3]
+
+Underfull \hbox (badness 7722) in paragraph at lines 235--236
+\OT1/ptm/m/n/10 frames, a new line is added with the for-mat
+ []
+
+
+Overfull \hbox (2.09729pt too wide) in paragraph at lines 235--236
+[]$
+ []
+
+
+Underfull \hbox (badness 3792) in paragraph at lines 236--237
+[]$[]$ \OT1/ptm/m/n/10 Di-rec-tory: This folder saves de-bug im-ages
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -592,42 +623,35 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
-
- <./figs/combined_model_plot.png>] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
+[3] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 498EA56E237F1C2E6CEF54DC0EB6CD42;2175.
+(rerunfilecheck)             Checksum: 3A4EF4E7C8B0D7A9BC0B1619451D21D8;4257.
  ) 
 Here is how much of TeX's memory you used:
- 12572 strings out of 476091
- 196518 string characters out of 5794081
- 1881330 words of memory out of 5000000
- 32723 multiletter control sequences out of 15000+600000
- 552451 words of font info for 112 fonts, out of 8000000 for 9000
+ 13111 strings out of 476091
+ 201384 string characters out of 5794081
+ 1953330 words of memory out of 5000000
+ 33263 multiletter control sequences out of 15000+600000
+ 554476 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,16n,76p,889b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,76p,676b,1319s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 389346 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on main.pdf (3 pages, 210615 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 203 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
