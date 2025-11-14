@@ -220,6 +220,25 @@ The script requires calibration to match the specific camera, lighting, and disp
     \item \textbf{Image Processing:} Values for $\texttt{cv2.threshold}$ (e.g., $130$), kernel size in $\texttt{cv2.getStructuringElement}$, and Gaussian blur kernel size must be adjusted to ensure clear and solid text for the OCR engine.
 \end{itemize}
 
+\subsection{Python Script Snippet}
+A sample of the calibration-critical code (Calibration Snippet from a.py) is shown below:
+\begin{lstlisting}[language=Python]
+# GPU Usage
+reader = easyocr.Reader(['en'], gpu=True)
+
+# Frame Cropping (h, w are frame height/width)
+voltage_frame = frame[0:int(h/2), :]
+temp_frame = frame[int(h/2):, 0:int(w/3)]
+
+# Image Processing (Temperature)
+gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
+_,thres = cv2.threshold(gray_t,130, 255, cv2.THRESH_BINARY_INV)
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11,11))
+closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
+pretemp = cv2.bitwise_not(closed_img)
+temp = cv2.GaussianBlur(pretemp, (17,17), 0)
+\end{lstlisting}
+
 \subsection{Data Collection Methodology}
 The dataset is collected by simulating a controlled \textbf{cooling cycle} to capture paired readings.
 \begin{enumerate}
@@ -236,24 +255,5 @@ The script generates two outputs for debugging and data logging:
     \item $\texttt{out.txt}$: A log file where every $15$ frames, a new line is added with the format $\texttt{[voltage\_reading] [temperature\_reading]}$ if both readings are successfully detected.
     \item $\texttt{img/}$ Directory: This folder saves debug images ($\texttt{voltageXX.png}$ and $\texttt{tempXX.png}$), showing the exact frames sent to EasyOCR for calibration and error checking.
 \end{itemize}
-
-\subsection{Python Script Snippet}
-A sample of the calibration-critical code (Calibration Snippet from a.py) is shown below:
-\begin{lstlisting}[language=Python]
-# GPU Usage
-reader = easyocr.Reader(['en'], gpu=True) 
-
-# Frame Cropping (h, w are frame height/width)
-voltage_frame = frame[0:int(h/2), :]
-temp_frame = frame[int(h/2):, 0:int(w/3)]
-
-# Image Processing (Temperature)
-gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
-_,thres = cv2.threshold(gray_t,130, 255, cv2.THRESH_BINARY_INV)
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11,11))
-closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
-pretemp = cv2.bitwise_not(closed_img)
-temp = cv2.GaussianBlur(pretemp, (17,17), 0)
-\end{lstlisting}
 
 \end{document}
