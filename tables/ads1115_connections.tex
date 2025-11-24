@@ -1,4 +1,4 @@
-\begin{table}[H]
+\begin{table}[h!]
 \centering
 \caption{ADS1115 Connections}
 \label{table:ads1115_connections}
@@ -14,10 +14,10 @@
     \hline
     SDA & A4 (SDA) & I2C Data Line \\
     \hline
-    A0 & - & \makecell{Input from Voltage Divider Node \\ (between PT100 and R\_REF)} \\
+    A0 & \makecell{Input from Voltage Divider Node \\ (between PT100 and R\_REF)} &  Reading\\
     \hline
-    A1 & Junction between the two & \makecell{Reference for differential reading} \\
-     & 4k$\Omega$ resistors & \\
+    A1 & \makecell{Junction between the two \\4k$\Omega$ resistors} & \makecell{Reference for \\differential reading} \\
     \hline
 \end{tabular}
 \end{table}
+
