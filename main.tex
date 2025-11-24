@@ -121,7 +121,7 @@ This method is suitable for circuits where the voltage-resistance relationship c
 
 \subsubsection{Inverse LSQ (Quadratic) for Wheatstone with ADC}
 This model approaches the Wheatstone bridge problem by fitting a quadratic equation of the form \(X = aY^2 + bY + c\), where Y is temperature and X is voltage. The fitted equation for the Wheatstone bridge is:
-\[ X = -0.000006742Y^2 + 0.004346059Y + 0.055941163 \]
+\[ X = -0.000006744Y^2 + 0.004344843Y + 0.056019368 \]
 To predict Y from a given X, we use the quadratic formula:
 \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
@@ -130,7 +130,7 @@ This method aligns with the physical properties described by the Callendar-Van D
 This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as $Y = aX^2 + bX + c$. Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
 \begin{itemize}
     \item \textbf{Fitted Equation:} Placeholder: $Y = aX^2 + bX + c$
-    \item \textbf{Coefficients:} Placeholder: $a=\dots, b=\dots, c=\dots$
+    \item \textbf{Coefficients:} $$a=190.226107678, b=173.380527679, c=-7.072446221$$
 \end{itemize}
 
 \subsubsection{Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC)}
@@ -155,11 +155,11 @@ The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) s
         \textbf{Model} & \textbf{MSE} & \textbf{R2} \\
         \midrule
         1. Inverse LSQ (Volt. Div w/o ADC) & 0.6612 & 0.9977 \\
-        2. Inverse LSQ (Wheatstone w/ ADC) & 0.0128 & 0.9999 \\
-        3. LSQ (Wheatstone w/ ADC) & [N/A] & [N/A] \\
-        4. SGD Regressor (Wheatstone w/ ADC) & 0.2327 & 0.9990 \\
-        5. Inverse SGD (Wheatstone w/ ADC) & [N/A] & [N/A] \\
-        6. Random Forest (Wheatstone w/ ADC) & 0.0053 & 1.0000 \\
+        2. Inverse LSQ (Wheatstone w/ ADC) & 0.009941 & 0.999953 \\
+        3. LSQ (Wheatstone w/ ADC) & 0.009198 & 0.999953 \\
+        4. SGD Regressor (Wheatstone w/ ADC) & 0.030477 & 0.999854 \\
+        5. Inverse SGD (Wheatstone w/ ADC) & 0.016221 & 0.999922 \\
+        6. Random Forest (Wheatstone w/ ADC) & 1.248897 & 0.994033 \\
         \bottomrule
     \end{tabular}
 \end{table}
