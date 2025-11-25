@@ -22,7 +22,7 @@
 \BIBdecl
 
 \bibitem{rtd_theory}
-T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems &
+T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems \&
   Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Delmar Cengage
   Learning, 2005.
 
@@ -56,15 +56,5 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn:
   Machine learning in python,'' \emph{Journal of Machine Learning Research},
   vol.~12, pp. 2825--2830, 2011.
-
-\bibitem{opencv_library}
-A.~Kaehler and G.~Bradski, \emph{Learning OpenCV 3: Computer vision in C++ with
-  the OpenCV library}.\hskip 1em plus 0.5em minus 0.4em\relax " O'Reilly Media,
-  Inc.", 2016.
-
-\bibitem{easyocr}
-JaidedAI, ``Easyocr: Ready-to-use ocr with 80+ supported languages and all
-  popular writing scripts including latin, chinese, arabic, devanagari,
-  cyrillic and etc.'' \url{https://github.com/JaidedAI/EasyOCR}, 2020.
 
 \end{thebibliography}

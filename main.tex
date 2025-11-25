@@ -1,6 +1,8 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
 
+\usepackage{gvv-book}
+\usepackage{gvv}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
@@ -12,6 +14,10 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{float}
+%\usepackage{tcolorbox}
+
+%\usepackage{minted}
+%\usepackage{markdown}
 \usepackage[citations,hybrid]{markdown}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -44,12 +50,13 @@
   }
 }
 
-\title{High-Precision Temperature Measurement for PT100: A Comparative Model Analysis}
+%\title{High-Precision Temperature Measurement for PT100: A Comparative Model Analysis}
+\title{An AI Based High-Precision Industrial Thermometer}
 
 \author{
-    \IEEEauthorblockN{Dr. G.V.V. Sharma, \\
-    Puni Aditya, Vivek K. Kumar, \\
-    Jnanesh S.K., Shreyas Goud Burra}
+    \IEEEauthorblockN{
+    Puni Aditya, Vivek K. Kumar, 
+    Jnanesh Sathisha Karmar, Burra Shreyas Goud, Dr. G.V.V. Sharma}
     \IEEEauthorblockA{Department of Electrical Engineering, \\Indian Institute of Technology Hyderabad,\\ Kandi, India 502284 \\ gadepall@ee.iith.ac.in}
 }
 
@@ -57,18 +64,25 @@
 \maketitle
 
 \begin{abstract}
-Resistance Temperature Detectors (RTDs), specifically the PT100, are widely favored in industrial applications for their linearity and stability. This report details the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC. We first analyze the suitability of a quadratic Least Squares (LSQ) model, grounded in the theoretical Callendar-Van Dusen equation. We then compare the accuracy of three different regression approaches for the superior Wheatstone bridge data: the LSQ quadratic, a Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor. The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
+	In this paper, we design and develop an industrial thermometer using the PT100 temperature sensor.   This is done by 
+analyzing the suitability of five machine learning (ML) techniques: a quadratic/inverse quadratic Least Squares (LSQ) model, a Stochastic/inverse Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor by calibrating them with respect to a commercial pen thermometer.  The calibration process is also automated using Optical Character Recognition (OCR).
+Through numerical results, we conclude that the LSQ model is superior to the other models and implement it using the Arduino framework on an Arduino UNO. 
+
+%grounded in the theoretical Callendar-Van Dusen equation. We then compare the accuracy of three different regression approaches for the superior Wheatstone bridge data: the LSQ quadratic,  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
+
+%Resistance Temperature Detectors (RTDs), specifically the PT100, are widely favored in industrial applications for their linearity and stability. This report details the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC. \end{abstract}
 \end{abstract}
 
 \section{Introduction}
 Temperature measurement is a fundamental requirement in process control, automotive systems, and instrumentation. Among the various contact temperature sensors available, the Platinum Resistance Temperature Detector (RTD), commonly known as the PT100, is considered the standard for precision thermometry \cite{rtd_theory}.
 
-\subsection{Fundamental Principles}
-The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0^\circ$C. Unlike thermocouples which generate a voltage, RTDs differ in that they operate by changing electrical resistance in direct proportion to temperature changes \cite{sensor_physics}. This relationship is inherently non-linear over wide ranges, though it is highly predictable. The resistance $R(t)$ at temperature $t$ is governed by the Callendar-Van Dusen equation \cite{callendar_vd}:
+\section{PT-100 Fundamentals}
+%\subsection{Fundamental Principles}
+The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0^\circ$C. Unlike thermocouples which generate a voltage, RTDs differ in that they operate by changing electrical resistance in direct proportion to temperature changes \cite{sensor_physics}. This relationship is inherently non-linear over wide ranges, though it is highly predictable. The resistance $R(t)$ at temperature $t$ is governed by the Callendar-Van Dusen equation \cite{callendar_vd}
 \begin{equation}
     R(t) = R_0 (1 + A t + B t^2)
 \end{equation}
-for temperatures $t > 0^\circ$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using Quadratic Least Squares (LSQ) models in this study.
+for temperatures $t > 0\degree$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using Quadratic Least Squares (LSQ) models in this study.
 
 \subsection{Measurement Challenges}
 While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/^\circ$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This project aims to optimize this conversion by analyzing different hardware front-ends and software regression models \cite{lsq_method} to find an optimal solution for high-precision, low-cost temperature sensing.
@@ -210,12 +224,12 @@ The following table presents a small subset of the test data, showing the actual
 \subsection{Model Comparison and Conclusion}
 
 Comparing the performance metrics, the Least Squares (Quadratic) model for the Wheatstone bridge achieved the highest R-squared score of $0.999956$. It also achieved the lowest mean squared error of $0.009198$. Qualitatively, we can say that the \textbf{Least Squares Quadratic} model is the best at predicting the temperature.
-
 \newpage
 
 \section{Appendix - Data Collection Using Optical Character Recognition (OCR)}
 
-\markdownInput{AutoTrainer/README.md}
+%\markdownInput{AutoTrainer/README.md}
+\input{AutoTrainer/output.tex}
 The final training data is in the following text file
 \fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
 }}
