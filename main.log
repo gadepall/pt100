@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.2)  24 NOV 2025 19:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.2)  25 NOV 2025 15:02
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
@@ -455,57 +455,136 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box60
 )
+(/usr/share/texlive/texmf-dist/tex/latex/markdown/markdown.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-01-22 L3 programming layer (loader) 
 
-! Package keyval Error: proptabs undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.39 \lstset{style=mystyle}
-                           
-? 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 \l__pdf_internal_box=\box61
+))
+(/usr/share/texlive/texmf-dist/tex/generic/markdown/markdown.tex
+\markdownOptionFrozenCacheCounter=\count307
+\markdownInputFileStream=\read2
+\markdownOutputFileStream=\write3
+Package markdown Info: Using mode 3: The lt3luabridge package on input line 266
+7.
+
+(/usr/share/texlive/texmf-dist/tex/generic/lt3luabridge/lt3luabridge.tex
+\g_luabridge_method_int=\count308
+
+Package luabridge Info: Using shell escape as the bridging method
+
+))
+Package: markdown 2023-04-27 v2.23.0-0-g0b22f91 markdown renderer
+
+(/usr/share/texlive/texmf-dist/tex/latex/paralist/paralist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip57
+\plpartopsep=\skip58
+\plitemsep=\skip59
+\plparsep=\skip60
+\pl@lab=\toks29
 )
-(./main.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/csvsimple/csvsimple.sty
+Package: csvsimple 2024/01/19 v2.6.0 LaTeX CSV file processing
+)
+(/usr/share/texlive/texmf-dist/tex/latex/csvsimple/csvsimple-legacy.sty
+Package: csvsimple-legacy 2024/01/19 version 2.6.0 LaTeX2e CSV file processing
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks30
+\pgfutil@tempdima=\dimen199
+\pgfutil@tempdimb=\dimen256
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box62
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks31
+\pgfkeys@temptoks=\toks32
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex
+\pgfkeys@tmptoks=\toks33
+))) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+\csv@file=\read3
+\c@csvinputline=\count309
+\c@csvrow=\count310
+\c@csvcol=\count311
+\csv@out=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count312
+\FV@InFile=\read4
+\FV@TabBox=\box63
+\c@FancyVerbLine=\count313
+\FV@StepNumber=\count314
+\FV@OutFile=\write5
+)
+\markdownLaTeXCitationsCounter=\count315
+
+(/usr/share/texlive/texmf-dist/tex/generic/gobble/gobble.sty
+Package: gobble 2019/01/04 v0.2 Provides more gobble macros
+
+(/usr/share/texlive/texmf-dist/tex/generic/gobble/gobble.tex))
+\markdownLaTeXRowCounter=\count316
+\markdownLaTeXRowTotal=\count317
+\markdownLaTeXColumnCounter=\count318
+\markdownLaTeXColumnTotal=\count319
+\markdownLaTeXTable=\toks34
+\markdownLaTeXTableAlignment=\toks35
+\markdownLaTeXTableEnd=\toks36
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count307
-\scratchdimen=\dimen199
-\scratchbox=\box62
-\nofMPsegments=\count308
-\nofMParguments=\count309
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count310
-\MPscratchDim=\dimen256
-\MPnumerator=\count311
-\makeMPintoPDFobject=\count312
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count320
+\scratchdimen=\dimen257
+\scratchbox=\box64
+\nofMPsegments=\count321
+\nofMParguments=\count322
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count323
+\MPscratchDim=\dimen258
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
+\everyMPtoPDFconversion=\toks38
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -515,35 +594,54 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count313
-Package hyperref Info: Link coloring OFF on input line 50.
+\c@lstlisting=\count326
+Package hyperref Info: Link coloring OFF on input line 56.
 
 (./main.out) (./main.out)
-\@outlinefile=\write3
-\openout3 = `main.out'.
+\@outlinefile=\write6
+\openout6 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
 
+
+LaTeX Warning: Citation `rtd_theory' on page 1 undefined on input line 64.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Warning: Citation `sensor_physics' on page 1 undefined on input line 67.
+
+
+LaTeX Warning: Citation `callendar_vd' on page 1 undefined on input line 67.
+
+
+LaTeX Warning: Citation `wheatstone_ref' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `lsq_method' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `ads1115_datasheet' on page 1 undefined on input line 8
+0.
+
 (./tables/list_table.tex
 Underfull \hbox (badness 2894) in paragraph at lines 11--12
 []|\OT1/ptm/m/n/8 16-bit ex-ter-nal ADC for high-
  []
 
 )
-<figs/circuit_schematic.png, id=127, 1238.6275pt x 610.28pt>
+<figs/circuit_schematic.png, id=137, 1238.6275pt x 610.28pt>
 File: figs/circuit_schematic.png Graphic file (type png)
 <use figs/circuit_schematic.png>
-Package pdftex.def Info: figs/circuit_schematic.png  used on input line 89.
+Package pdftex.def Info: figs/circuit_schematic.png  used on input line 95.
 (pdftex.def)             Requested size: 201.60077pt x 99.32297pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/base/8r.enc}
@@ -554,147 +652,150 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.93 
+l.99 
      ] (./tables/ads1115_connections.tex
 Overfull \hbox (3.79854pt too wide) in paragraph at lines 5--22
  [][] 
  []
 
 ) (./tables/lcd_connections.tex)
-Overfull \hbox (17.00256pt too wide) detected at line 133
-\OML/cmm/m/it/10 a \OT1/cmr/m/n/10 = 190\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 22610
-7678\OML/cmm/m/it/10 ; b \OT1/cmr/m/n/10 = 173\OML/cmm/m/it/10 :\OT1/cmr/m/n/10
- 380527679\OML/cmm/m/it/10 ; c \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m
-/n/10 7\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 072446221
+
+LaTeX Warning: Citation `scikit-learn' on page 2 undefined on input line 113.
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 sev-eral re-gres-sion mod-els for pre-dict-ing sen-sor out-put.
+
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 Specif-i-cally, we fo-cus on two sce-nar-ios: pre-dict-ing
+ []
+
+
+Underfull \hbox (badness 6220) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 tem-per-a-ture from volt-age us-ing a Wheat-stone bridge
+ []
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 For-est Re-gres-sor [\OT1/ptm/b/n/10 ?\OT1/ptm/m/n/10 ], In-ver
+se Quadratic Least Squares
+ []
+
+
+Underfull \hbox (badness 5302) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 (LSQ), Di-rect LSQ, and Stochas-tic Gra-di-ent De-scent
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 113--117
+\OT1/ptm/m/n/10 to the train-ing and eval-u-a-tion pipelines are hosted at:
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 113--117
+[] 
+ []
+
+
+LaTeX Warning: Citation `lsq_method' on page 2 undefined on input line 127.
+
+
+LaTeX Warning: Citation `callendar_vd' on page 2 undefined on input line 136.
+
+
+LaTeX Warning: Citation `scikit-learn' on page 2 undefined on input line 149.
 
 [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.141 
+l.150 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.141 
+l.150 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.141 
+l.150 
        <./figs/circuit_schematic.png>]
-<figs/wheatstone_model_comparison.png, id=167, 719.8092pt x 450.9648pt>
-File: figs/wheatstone_model_comparison.png Graphic file (type png)
-<use figs/wheatstone_model_comparison.png>
-Package pdftex.def Info: figs/wheatstone_model_comparison.png  used on input li
-ne 202.
-(pdftex.def)             Requested size: 201.60077pt x 126.30368pt.
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-21.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 2573) in paragraph at lines 221--222
-[]\OT1/ptm/b/n/10 Software: \OT1/ptm/m/n/10 Python 3.x with $[]$ [[]8[]],
- []
+LaTeX Warning: Citation `scikit-learn' on page 3 undefined on input line 155.
 
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [3
+(./tables/performance.tex) (./tables/validation.tex)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figs/combined_model_plot.png, id=169, 430.0065pt x 328.8285pt>
+File: figs/combined_model_plot.png Graphic file (type png)
+<use figs/combined_model_plot.png>
+Package pdftex.def Info: figs/combined_model_plot.png  used on input line 205.
+(pdftex.def)             Requested size: 201.60077pt x 154.16307pt.
+[3
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 #
-        Image Processing (Temperature)
+l.214 \newpage
+              
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 #
-        Image Processing (Temperature)
+l.214 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.214 \newpage
+              
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 #
-        Image Processing (Temperature) <./figs/wheatstone_model_comparison.png>
-]
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-[]$[]$\OT1/ptm/m/n/10 : A log file where ev-ery $\OT1/cmr/m/n/10 15$
- []
+l.214 \newpage
+               <./figs/combined_model_plot.png>]
+Package markdown Info: Including markdown document "AutoTrainer/README.md" on i
+nput line 218.
+\g_tmpa_iow=\write7
+\openout7 = `main.markdown.lua'.
 
 
-Underfull \hbox (badness 7722) in paragraph at lines 259--260
-\OT1/ptm/m/n/10 frames, a new line is added with the for-mat
- []
+Package luabridge Info: Writing a helper Lua script to file
+(luabridge)             \markdownOptionHelperScriptFileName 
 
 
-Overfull \hbox (2.09729pt too wide) in paragraph at lines 259--260
-[]$
- []
+Package luabridge Info: Executing a helper Lua script from file
+(luabridge)             \markdownOptionHelperScriptFileName 
 
+ (|texlua ./main.markdown.lua)
+(./_markdown_main/49301985234baa7f47503dccfd31a6cb.md.tex
+! Undefined control sequence.
+l.2 \This
+          script uses OpenCV and EasyOCR to capture video from a webcam, ide...
 
-Underfull \hbox (badness 3792) in paragraph at lines 260--261
-[]$[]$ \OT1/ptm/m/n/10 Di-rec-tory: This folder saves de-bug im-ages
- []
-
-(./main.bbl
-! Misplaced alignment tab character &.
-<argument> ...trol Electronics: Devices, Systems &
-                                                   Applications
-l.26   Applications}
-                    .\hskip 1em plus 0.5em minus 0.4em\relax Delmar Cengage
 ? 
-)
+! Emergency stop.
+l.2 
+    
+End of file on the terminal!
 
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
-
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
-
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
-
-[4] (./main.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
- ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 58236E2DDB29774E31F7CF535C787E17;6171.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 13371 strings out of 474222
- 202885 string characters out of 5748734
- 2022975 words of memory out of 5000000
- 35370 multiletter control sequences out of 15000+600000
- 599849 words of font info for 116 fonts, out of 8000000 for 9000
+ 16139 strings out of 474222
+ 304226 string characters out of 5748734
+ 1952975 words of memory out of 5000000
+ 38094 multiletter control sequences out of 15000+600000
+ 596173 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,16n,79p,923b,2143s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courie
-r/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 297934 bytes).
-PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 82i,16n,80p,923b,931s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

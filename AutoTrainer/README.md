@@ -128,6 +128,13 @@ In this case, the cropped voltage frame, is converted to grayscale before it is 
 
 The dataset is collected by simulating a **real-world thermal change (cooling cycle)** to capture paired temperature readings.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/autotrainer_schematic.png}
+    \caption{Auto-Trainer representation}
+    \label{fig:autotrainer_schematic}
+\end{figure}
+
 1. **Setup:**  
    - Place both the PT100 probe and the reference thermometer inside an electric kettle, submerged in water.
 
