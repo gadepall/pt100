@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage[citations,hybrid]{markdown}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -37,6 +38,12 @@
     tabsize=2
 }
 \lstset{style=mystyle}
+
+\markdownSetup{
+  renderers = {
+    link = {\href{#3}{#1}}
+  }
+}
 
 \title{High-Precision Temperature Measurement for PT100: A Comparative Model Analysis}
 
@@ -71,8 +78,8 @@ While PT100 sensors offer high stability, the resistance change is relatively sm
 Two main analog front-ends were tested to evaluate the trade-off between circuit complexity and measurement accuracy:
 
 \begin{itemize}
-    \item \textbf{Setup 1: High-Precision Wheatstone Bridge.} This uses a Wheatstone bridge configuration coupled with an external 16-bit ADS1115 ADC \cite{ads1115_datasheet}. This setup allows for differential measurement, significantly reducing noise and common-mode errors.
-    \item \textbf{Setup 2: Simple Voltage Divider.} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC. This represents a minimal-component cost-effective solution.
+    \item \textbf{Setup 1: High-Precision Wheatstone Bridge with ADC.} This uses a Wheatstone bridge configuration coupled with an external 16-bit ADS1115 ADC \cite{ads1115_datasheet}. This setup allows for differential measurement, significantly reducing noise and common-mode errors.
+    \item \textbf{Setup 2: Simple Voltage Divider.} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC.
 \end{itemize}
 
 \subsection{Component Lists}
@@ -97,7 +104,7 @@ The connection details for integrating the external 16-bit ADS1115 ADC are criti
 \input{tables/ads1115_connections}
 
 \subsubsection{LCD Display Connections}
-A standard I2C Liquid Crystal Display (LCD) was used for real-time temperature output in both setups.
+A standard JHD 162A Parallel Liquid Crystal Display (LCD) was used for real-time temperature output in both setups.
 
 \input{tables/lcd_connections}
 
@@ -105,6 +112,9 @@ Component lists and connection diagrams are provided in the appendix tables.
 
 \section{Models Used}
 This report details the development and evaluation of several regression models for predicting sensor output. Specifically, we focus on two scenarios: predicting temperature from voltage using a Wheatstone bridge with ADC, and predicting resistance from voltage using a voltage divider without ADC. We investigate Random Forest Regressor \cite{scikit-learn}, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches.
+The models were implemented using Python and the scikit-learn. The source code corresponding to the training and evaluation pipelines are hosted at:
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/codes/models/PT100_models.ipynb}
+}}
 
 \section{Model Evaluation and Comparison}
 
@@ -129,8 +139,11 @@ This method aligns with the physical properties described by the Callendar-Van D
 \subsubsection{LSQ (Quadratic) for Wheatstone with ADC}
 This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as $Y = aX^2 + bX + c$. Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
 \begin{itemize}
-    \item \textbf{Fitted Equation:} Placeholder: $Y = aX^2 + bX + c$
-    \item \textbf{Coefficients:} $$a=190.226107678, b=173.380527679, c=-7.072446221$$
+    \item \textbf{Fitted Equation:} $Y = aX^2 + bX + c$
+    \item \textbf{Coefficients:} 
+    \begin{align*}
+        a=190.226107678\\ b=173.380527679\\ c=-7.072446221
+    \end{align*}
 \end{itemize}
 
 \subsubsection{Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC)}
@@ -150,114 +163,131 @@ The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) s
     \centering
     \caption{Model Performance Metrics}
     \label{tab:model_performance}
-    \begin{tabular}{|l|c|c|}
-        \toprule
-        \textbf{Model} & \textbf{MSE} & \textbf{R2} \\
-        \midrule
-        1. Inverse LSQ (Volt. Div w/o ADC) & 0.6612 & 0.9977 \\
-        2. Inverse LSQ (Wheatstone w/ ADC) & 0.009941 & 0.999953 \\
-        3. LSQ (Wheatstone w/ ADC) & 0.009198 & 0.999953 \\
-        4. SGD Regressor (Wheatstone w/ ADC) & 0.030477 & 0.999854 \\
-        5. Inverse SGD (Wheatstone w/ ADC) & 0.016221 & 0.999922 \\
-        6. Random Forest (Wheatstone w/ ADC) & 1.248897 & 0.994033 \\
-        \bottomrule
-    \end{tabular}
+    \input{tables/performance}
 \end{table}
 
 \subsection{Validation Data and Model Predictions (Subset)}
 
-The following table presents a subset of the test data for the Wheatstone bridge setup, showing actual temperatures alongside predictions from the implemented and placeholder models.
+The below table presents a small subset of test data, showing the actual and predicted temperature values for the Voltage Divider setup.
+
+\begin{table}[h!]
+\centering
+\caption{Voltage Divider Validation Table with Predictions}
+\label{tab:voltage_divider_validation_predictions}
+\begin{tabular}{|l|c|c|}
+\hline
+Voltage & Actual Temperature & Prediction \\
+\hline
+2.7300 & 39.7 & 40.9900 \\
+2.7500 & 46.4 & 45.6500 \\
+2.8400 & 68.3 & 68.8900 \\
+2.8920 & 85.6 & 84.7100 \\
+2.9100 & 90.0 & 90.8000 \\
+2.8700 & 77.8 & 77.7400 \\
+\hline
+\end{tabular}
+\end{table}
+
+The following table presents a small subset of the test data, showing the actual temperature values alongside the predictions from the Random Forest, Inverse LSQ, LSQ, SGD, and Inverse SGD Regressor models for the Wheatstone bridge setup with ADC.
 
 \begin{table}[h!]
 \centering
 \caption{Wheatstone Validation Data and Predictions}
 \label{tab:validation_data_subset}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-\textbf{Volt} & \textbf{Actual} & \textbf{Inv LSQ} & \textbf{LSQ} & \textbf{SGD} & \textbf{Inv SGD} & \textbf{RF} \\
-(V) & ($^\circ$C) & (ADC) & (ADC) & (ADC) & (ADC) & (ADC) \\
-\hline
-0.202 & 35.500 & 35.596 & [N/A] & 35.127 & [N/A] & 35.522 \\
-0.290 & 59.400 & 59.341 & [N/A] & 59.796 & [N/A] & 59.354 \\
-0.237 & 44.700 & 44.690 & [N/A] & 44.827 & [N/A] & 44.662 \\
-0.403 & 92.900 & 93.449 & [N/A] & 91.502 & [N/A] & 92.720 \\
-0.285 & 57.900 & 57.823 & [N/A] & 58.282 & [N/A] & 57.870 \\
-0.223 & 41.000 & 40.922 & [N/A] & 40.846 & [N/A] & 41.022 \\
-0.209 & 37.500 & 37.438 & [N/A] & 37.117 & [N/A] & 37.434 \\
-0.246 & 47.100 & 47.077 & [N/A] & 47.321 & [N/A] & 47.082 \\
-0.221 & 40.500 & 40.448 & [N/A] & 40.341 & [N/A] & 40.502 \\
-0.176 & 28.800 & 28.847 & [N/A] & 27.726 & [N/A] & 28.890 \\
-\hline
-\end{tabular}%
+\input{tables/validation}%
 }
 \end{table}
 
-\newpage
-
 \subsection{Graphical Comparison of Wheatstone ADC Models}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figs/wheatstone_model_comparison.png}
-    \caption{Comparison of Random Forest, Inverse LSQ, and SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC.}
+    \includegraphics[width=0.8\linewidth]{figs/combined_model_plot.png}
+    \caption{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5^\circ$C to $56.5^\circ$C}
     \label{fig:wheatstone_model_comparison}
 \end{figure}
 
 \subsection{Model Comparison and Conclusion}
 
-Comparing the performance metrics, the Random Forest Regressor and the Inverse LSQ (Quadratic) model for the Wheatstone bridge achieved exceptionally high R-squared scores. Based on MSE, the best performing models are the \textbf{Random Forest Regressor} and the \textbf{Inverse LSQ (Quadratic)}.
+Comparing the performance metrics, the Least Squares (Quadratic) model for the Wheatstone bridge achieved the highest R-squared score of $0.999956$. It also achieved the lowest mean squared error of $0.009198$. Qualitatively, we can say that the \textbf{Least Squares Quadratic} model is the best at predicting the temperature.
 
-\section*{Appendix - Data Collection Using Optical Character Recognition (OCR)}
+\newpage
 
-This project utilizes an auxiliary script for \textbf{automated data collection} by employing Computer Vision and Optical Character Recognition (OCR) to capture paired voltage and temperature readings from physical displays.
+\section{Appendix - Data Collection Using Optical Character Recognition (OCR)}
 
-\subsection{Script Description: The Auto Trainer}
-This Python script is designed to capture video from a webcam, identify and read text from two specific screen regions (voltage and temperature), and log the data. It is pre-configured for a fixed-camera setup, reading data from an LCD screen and a separate standard thermometer.
+% This project utilizes an auxiliary script for \textbf{automated data collection} by employing Computer Vision and Optical Character Recognition (OCR) to capture paired voltage and temperature readings from physical displays. Note that the training data can be obtained manually and this step can be hence skipped.
 
-\subsection{Prerequisites and Setup}
-\begin{itemize}
-    \item \textbf{Hardware:} A stable webcam connection. An NVIDIA GPU with CUDA is optional but recommended for faster inference.
-    \item \textbf{Software:} Python 3.x with $\texttt{opencv-python}$ \cite{opencv_library}, $\texttt{easyocr}$ \cite{easyocr}, and $\texttt{numpy}$.
-\end{itemize}
+% \subsection{Script Description: The Auto Trainer}
+% This Python script is designed to capture video from a webcam, identify and read text from two specific screen regions (voltage and temperature), and log the data. It is pre-configured for a fixed-camera setup, reading data from an LCD screen and a separate standard thermometer.
 
-\subsection{Calibration Requirement}
-The script requires calibration to match the specific camera, lighting, and display setup. The critical sections to modify include GPU Usage, Frame Cropping, and Image Processing parameters.
+% \subsection{Prerequisites and Setup}
+% \begin{itemize}
+%     \item \textbf{Hardware:} A stable webcam connection. An NVIDIA GPU with CUDA is optional but recommended for faster inference.
+%     \item \textbf{Software:} Python 3.x with $\texttt{opencv-python}$ \cite{opencv_library}, $\texttt{easyocr}$ \cite{easyocr}, and $\texttt{numpy}$.
+% \end{itemize}
 
-\subsection{Python Script Snippet}
-A sample of the calibration-critical code (Calibration Snippet from a.py) is shown below:
-\begin{lstlisting}[language=Python]
-# GPU Usage
-reader = easyocr.Reader(['en'], gpu=True)
+% \subsection{Calibration Requirement}
+% The script requires calibration to match the specific camera, lighting, and display setup. The critical sections to modify include GPU Usage, Frame Cropping, and Image Processing parameters.
 
-# Frame Cropping (h, w are frame height/width)
-voltage_frame = frame[0:int(h/2), :]
-temp_frame = frame[int(h/2):, 0:int(w/3)]
+% \subsection{Python Script Snippet}
+% A sample of the calibration-critical code (Calibration Snippet from a.py) is shown below:
+% \begin{lstlisting}[language=Python]
+% # GPU Usage
+% reader = easyocr.Reader(['en'], gpu=True)
 
-# Image Processing (Temperature)
-gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
-_,thres = cv2.threshold(gray_t,130, 255, cv2.THRESH_BINARY_INV)
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11,11))
-closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
-pretemp = cv2.bitwise_not(closed_img)
-temp = cv2.GaussianBlur(pretemp, (17,17), 0)
-\end{lstlisting}
+% # Frame Cropping (h, w are frame height/width)
+% voltage_frame = frame[0:int(h/2), :]
+% temp_frame = frame[int(h/2):, 0:int(w/3)]
 
-\subsection{Data Collection Methodology}
-The dataset is collected by simulating a controlled \textbf{cooling cycle} to capture paired readings.
+% # Image Processing (Temperature)
+% gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
+% _,thres = cv2.threshold(gray_t,130, 255, cv2.THRESH_BINARY_INV)
+% kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11,11))
+% closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
+% pretemp = cv2.bitwise_not(closed_img)
+% temp = cv2.GaussianBlur(pretemp, (17,17), 0)
+% \end{lstlisting}
+
+% \subsection{Data Collection Methodology}
+% The dataset is collected by simulating a controlled \textbf{cooling cycle} to capture paired readings.
+% \begin{enumerate}
+%     \item \textbf{Setup:} The PT100 probe and a reference thermometer are placed in an electric kettle filled with water.
+%     \item \textbf{Heating Phase:} The water is heated to boiling.
+%     \item \textbf{Recording Phase:} Upon reaching boiling, the kettle is switched off, and a live camera feed is initiated, ensuring both the PT100's LCD display and the reference thermometer are visible.
+%     \item \textbf{Cooling Phase:} The live camera feed captures the natural temperature drop.
+%     \item \textbf{Data Extraction:} Frames are extracted from the live camera feed, and OCR is applied to detect the voltage and temperature readings.
+% \end{enumerate}
+
+% \subsection{Output Format}
+% The script generates two outputs for debugging and data logging:
+% \begin{itemize}
+%     \item $\texttt{out.txt}$: A log file where every $15$ frames, a new line is added with the format $\texttt{[voltage\_reading] [temperature\_reading]}$ if both readings are successfully detected.
+%     \item $\texttt{img/}$ Directory: This folder saves debug images ($\texttt{voltageXX.png}$ and $\texttt{tempXX.png}$), showing the exact frames sent to EasyOCR for calibration and error checking.
+% \end{itemize}
+
+\markdownInput{AutoTrainer/README.md}
+The final training data is in the following text file
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
+}}
+
+\section{Appendix - Arduino Deployment}
+Following are the steps to upload code to the Arduino
 \begin{enumerate}
-    \item \textbf{Setup:} The PT100 probe and a reference thermometer are placed in an electric kettle filled with water.
-    \item \textbf{Heating Phase:} The water is heated to boiling.
-    \item \textbf{Recording Phase:} Upon reaching boiling, the kettle is switched off, and a live camera feed is initiated, ensuring both the PT100's LCD display and the reference thermometer are visible.
-    \item \textbf{Cooling Phase:} The live camera feed captures the natural temperature drop.
-    \item \textbf{Data Extraction:} Frames are extracted from the live camera feed, and OCR is applied to detect the voltage and temperature readings.
+    \item Connect Arduino to computer via USB
+    \item Upload the following code to the Arduino 
+	    %using PlatformIO.
+	%{\em Platformio}.
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/codes/arduino/code/code.ino}
+}}
+%\item Open PlatformIO, select New Project and then fill in the details (name, board \& framework).
+%\item Then replace contents in src/main.cpp with the above code, now run \& upload that code to Arduino Uno.
 \end{enumerate}
-
-\subsection{Output Format}
-The script generates two outputs for debugging and data logging:
+The Arduino code,
 \begin{itemize}
-    \item $\texttt{out.txt}$: A log file where every $15$ frames, a new line is added with the format $\texttt{[voltage\_reading] [temperature\_reading]}$ if both readings are successfully detected.
-    \item $\texttt{img/}$ Directory: This folder saves debug images ($\texttt{voltageXX.png}$ and $\texttt{tempXX.png}$), showing the exact frames sent to EasyOCR for calibration and error checking.
+    \item Finds the voltage across PT100 through the ADC
+    \item Predicts the temperature from the voltage with the model.
+    \item Displays the temperature on the LCD display.
 \end{itemize}
 
 % --- Bibliography Section ---
