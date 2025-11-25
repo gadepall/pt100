@@ -157,3 +157,5 @@ The script generates two types of output:
 * `out.txt`: A text file that logs the detected readings. Every 15 frames, if text is found in both regions, a new line is added, formatted as: [voltage_reading] [temperature_reading]
 
 * `img/` Directory: This folder saves voltageXX.png and tempXX.png images. These are the exact frames that were sent to EasyOCR. If you are getting bad readings, check these images to see why. They are perfect for debugging your calibration and fixing the readings.
+
+`out.txt` needs to be modified as for some instances, the OCR incorrectly recognizes the character. The final training data is saved in `trainingdata.txt` 
