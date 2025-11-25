@@ -1,5 +1,5 @@
 # Auto trainer for PT-100
----
+
 This script uses OpenCV and EasyOCR to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
 
 It is designed to be calibrated for a specific, fixed-camera setup, such as this case where we are reading data from an LCD screen and a separate standard thermometer.
@@ -57,7 +57,7 @@ Again, this specific setup is not required. It is just one example of how to pro
 4.  Two windows will appear: 'Voltage' and 'Temperature'. These show the exact (and processed) regions being sent to the OCR engine.
 5.  To stop the script, make sure one of these windows is active (click on it) and **press the 'q' key**.
 
----
+
 
 ##  Important: Calibration is Required!
 
@@ -148,7 +148,7 @@ The dataset is collected by simulating a **real-world thermal change (cooling cy
    - The recorded video acts as the raw dataset.  
    - Extract frames and apply **OCR (Optical Character Recognition)** to detect readings from both displays.  
 
- ---
+ 
 
 ## Output
 
