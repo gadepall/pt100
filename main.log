@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.2)  25 NOV 2025 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.2)  25 NOV 2025 15:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -638,13 +638,17 @@ Underfull \hbox (badness 2894) in paragraph at lines 11--12
  []
 
 )
-<figs/circuit_schematic.png, id=137, 1238.6275pt x 610.28pt>
+
+LaTeX Warning: Reference `fig:wheatstone_schematic' on page 1 undefined on inpu
+t line 92.
+
+<figs/circuit_schematic.png, id=80, 1238.6275pt x 610.28pt>
 File: figs/circuit_schematic.png Graphic file (type png)
 <use figs/circuit_schematic.png>
 Package pdftex.def Info: figs/circuit_schematic.png  used on input line 95.
 (pdftex.def)             Requested size: 201.60077pt x 99.32297pt.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf
--dist/fonts/enc/dvips/base/8r.enc}
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}
 
 
 
@@ -734,7 +738,7 @@ LaTeX Warning: Citation `scikit-learn' on page 3 undefined on input line 155.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figs/combined_model_plot.png, id=169, 430.0065pt x 328.8285pt>
+<figs/combined_model_plot.png, id=119, 430.0065pt x 328.8285pt>
 File: figs/combined_model_plot.png Graphic file (type png)
 <use figs/combined_model_plot.png>
 Package pdftex.def Info: figs/combined_model_plot.png  used on input line 205.
@@ -778,24 +782,228 @@ Package luabridge Info: Executing a helper Lua script from file
 (luabridge)             \markdownOptionHelperScriptFileName 
 
  (|texlua ./main.markdown.lua)
-(./_markdown_main/49301985234baa7f47503dccfd31a6cb.md.tex
+(./_markdown_main/e265021de84a47ff189c736b8350bb83.md.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 10.
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+1.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Warning: Citation `opencv' on page 4 undefined on input line 12.
+
+
+LaTeX Warning: Citation `easyocr' on page 4 undefined on input line 12.
+
+
+LaTeX Warning: Citation `numpy' on page 4 undefined on input line 12.
+
+
+LaTeX Warning: Citation `droidcam' on page 4 undefined on input line 16.
+
+
+LaTeX Warning: Citation `obsstudio' on page 4 undefined on input line 17.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 24.
+
+
+LaTeX Warning: Citation `easyocr' on page 4 undefined on input line 31.
+
+
+LaTeX Warning: Citation `pytorch' on page 4 undefined on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 49.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 54.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 70.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]\OT1/pcr/m/n/10 python #Change the crop values
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/pcr/m/n/10 according to requirement voltage_frame
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/pcr/m/n/10 = frame[0:int(h/2), :] temp_frame =
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 84.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+[]\OT1/ptm/b/n/10 Temperature \OT1/pcr/m/n/10 python #These
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 values need to be calibrated
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 acccording to requirement gray_t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 = cv2.cvtColor(temp_frame,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.COLOR_BGR2GRAY) t_lower
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 = 50 t_upper = 100 _,thres =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.threshold(gray_t,130, 255,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.THRESH_BINARY_INV) kernel =
+ []
+
+
+Overfull \hbox (14.0pt too wide) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.getStructuringElement(cv2.MORPH_RECT,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 (11,11)) closed_img =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.morphologyEx(thres,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.MORPH_CLOSE, kernel) pretemp =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--95
+\OT1/pcr/m/n/10 cv2.bitwise_not(closed_img) temp =
+ []
+
 ! Undefined control sequence.
-l.2 \This
-          script uses OpenCV and EasyOCR to capture video from a webcam, ide...
+\markdownRendererHeadingFivePrototype ...aragraph 
+                                                  {#1}\leavevmode 
+l.98 ...RendererHeadingFive{Key Values to Change:}
+                                                  \markdownRendererInterbloc...
 
 ? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+[]\OT1/pcr/m/n/10 cv2.threshold(gray_t,130, 255,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+\OT1/pcr/m/n/10 cv2.THRESH_BINARY_INV)\OT1/ptm/m/n/10 : The 130 is the
+ []
+
+
+Overfull \hbox (14.0pt too wide) in paragraph at lines 101--102
+[]\OT1/pcr/m/n/10 cv2.getStructuringElement(cv2.MORPH_RECT,
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+[]\OT1/pcr/m/n/10 cv2.GaussianBlur(pretemp, (17,17), 0)\OT1/ptm/m/n/10 :
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\str_if_in:NnTF' on input line 113.
+
+! Missing endcsname inserted.
+<to be read again> 
+                   global 
+l.116 ...tation} \label{fig:autotrainer}schematic}
+                                                   \end{figure}\markdownRend...
+
+? 
+! Use of ??? doesn't match its definition.
+<argument> ???  
+                ! LaTeX Error: global invalid in file name. Lost: advance cs...
+l.116 ...tation} \label{fig:autotrainer}schematic}
+                                                   \end{figure}\markdownRend...
+
+? 
+! Missing endcsname inserted.
+<to be read again> 
+                   global 
+l.116 ...tation} \label{fig:autotrainer}schematic}
+                                                   \end{figure}\markdownRend...
+
+? 
+! Use of ??? doesn't match its definition.
+<argument> ???  
+                ! LaTeX Error: global invalid in file name. Lost: advance cs...
+l.116 ...tation} \label{fig:autotrainer}schematic}
+                                                   \end{figure}\markdownRend...
+
+? ^^[[1;5A
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? 
 ! Emergency stop.
-l.2 
-    
+<argument> ???  
+                ! LaTeX Error: global invalid in file name. Lost: advance cs...
+l.116 ...tation} \label{fig:autotrainer}schematic}
+                                                   \end{figure}\markdownRend...
 End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
- 16139 strings out of 474222
- 304226 string characters out of 5748734
+ 16181 strings out of 474222
+ 304864 string characters out of 5748734
  1952975 words of memory out of 5000000
- 38094 multiletter control sequences out of 15000+600000
- 596173 words of font info for 108 fonts, out of 8000000 for 9000
+ 38123 multiletter control sequences out of 15000+600000
+ 597784 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  82i,16n,80p,923b,931s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
