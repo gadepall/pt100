@@ -82,47 +82,51 @@ The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0^\circ$C. Unl
 \begin{equation}
     R(t) = R_0 (1 + A t + B t^2)
 \end{equation}
-for temperatures $t > 0\degree$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using Quadratic Least Squares (LSQ) models in this study.
+for temperatures $t > 0\degree$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using LSQ models in this work.
 
-\subsection{Measurement Challenges}
-While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/^\circ$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This project aims to optimize this conversion by analyzing different hardware front-ends and software regression models \cite{lsq_method} to find an optimal solution for high-precision, low-cost temperature sensing.
+%\subsection{Measurement Challenges}
+While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/^\circ$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This paper aims to optimize this conversion by analyzing different hardware front-ends and software regression models \cite{lsq_method} to find an optimal solution for high-precision, low-cost temperature sensing.
 
 \section{Hardware Setup}
-Two main analog front-ends were tested to evaluate the trade-off between circuit complexity and measurement accuracy:
-
-\begin{itemize}
-    \item \textbf{Setup 1: High-Precision Wheatstone Bridge with ADC.} This uses a Wheatstone bridge configuration coupled with an external 16-bit ADS1115 ADC \cite{ads1115_datasheet}. This setup allows for differential measurement, significantly reducing noise and common-mode errors.
-    \item \textbf{Setup 2: Simple Voltage Divider.} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC.
-\end{itemize}
-
-\subsection{Component Lists}
-The components required for both analog front-ends are listed below, detailing the specific parts used for high-accuracy and cost-effective implementations.
-
+Two main analog front-ends were tested to evaluate the trade-off between circuit complexity and measurement accuracy.
+\tabref{table:list_table}
+lists the components required for both analog front-ends,  detailing the specific parts used for high-accuracy and cost-effective implementations.
+%
 \input{tables/list_table}
-
-\subsection{Connection Schematics and Diagrams}
-
-\subsubsection{Circuit Schematic}
+%
+\begin{itemize}
+    \item {\em High-Precision Wheatstone Bridge with ADC:} This uses a Wheatstone bridge configuration coupled with an external 16-bit ADS1115 ADC \cite{ads1115_datasheet}. This setup allows for differential measurement, significantly reducing noise and common-mode errors.
 The complete circuit schematic for the high-precision Wheatstone bridge setup is illustrated in Figure \ref{fig:wheatstone_schematic}.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{figs/circuit_schematic.png}
+    \includegraphics[width=\columnwidth]{figs/circuit_schematic.png}
     \caption{Circuit Schematic of the High-Precision Wheatstone Bridge (Setup 1)}
     \label{fig:wheatstone_schematic}
 \end{figure}
-
-\subsubsection{ADS1115 ADC Connections}
-The connection details for integrating the external 16-bit ADS1115 ADC are critical for differential measurement accuracy.
-
+\tabref{table:ads1115_connections}
+lists the connection details for integrating the external 16-bit ADS1115 ADC.
+%are critical for differential measurement accuracy.
 \input{tables/ads1115_connections}
-
-\subsubsection{LCD Display Connections}
-A standard JHD 162A Parallel Liquid Crystal Display (LCD) was used for real-time temperature output in both setups.
-
+%
+    \item {\em Simple Voltage Divider:} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC.
+\end{itemize}
+The Arduino-LCD connections are available in 
+\tabref{table:lcd_connections}.
 \input{tables/lcd_connections}
+\section{Automated Training Using Optical Character Recognition (OCR)}
+%\markdownInput{AutoTrainer/README.md}
+\input{AutoTrainer/output.tex}
+The final training data is in the following text file
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
+}}
 
-Component lists and connection diagrams are provided in the appendix tables.
-
+%\subsection{Component Lists}
+%\subsection{Connection Schematics and Diagrams}
+%\subsubsection{Circuit Schematic}
+%\subsubsection{ADS1115 ADC Connections}
+%\subsubsection{LCD Display Connections}
+%A standard JHD 162A Parallel Liquid Crystal Display (LCD) was used for real-time temperature output in both setups.
+%Component lists and connection diagrams are provided in the appendix tables.
 \section{Models Used}
 This report details the development and evaluation of several regression models for predicting sensor output. Specifically, we focus on two scenarios: predicting temperature from voltage using a Wheatstone bridge with ADC, and predicting resistance from voltage using a voltage divider without ADC. We investigate Random Forest Regressor \cite{scikit-learn}, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches.
 The models were implemented using Python and the scikit-learn. The source code corresponding to the training and evaluation pipelines are hosted at:
@@ -226,14 +230,6 @@ The following table presents a small subset of the test data, showing the actual
 Comparing the performance metrics, the Least Squares (Quadratic) model for the Wheatstone bridge achieved the highest R-squared score of $0.999956$. It also achieved the lowest mean squared error of $0.009198$. Qualitatively, we can say that the \textbf{Least Squares Quadratic} model is the best at predicting the temperature.
 \newpage
 
-\section{Appendix - Data Collection Using Optical Character Recognition (OCR)}
-
-%\markdownInput{AutoTrainer/README.md}
-\input{AutoTrainer/output.tex}
-The final training data is in the following text file
-\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
-}}
-
 \section{Appendix - Arduino Deployment}
 Following are the steps to upload code to the Arduino
 \begin{enumerate}
@@ -243,7 +239,7 @@ Following are the steps to upload code to the Arduino
 	%{\em Platformio}.
 \fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/codes/arduino/code/code.ino}
 }}
-%\item Open PlatformIO, select New Project and then fill in the details (name, board \& framework).
+%\item Open PlatformIO, select New paper and then fill in the details (name, board \& framework).
 %\item Then replace contents in src/main.cpp with the above code, now run \& upload that code to Arduino Uno.
 \end{enumerate}
 The Arduino code,

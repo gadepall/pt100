@@ -1,5 +1,0 @@
-# From:
-reader = easyocr.Reader(['en'], gpu=True)
-
-# To:
-reader = easyocr.Reader(['en'], gpu=False)

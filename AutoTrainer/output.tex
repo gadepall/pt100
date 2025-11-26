@@ -1,3 +1,45 @@
+The dataset is collected by simulating a real-world thermal change (cooling cycle) to capture paired temperature readings. Since the training data is available only on an analog thermometer, instead of manually noting the temperature, we automate the data collection process using OCR based techniques.
+\subsection{Data Collection Methodology}\label{data-collection-methodology}
+The experimental setup is available in 
+\figref{fig:autotrainer_schematic}.
+  The practical requirements are listed below
+\begin{enumerate}
+	\item {\em Hardware:}
+\begin{itemize}
+    \item A webcam connected to your computer.
+    \item \textbf{(Not necessary)} An NVIDIA GPU with CUDA installed. The script is pre-set to use \texttt{gpu=True} for much faster processing.
+\end{itemize}
+%
+\item {\em Software:}
+\begin{itemize}
+    \item Python 3.x
+    \item The required Python libraries: \texttt{opencv-python}, \texttt{easyocr}, and \texttt{numpy}.
+\end{itemize}
+\end{enumerate}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/autotrainer_schematic.png}
+    \caption{Auto-Trainer representation}
+    \label{fig:autotrainer_schematic}
+\end{figure}
+
+\begin{enumerate}
+    \item \textbf{Setup:} Place both the PT100 probe and the reference thermometer inside an electric kettle, submerged in water.
+    \item \textbf{Heating Phase:} Turn on the kettle and heat the water to its boiling point.
+    \item \textbf{Recording Phase:} 
+    \begin{itemize}
+        \item Switch off the kettle at boiling point.
+        \item Start recording a \textbf{video} using the smartphone.
+        \item Ensure \textbf{both the PT100 LCD display} and \textbf{reference thermometer} are visible in the frame.
+    \end{itemize}
+    \item \textbf{Cooling Phase:} Continue recording the cooling process as the water temperature drops naturally.
+    \item \textbf{Data Extraction:} The recorded video acts as the raw dataset.
+    \begin{itemize}
+        \item Extract frames and apply \textbf{OCR (Optical Character Recognition)} to detect readings from both displays.
+    \end{itemize}
+\end{enumerate}
+
 \section{Introduction}
 This script uses OpenCV and EasyOCR to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
 
@@ -8,18 +50,6 @@ Follow these instructions to get the script up and running on your local machine
 
 \subsection{Prerequisites}\label{prerequisites}
 Before you run the script, you'll need a few things set up.
-
-\subsubsection*{Hardware}
-\begin{itemize}
-    \item A webcam connected to your computer.
-    \item \textbf{(Not necessary)} An NVIDIA GPU with CUDA installed. The script is pre-set to use \texttt{gpu=True} for much faster processing.
-\end{itemize}
-
-\subsubsection*{Software}
-\begin{itemize}
-    \item Python 3.x
-    \item The required Python libraries: \texttt{opencv-python}, \texttt{easyocr}, and \texttt{numpy}.
-\end{itemize}
 
 \subsubsection*{A Note on the Webcam (Optional)}
 This script will work with any webcam that OpenCV can detect, including built-in laptop cameras or standard USB webcams. The most important factor is a stable, well-positioned camera.
@@ -121,32 +151,6 @@ It is also preferred to hide the decimal point, either physically or by further 
 \begin{itemize}
     \item \textbf{Voltage} In this case, the cropped voltage frame is converted to grayscale before it is used for OCR. Make sure the voltage reading is visible in the voltage frame. It is also preferred to hide the decimal point, either physically or by further image processing.
 \end{itemize}
-
-\subsection{Data Collection Methodology}\label{data-collection-methodology}
-The dataset is collected by simulating a \textbf{real-world thermal change (cooling cycle)} to capture paired temperature readings.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figs/autotrainer_schematic.png}
-    \caption{Auto-Trainer representation}
-    \label{fig:autotrainer_schematic}
-\end{figure}
-
-\begin{enumerate}
-    \item \textbf{Setup:} Place both the PT100 probe and the reference thermometer inside an electric kettle, submerged in water.
-    \item \textbf{Heating Phase:} Turn on the kettle and heat the water to its boiling point.
-    \item \textbf{Recording Phase:} 
-    \begin{itemize}
-        \item Switch off the kettle at boiling point.
-        \item Start recording a \textbf{video} using the smartphone.
-        \item Ensure \textbf{both the PT100 LCD display} and \textbf{reference thermometer} are visible in the frame.
-    \end{itemize}
-    \item \textbf{Cooling Phase:} Continue recording the cooling process as the water temperature drops naturally.
-    \item \textbf{Data Extraction:} The recorded video acts as the raw dataset.
-    \begin{itemize}
-        \item Extract frames and apply \textbf{OCR (Optical Character Recognition)} to detect readings from both displays.
-    \end{itemize}
-\end{enumerate}
 
 \subsection{Output}\label{output}
 The script generates two types of output:
