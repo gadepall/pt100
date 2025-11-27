@@ -1,9 +1,11 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
-
+\usepackage{tabularx}
+\usepackage{placeins}
 \usepackage{gvv-book}
 \usepackage{gvv}
 \usepackage{cite}
+\usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -75,7 +77,44 @@ Through numerical results, we conclude that the LSQ model is superior to the oth
 
 \section{Introduction}
 Temperature measurement is a fundamental requirement in process control, automotive systems, and instrumentation. Among the various contact temperature sensors available, the Platinum Resistance Temperature Detector (RTD), commonly known as the PT100, is considered the standard for precision thermometry \cite{rtd_theory}.
+\subsection*{ PT100 Sensor Measurement and Calibration Research}
 
+This section compares four key research approaches related to highly accurate temperature measurement using PT100 Resistance Temperature Detectors (RTDs).
+
+\begin{enumerate}
+    % --- Paper 1: ML Calibration (PMC10490205) ---
+    \item \textbf{Machine Learning Calibration} (Liu et al., 2023)\cite{paper1}
+    \begin{itemize}
+        \item \textbf{Approach:} Used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50^\circ$C to $150^\circ$C. Achieved $>91\%$ accuracy improvement, reducing error from $\sim 1.3^\circ$C to $\sim 0.27^\circ$C.
+        \item \textbf{Critique (Cons):} The implementation was entirely software-based (offline). The study \textbf{did not implement the complex ANN model on any microcontroller} (e.g., Arduino, STM32), leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed.
+    \end{itemize}
+    % \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC10490205/}
+    
+    % --- Paper 2: New Circuit Design (376796536) ---
+    \item \textbf{New High-Precision Circuit Design} (Samuk \& Çakır, 2023)\cite{paper2}
+    \begin{itemize}
+        \item \textbf{Approach:} Designed and implemented a high-accuracy temperature measurement circuit using a Wheatstone bridge, an AD623 differential amplifier, and an STM32F4 microcontroller. Achieved a very high detection accuracy of $\mathbf{0.025^\circ}$C.
+        \item \textbf{Critique (Cons):} High accuracy relies on expensive, specialized analog components and a high-performance microcontroller. Critically, there is a \textbf{lack of machine learning and comparative study} against contemporary digital calibration or ML methods.
+    \end{itemize}
+   % \url{https://www.researchgate.net/publication/376796536_New_Circuit_Design_and_Implementation_for_Temperature_Measurement_based_on_PT100_Sensor}
+
+    % --- Paper 3: Simulation and Transducer Design (386448957) ---
+    \item \textbf{Transducer Simulation and DC Bridge Design} (Li et al., 2024)\cite{paper3}
+    \begin{itemize}
+        \item \textbf{Approach:} Focused on the simulation and design of the measurement transducer. Used a DC balance Wheatstone bridge configuration and Multisim software to model the circuit, achieving high simulated accuracy (high $\mathbf{R^2}$ and low MSE) for a $10^\circ$C to $90^\circ$C range.
+        \item \textbf{Critique (Cons):} The findings are primarily based on **software simulation** only. The study \textbf{did not implement or compare against Machine Learning} models, relying solely on theoretical circuit performance.
+    \end{itemize}
+    %\url{https://www.researchgate.net/publication/386448957_Pt100_temperature_measurement_sensors_design_and_transducer_simulation}
+    
+    % --- Paper 4: Dynamic Properties Identification (237074979) ---
+    \item \textbf{Identification of Sensor Dynamic Properties} (Chudý \& Janíček, 2013)\cite{paper4}
+    \begin{itemize}
+        \item \textbf{Approach:} Investigated the transient (dynamic) behavior of resistance temperature sensors using two experimental techniques: the Plunge Test and the Self-Heating Test. The goal was to identify the sensor's **Transfer Function** for use in real-time control systems.
+        \item \textbf{Critique (Cons):} Focuses only on the dynamic modeling (time delay/response) of the sensor, not the static (steady-state) calibration or non-linearity correction, which is critical for overall accuracy across a wide range. It requires specialized dynamic testing equipment.
+    \end{itemize}
+   % \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
+    
+\end{enumerate}
 \section{PT-100 Fundamentals}
 %\subsection{Fundamental Principles}
 The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0^\circ$C. Unlike thermocouples which generate a voltage, RTDs differ in that they operate by changing electrical resistance in direct proportion to temperature changes \cite{sensor_physics}. This relationship is inherently non-linear over wide ranges, though it is highly predictable. The resistance $R(t)$ at temperature $t$ is governed by the Callendar-Van Dusen equation \cite{callendar_vd}
@@ -103,9 +142,22 @@ The complete circuit schematic for the high-precision Wheatstone bridge setup is
     \caption{Circuit Schematic of the High-Precision Wheatstone Bridge (Setup 1)}
     \label{fig:wheatstone_schematic}
 \end{figure}
+<<<<<<< HEAD
 \tabref{table:ads1115_connections}
 lists the connection details for integrating the external 16-bit ADS1115 ADC.
 %are critical for differential measurement accuracy.
+=======
+The complete circuit schematic for the simple voltage divider setup is illustrated in Figure \ref{fig:voltage_divider_schematic}.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figs/circuit_schematic_2.jpg}
+    \caption{Circuit Schematic of the simple voltage divider (Setup 2)}
+    \label{fig:voltage_divider_schematic}
+\end{figure}
+\subsubsection{ADS1115 ADC Connections}
+The connection details for integrating the external 16-bit ADS1115 ADC are critical for differential measurement accuracy.
+
+>>>>>>> e856c0e (added survey)
 \input{tables/ads1115_connections}
 %
     \item {\em Simple Voltage Divider:} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC.
