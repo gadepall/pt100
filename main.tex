@@ -67,42 +67,53 @@
 
 \begin{abstract}
 	In this paper, we design and develop an industrial thermometer using the PT100 temperature sensor.   This is done by 
-analyzing the suitability of five machine learning (ML) techniques: a quadratic/inverse quadratic Least Squares (LSQ) model, a Stochastic/inverse Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor by calibrating them with respect to a commercial pen thermometer.  The calibration process is also automated using Optical Character Recognition (OCR).
+analyzing the suitability of five machine learning (ML) techniques: a quadratic/inverse quadratic Least Squares (LSQ) model, a Stochastic/inverse Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor (RSR) by calibrating them with respect to a commercial pen thermometer.  The calibration process is also automated using Optical Character Recognition (OCR).
 Through numerical results, we conclude that the LSQ model is superior to the other models and implement it using the Arduino framework on an Arduino UNO. 
 
-%grounded in the theoretical Callendar-Van Dusen equation. We then compare the accuracy of three different regression approaches for the superior Wheatstone bridge data: the LSQ quadratic,  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
 
-%Resistance Temperature Detectors (RTDs), specifically the PT100, are widely favored in industrial applications for their linearity and stability. This report details the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC. \end{abstract}
 \end{abstract}
 
 \section{Introduction}
 Temperature measurement is a fundamental requirement in process control, automotive systems, and instrumentation. Among the various contact temperature sensors available, the Platinum Resistance Temperature Detector (RTD), commonly known as the PT100, is considered the standard for precision thermometry \cite{rtd_theory}.
-\cite{paper1} used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50^\circ$C to $150^\circ$C. Achieved $>91\%$ accuracy improvement, reducing error from $\sim 1.3^\circ$C to $\sim 0.27^\circ$C.
-  The implementation was entirely software-based (offline). The study \textbf{did not implement the complex ANN model on any microcontroller} (e.g., Arduino, STM32), leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed.
+The PT100, are widely favored in industrial applications for their linearity and stability. 
+\cite{paper4}
+ investigated the transient (dynamic) behavior of resistance temperature sensors using two experimental techniques: the Plunge Test and the Self-Heating Test. The goal was to identify the sensor's Transfer Function for use in real-time control systems.
+ Here, the focus  was only on the dynamic modeling (time delay/response) of the sensor, not the static (steady-state) calibration or non-linearity correction, which is critical for overall accuracy across a wide range. Futher, the above approach required specialized dynamic testing equipment.
+\cite{paper1} used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50\degree$C to $150\degree$C. 
+%Achieved $>91\%$ accuracy improvement, reducing error from $\sim 1.3\degree$C to $\sim 0.27\degree$C.
+In \cite{paper3}, Multisim software was used 
+%to model the circuit,
+% Focused on 
+ for the simulation and design of the measurement transducer. 
+ %Used a DC balance Wheatstone bridge configuration and  achieving high simulated accuracy (high $\mathbf{R^2}$ and low MSE) for a $10\degree$C to $90\degree$C range.
+Both  the above  works were primarily based on software simulation only. They was  did not implement or compare against machine learning models, relying solely on theoretical circuit performance,
+%However, this study was done completely on software, 
+leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed.
     % --- Paper 2: New Circuit Design (376796536) ---
- \cite{paper2}
-  Designed and implemented a high-accuracy temperature measurement circuit using a Wheatstone bridge, an AD623 differential amplifier, and an STM32F4 microcontroller. Achieved a very high detection accuracy of $\mathbf{0.025^\circ}$C.
-  High accuracy relies on expensive, specialized analog components and a high-performance microcontroller. Critically, there is a \textbf{lack of machine learning and comparative study} against contemporary digital calibration or ML methods.
-\cite{paper3}
- Focused on the simulation and design of the measurement transducer. Used a DC balance Wheatstone bridge configuration and Multisim software to model the circuit, achieving high simulated accuracy (high $\mathbf{R^2}$ and low MSE) for a $10^\circ$C to $90^\circ$C range.
- The findings are primarily based on **software simulation** only. The study \textbf{did not implement or compare against Machine Learning} models, relying solely on theoretical circuit performance.
+A high-accuracy temperature measurement circuit using a Wheatstone bridge, an AD623 differential amplifier, and an STM32F4 microcontroller was designed and implemented  in \cite{paper2}.
+ However, the design relies on expensive, specialized analog components and a high-performance microcontroller. 
+ %Critically, there is a \textbf{lack of machine learning and comparative study} against contemporary digital calibration or ML methods.
     %\url{https://www.researchgate.net/publication/386448957_Pt100_temperature_measurement_sensors_design_and_transducer_simulation}
     
     % --- Paper 4: Dynamic Properties Identification (237074979) ---
-\cite{paper4}
- Investigated the transient (dynamic) behavior of resistance temperature sensors using two experimental techniques: the Plunge Test and the Self-Heating Test. The goal was to identify the sensor's **Transfer Function** for use in real-time control systems.
- Focuses only on the dynamic modeling (time delay/response) of the sensor, not the static (steady-state) calibration or non-linearity correction, which is critical for overall accuracy across a wide range. It requires specialized dynamic testing equipment.
    % \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
+
+To address the above issues,   we compare the accuracy of three different regression approaches:  the LSQ quadratic, grounded in the theoretical Callendar-Van Dusen equation, the SDG and RSR.  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
+In the process, we  detail the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC.   
+We also automate the process of generating the dataset by using OCR to capture the readings of the analog thermometer through a mobile phone camera.
+The parameters for all the above ML techniques are finally hardcoded in the ATMEGA328P microcontroller, using the Arduino board.  Through numerical performance plots, we show that LSQ outperforms other ML techniques considered in this paper.
+%for the superior Wheatstone bridge data:
+
 \section{PT-100 Fundamentals}
 %\subsection{Fundamental Principles}
-The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0^\circ$C. Unlike thermocouples which generate a voltage, RTDs differ in that they operate by changing electrical resistance in direct proportion to temperature changes \cite{sensor_physics}. This relationship is inherently non-linear over wide ranges, though it is highly predictable. The resistance $R(t)$ at temperature $t$ is governed by the Callendar-Van Dusen equation \cite{callendar_vd}
+The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0\degree$C. Unlike thermocouples which generate a voltage, RTDs differ in that they operate by changing electrical resistance in direct proportion to temperature changes \cite{sensor_physics}. This relationship is inherently non-linear over wide ranges, though it is highly predictable. The resistance $R(t)$ at temperature $t$ is governed by the Callendar-Van Dusen equation \cite{callendar_vd}
 \begin{equation}
     R(t) = R_0 (1 + A t + B t^2)
 \end{equation}
 for temperatures $t > 0\degree$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using LSQ models in this work.
 
 %\subsection{Measurement Challenges}
-While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/^\circ$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This paper aims to optimize this conversion by analyzing different hardware front-ends and software regression models \cite{lsq_method} to find an optimal solution for high-precision, low-cost temperature sensing.
+While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/\degree$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This paper aims to optimize this conversion by analyzing different hardware front-ends and software regression models \cite{lsq_method} to find an optimal solution for high-precision, low-cost temperature sensing.
 
 \section{Hardware Setup}
 Two main analog front-ends were tested to evaluate the trade-off between circuit complexity and measurement accuracy.
@@ -246,7 +257,7 @@ The following table presents a small subset of the test data, showing the actual
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{figs/combined_model_plot.png}
-    \caption{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5^\circ$C to $56.5^\circ$C}
+    \caption{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5\degree$C to $56.5\degree$C}
     \label{fig:wheatstone_model_comparison}
 \end{figure}
 

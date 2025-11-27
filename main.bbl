@@ -7,8 +7,7 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
-  \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -22,70 +21,44 @@
 \BIBdecl
 
 \bibitem{rtd_theory}
-T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems \&
-  Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Delmar Cengage
-  Learning, 2005.
+T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems \& Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Delmar Cengage Learning, 2005.
+
+\bibitem{paper4}
+\BIBentryALTinterwordspacing
+V.~Chudý and F.~Janíček, ``Identification and prediction of the dynamic properties of resistance temperature sensors,'' \emph{Sensors and Actuators A: Physical}, vol. 197, pp. 69--75, 2013. [Online]. Available: \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
+\BIBentrySTDinterwordspacing
 
 \bibitem{paper1}
 \BIBentryALTinterwordspacing
-C.~Liu, C.~Zhao, Y.~Wang, and H.~Wang, ``Machine-learning-based calibration of
-  temperature sensors,'' \emph{Sensors}, vol.~23, no.~17, p. 7347, 2023.
-  [Online]. Available: \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC10490205/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{paper2}
-\BIBentryALTinterwordspacing
-A.~Samuk and M.~{\c{C}}ak{\i}r, ``New circuit design and implementation for
-  temperature measurement based on pt100 sensor,'' \emph{ResearchGate}, 2023.
-  [Online]. Available:
-  \url{https://www.researchgate.net/publication/376796536_New_Circuit_Design_and_Implementation_for_Temperature_Measurement_based_on_PT100_Sensor}
+C.~Liu, C.~Zhao, Y.~Wang, and H.~Wang, ``Machine-learning-based calibration of temperature sensors,'' \emph{Sensors}, vol.~23, no.~17, p. 7347, 2023. [Online]. Available: \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC10490205/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{paper3}
 \BIBentryALTinterwordspacing
-M.~Li, C.~Zeng, and Y.~Wang, ``Pt100 temperature measurement sensors design and
-  transducer simulation,'' \emph{Journal of Physics: Conference Series}, vol.
-  2897, no.~1, p. 012011, 2024. [Online]. Available:
-  \url{https://www.researchgate.net/publication/386448957_Pt100_temperature_measurement_sensors_design_and_transducer_simulation}
+M.~Li, C.~Zeng, and Y.~Wang, ``Pt100 temperature measurement sensors design and transducer simulation,'' \emph{Journal of Physics: Conference Series}, vol. 2897, no.~1, p. 012011, 2024. [Online]. Available: \url{https://www.researchgate.net/publication/386448957_Pt100_temperature_measurement_sensors_design_and_transducer_simulation}
 \BIBentrySTDinterwordspacing
 
-\bibitem{paper4}
+\bibitem{paper2}
 \BIBentryALTinterwordspacing
-V.~Chudý and F.~Janíček, ``Identification and prediction of the dynamic
-  properties of resistance temperature sensors,'' \emph{Sensors and Actuators
-  A: Physical}, vol. 197, pp. 69--75, 2013. [Online]. Available:
-  \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
+A.~Samuk and M.~{\c{C}}ak{\i}r, ``New circuit design and implementation for temperature measurement based on pt100 sensor,'' \emph{ResearchGate}, 2023. [Online]. Available: \url{https://www.researchgate.net/publication/376796536_New_Circuit_Design_and_Implementation_for_Temperature_Measurement_based_on_PT100_Sensor}
 \BIBentrySTDinterwordspacing
 
 \bibitem{sensor_physics}
-J.~Fraden, \emph{Handbook of Modern Sensors: Physics, Designs, and
-  Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016.
+J.~Fraden, \emph{Handbook of Modern Sensors: Physics, Designs, and Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016.
 
 \bibitem{callendar_vd}
-H.~L. Callendar, ``On the practical measurement of temperature: Experiments
-  made at the cavendish laboratory, cambridge,'' \emph{Philosophical
-  Transactions of the Royal Society of London. A}, vol. 178, pp. 161--230,
-  1887.
+H.~L. Callendar, ``On the practical measurement of temperature: Experiments made at the cavendish laboratory, cambridge,'' \emph{Philosophical Transactions of the Royal Society of London. A}, vol. 178, pp. 161--230, 1887.
 
 \bibitem{wheatstone_ref}
-T.~Mien and N.~Hien, ``Precision temperature measurement using wheatstone
-  bridge,'' in \emph{2019 International Conference on System Science and
-  Engineering (ICSSE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2019, pp.
-  145--149.
+T.~Mien and N.~Hien, ``Precision temperature measurement using wheatstone bridge,'' in \emph{2019 International Conference on System Science and Engineering (ICSSE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2019, pp. 145--149.
 
 \bibitem{lsq_method}
-A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie
-  Royale des Sciences}, 1805.
+A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie Royale des Sciences}, 1805.
 
 \bibitem{ads1115_datasheet}
-\emph{ADS111x Ultra-Small, Low-Power, I2C-Compatible, 860-SPS, 16-Bit ADCs},
-  Texas Instruments, 2018, sBAS444D.
+\emph{ADS111x Ultra-Small, Low-Power, I2C-Compatible, 860-SPS, 16-Bit ADCs}, Texas Instruments, 2018, sBAS444D.
 
 \bibitem{scikit-learn}
-F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
-  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
-  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn:
-  Machine learning in python,'' \emph{Journal of Machine Learning Research},
-  vol.~12, pp. 2825--2830, 2011.
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel, M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos, D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn: Machine learning in python,'' \emph{Journal of Machine Learning Research}, vol.~12, pp. 2825--2830, 2011.
 
 \end{thebibliography}
