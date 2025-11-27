@@ -125,7 +125,11 @@ lists the components required for both analog front-ends,  detailing the specifi
 %
 \begin{itemize}
     \item {\em High-Precision Wheatstone Bridge with ADC:} This uses a Wheatstone bridge configuration coupled with an external 16-bit ADS1115 ADC \cite{ads1115_datasheet}. This setup allows for differential measurement, significantly reducing noise and common-mode errors.
-The complete circuit schematic for the high-precision Wheatstone bridge setup is illustrated in Figure \ref{fig:wheatstone_schematic}.
+The connection details for integrating the external 16-bit ADS1115 ADC are  available
+%critical for differential measurement accuracy.
+in \tabref{table:ads1115_connections}
+\input{tables/ads1115_connections}
+The complete circuit schematic for the high-precision Wheatstone bridge setup is illustrated in \figref{fig:wheatstone_schematic}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\columnwidth]{figs/circuit_schematic.png}
@@ -135,14 +139,11 @@ The complete circuit schematic for the high-precision Wheatstone bridge setup is
 The complete circuit schematic for the simple voltage divider setup is illustrated in Figure \ref{fig:voltage_divider_schematic}.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{figs/circuit_schematic_2.jpg}
+    \includegraphics[width=\columnwidth]{figs/circuit_schematic_2.jpg}
     \caption{Circuit Schematic of the simple voltage divider (Setup 2)}
     \label{fig:voltage_divider_schematic}
 \end{figure}
-\subsubsection{ADS1115 ADC Connections}
-The connection details for integrating the external 16-bit ADS1115 ADC are critical for differential measurement accuracy.
-
-\input{tables/ads1115_connections}
+%\subsubsection{ADS1115 ADC Connections}
 %
     \item {\em Simple Voltage Divider:} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC.
 \end{itemize}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1764239220.65381 "main.aux" "main.bbl" "main" 1764239330.91381 0
+["bibtex main"] 1764240495.29525 "main.aux" "main.bbl" "main" 1764240754.65945 0
   "./references.bib" 1764237337.3798 5638 e726f14ad92e28a6177ad0bd6c384bd0 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1741388039 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1764239330.73764 9454 65017339109c2392e949fbaeb81cebf8 "pdflatex"
+  "main.aux" 1764240754.46112 9379 4dbe72aa023c488b38f596dc14c6b0b7 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764239327.79566 "main.tex" "main.pdf" "main" 1764239330.9139 0
+["pdflatex"] 1764240751.52785 "main.tex" "main.pdf" "main" 1764240754.65954 0
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1741388039 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1741388039 5466553 2748998d7db8078826afa1f272036265 ""
@@ -341,18 +341,18 @@
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/xurl/xurl.sty" 1741388039 4675 e4b8c405820368c2dfb03526e16d725a ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346141 1288109d02d1c772df65535881471649 ""
-  "AutoTrainer/output.tex" 1764154202.94552 8957 c9b2358a4466544fb1310eee773d8f82 ""
+  "AutoTrainer/output.tex" 1764240750.3997 8819 35fa7d6d9df85a82bf883c2789fcc6d4 ""
   "figs/autotrainer_schematic.png" 1764154202.95145 76030 9e153984efa2e034c5605e21a7a7f11d ""
   "figs/circuit_schematic.png" 1764154202.95198 101032 d121382b24658f189be24161f874e951 ""
   "figs/circuit_schematic_2.jpg" 1764237337.37515 85146 11f11e74c20c5baf4f49c8a010f42097 ""
   "figs/combined_model_plot.png" 1764154202.95239 74487 c7287c3afd1049ba0f6a2392a23fc630 ""
   "gvv-book.sty" 1764154202.95419 2557 5f6743c9cad70a97ff45c57365b61b12 ""
   "gvv.sty" 1764154202.9559 4336 97f65366116b856fe4227bfe43692b6c ""
-  "main.aux" 1764239330.73764 9454 65017339109c2392e949fbaeb81cebf8 "pdflatex"
-  "main.bbl" 1764239220.69637 3890 964468d1a14d2ed0cdc90ca17bec2a39 "bibtex main"
-  "main.out" 1764239330.74172 6232 a000df61b3cd07dfb3df742f0cf0f975 "pdflatex"
-  "main.tex" 1764239330.2896 17322 95466582fbd4f09519bc643b0916d458 ""
-  "tables/ads1115_connections.tex" 1764237337.38007 1545 8f525afb54becd1aad3158984d7232e0 ""
+  "main.aux" 1764240754.46112 9379 4dbe72aa023c488b38f596dc14c6b0b7 "pdflatex"
+  "main.bbl" 1764240495.33444 3890 964468d1a14d2ed0cdc90ca17bec2a39 "bibtex main"
+  "main.out" 1764240754.46498 6199 167c02cc85070c8f388213d0cd00cffe "pdflatex"
+  "main.tex" 1764240752.71626 17367 f258252bf970f3b3d437a9e1e87ad831 ""
+  "tables/ads1115_connections.tex" 1764240294.9566 1545 d4dfc444882cc564e97a02139a6cca8d ""
   "tables/lcd_connections.tex" 1764154202.9628 632 f5750d7cdaa1f3ce0427d62b0a5e1c02 ""
   "tables/list_table.tex" 1764237337.38022 1236 cf0126994b65d795130b683dbe24c2fe ""
   "tables/performance.tex" 1764237337.38036 805 bd132d3c01c3ba73c8345425bb80c1fc ""

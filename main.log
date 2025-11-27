@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.3.15)  27 NOV 2025 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.3.15)  27 NOV 2025 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1581,42 +1581,31 @@ Underfull \hbox (badness 2894) in paragraph at lines 9--10
 [1{/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-])
-<figs/circuit_schematic.png, id=191, 1238.6275pt x 610.28pt>
+]) (./tables/ads1115_connections.tex)
+<figs/circuit_schematic.png, id=192, 1238.6275pt x 610.28pt>
 File: figs/circuit_schematic.png Graphic file (type png)
 <use figs/circuit_schematic.png>
-Package pdftex.def Info: figs/circuit_schematic.png  used on input line 131.
+Package pdftex.def Info: figs/circuit_schematic.png  used on input line 135.
 (pdftex.def)             Requested size: 252.0pt x 124.15837pt.
-<figs/circuit_schematic_2.jpg, id=194, 566.61688pt x 282.05376pt>
+<figs/circuit_schematic_2.jpg, id=195, 566.61688pt x 282.05376pt>
 File: figs/circuit_schematic_2.jpg Graphic file (type jpg)
 <use figs/circuit_schematic_2.jpg>
-Package pdftex.def Info: figs/circuit_schematic_2.jpg  used on input line 138.
-(pdftex.def)             Requested size: 201.60077pt x 100.35143pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 143.
-
-(./tables/ads1115_connections.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+Package pdftex.def Info: figs/circuit_schematic_2.jpg  used on input line 142.
+(pdftex.def)             Requested size: 252.0pt x 125.4425pt.
 
 
 (./tables/lcd_connections.tex) (./AutoTrainer/output.tex
-
-[2 <./figs/circuit_schematic.png> <./figs/circuit_schematic_2.jpg>]
 LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 10.
  (/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 )
+
+[2 <./figs/circuit_schematic.png> <./figs/circuit_schematic_2.jpg>]
 Underfull \hbox (badness 6792) in paragraph at lines 16--17
 []\OT1/txr/m/n/10 The re-quired Python li-braries: \OT1/txtt/m/n/10 opencv-python\OT1/txr/m/n/10 ,
  []
 
-<figs/autotrainer_schematic.png, id=209, 963.6pt x 722.7pt>
+<figs/autotrainer_schematic.png, id=212, 963.6pt x 722.7pt>
 File: figs/autotrainer_schematic.png Graphic file (type png)
 <use figs/autotrainer_schematic.png>
 Package pdftex.def Info: figs/autotrainer_schematic.png  used on input line 22.
@@ -1628,7 +1617,7 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 []\OT1/txr/m/n/10 Two win-dows will ap-pear: \OT1/txtt/m/n/10 'Voltage' \OT1/txr/m/n/10 and
  []
 
@@ -1637,64 +1626,64 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 
 [3 <./figs/autotrainer_schematic.png>]
-Underfull \hbox (badness 1533) in paragraph at lines 115--116
+Underfull \hbox (badness 1533) in paragraph at lines 116--117
 \OT1/txr/m/n/10 Python slices are in [y1:y2, x1:x2] for-mat (rows, then
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 []\OT1/txtt/m/n/10 cv2.threshold(gray[]t,130,255,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 []\OT1/txtt/m/n/10 cv2.getStructuringElement(cv2.MORPH[]RECT,
  []
 
 
 
 )
-Underfull \hbox (badness 1968) in paragraph at lines 155--158
+Underfull \hbox (badness 1968) in paragraph at lines 156--159
 []\OT1/txr/m/n/10 The fi-nal train-ing data is in the fol-low-ing text file
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 155--158
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 156--159
 [] 
  []
 
 
-Underfull \hbox (badness 2818) in paragraph at lines 167--171
+Underfull \hbox (badness 2818) in paragraph at lines 168--172
 \OT1/txr/m/n/10 sev-eral re-gres-sion mod-els for pre-dict-ing sen-sor out-put.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--172
 \OT1/txr/m/n/10 Specif-i-cally, we fo-cus on two sce-nar-ios: pre-dict-ing
  []
 
 
-Underfull \hbox (badness 6220) in paragraph at lines 167--171
+Underfull \hbox (badness 6220) in paragraph at lines 168--172
 \OT1/txr/m/n/10 tem-per-a-ture from volt-age us-ing a Wheat-stone bridge
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 167--171
+Underfull \hbox (badness 2277) in paragraph at lines 168--172
 \OT1/txr/m/n/10 For-est Re-gres-sor [[]11[]], In-verse Quadratic Least Squares
  []
 
 
-Underfull \hbox (badness 5302) in paragraph at lines 167--171
+Underfull \hbox (badness 5302) in paragraph at lines 168--172
 \OT1/txr/m/n/10 (LSQ), Di-rect LSQ, and Stochas-tic Gra-di-ent De-scent
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 167--171
+Underfull \hbox (badness 2050) in paragraph at lines 168--172
 \OT1/txr/m/n/10 to the train-ing and eval-u-a-tion pipelines are hosted at:
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 167--171
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 168--172
 [] 
  []
 
@@ -1707,10 +1696,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 (./tables/validation.tex)
-<figs/combined_model_plot.png, id=275, 430.0065pt x 328.8285pt>
+<figs/combined_model_plot.png, id=277, 430.0065pt x 328.8285pt>
 File: figs/combined_model_plot.png Graphic file (type png)
 <use figs/combined_model_plot.png>
-Package pdftex.def Info: figs/combined_model_plot.png  used on input line 259.
+Package pdftex.def Info: figs/combined_model_plot.png  used on input line 260.
 (pdftex.def)             Requested size: 201.60077pt x 154.16307pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1720,12 +1709,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [5]
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--280
+Underfull \hbox (badness 10000) in paragraph at lines 274--281
 []\OT1/txr/m/n/10 Upload the fol-low-ing code to the Ar-duino
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 273--280
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 274--281
 [] 
  []
 
@@ -1749,21 +1738,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A000DF61B3CD07DFB3DF742F0CF0F975;6232.
+(rerunfilecheck)             Checksum: 167C02CC85070C8F388213D0CD00CFFE;6199.
  ) 
 Here is how much of TeX's memory you used:
- 57145 strings out of 473190
- 1390667 string characters out of 5704335
- 2265668 words of memory out of 5000000
+ 57146 strings out of 473190
+ 1390664 string characters out of 5704335
+ 2264406 words of memory out of 5000000
  79407 multiletter control sequences out of 15000+600000
  642116 words of font info for 215 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,17n,123p,1194b,1364s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,123p,1194b,1367s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/txex.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 406444 bytes).
+Output written on main.pdf (6 pages, 405972 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 384 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
+ 107 named destinations out of 1000 (max. 500000)
  377 words of extra memory for PDF output out of 10000 (max. 10000000)
 
