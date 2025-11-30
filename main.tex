@@ -98,7 +98,7 @@ A high-accuracy temperature measurement circuit using a Wheatstone bridge, an AD
     % --- Paper 4: Dynamic Properties Identification (237074979) ---
    % \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
 
-To address the above issues,   we compare the accuracy of three different regression approaches:  the LSQ quadratic, grounded in the theoretical Callendar-Van Dusen equation, the SDG and RSR.  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
+To address the above issues,   we compare the accuracy of three different regression approaches:  the LSQ quadratic, grounded in the theoretical Callendar-Van Dusen equation \cite{callendar_vd}, the SDG and RSR \cite{scikit-learn}.  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
 In the process, we  detail the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC.   
 We also automate the process of generating the dataset by using OCR to capture the readings of the analog thermometer through a mobile phone camera.
 The parameters for all the above ML techniques are finally hardcoded in the ATMEGA328P microcontroller, using the Arduino board.  Through numerical performance plots, we show that LSQ outperforms other ML techniques considered in this paper.
@@ -203,33 +203,30 @@ The experimental setup is available in
 %\subsubsection{LCD Display Connections}
 %A standard JHD 162A Parallel Liquid Crystal Display (LCD) was used for real-time temperature output in both setups.
 %Component lists and connection diagrams are provided in the appendix tables.
-\section{Models Used}
-This report details the development and evaluation of several regression models for predicting sensor output. Specifically, we focus on two scenarios: predicting temperature from voltage using a Wheatstone bridge with ADC, and predicting resistance from voltage using a voltage divider without ADC. We investigate Random Forest Regressor \cite{scikit-learn}, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches.
-The models were implemented using Python and the scikit-learn. The source code corresponding to the training and evaluation pipelines are hosted at:
-\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/codes/models/PT100_models.ipynb}
-}}
+%\section{Models Used}
 
-\section{Model Evaluation and Comparison}
+\section{Machine Lerning Models}
+%This report details the development and evaluation of several regression models for predicting sensor output. Specifically, we focus on two scenarios: predicting temperature from voltage using a Wheatstone bridge with ADC, and predicting resistance from voltage using a voltage divider without ADC. 
+%As mentioned earlier, we investigate Random Forest Regressor, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches \cite{scikit-learn}.
 
-This section presents the evaluation of the trained models and a comparison of their performance based on Mean Squared Error (MSE) and R-squared (R2) metrics.
-
-\subsection{Model Explanations}
-
-\subsubsection{Inverse LSQ (Quadratic) for Voltage Divider without ADC}
-This model approximates the relationship between resistance ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is:
-\[ X = -0.000014990Y^2 + 0.005589496Y + 2.526066163 \]
-The coefficients are determined through linear least squares regression \cite{lsq_method}. The model predicts resistance ($Y$) from measured voltage ($X$) using the positive root of the quadratic equation:
-\[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
+%\subsection{Model Explanations}
+In the following we introduce the models obtained from the dataset derived in the previous section.  The relevant software description for obtaining these models is available in Appendix \ref{app:models} 
+\begin{enumerate}
+\item {\em Inverse LSQ (Quadratic) for Voltage Divider without ADC: }
+This model approximates the relationship between resistance ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
+	X = -0.000014990Y^2 + 0.005589496Y + 2.526066163 
+\end{align}
+	The coefficients are determined through linear least squares regression \cite{lsq_method}. The model predicts resistance ($Y$) from measured voltage ($X$) using the positive root of the quadratic equation: \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 This method is suitable for circuits where the voltage-resistance relationship can be approximated quadratically.
 
-\subsubsection{Inverse LSQ (Quadratic) for Wheatstone with ADC}
+\item {\em Inverse LSQ (Quadratic) for Wheatstone with ADC: }
 This model approaches the Wheatstone bridge problem by fitting a quadratic equation of the form \(X = aY^2 + bY + c\), where Y is temperature and X is voltage. The fitted equation for the Wheatstone bridge is:
 \[ X = -0.000006744Y^2 + 0.004344843Y + 0.056019368 \]
 To predict Y from a given X, we use the quadratic formula:
 \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
 
-\subsubsection{LSQ (Quadratic) for Wheatstone with ADC}
+\item {\em LSQ (Quadratic) for Wheatstone with ADC: }
 This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as $Y = aX^2 + bX + c$. Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
 \begin{itemize}
     \item \textbf{Fitted Equation:} $Y = aX^2 + bX + c$
@@ -239,14 +236,17 @@ This model applies a standard quadratic fit directly mapping voltage to temperat
     \end{align*}
 \end{itemize}
 
-\subsubsection{Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC)}
+\item {\em Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC): }
 The SGD Regressor is a linear model trained with Stochastic Gradient Descent \cite{scikit-learn}. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
 
-\subsubsection{Inverse SGD Regressor (Wheatstone with ADC)}
+\item {\em Inverse SGD Regressor (Wheatstone with ADC): }
 This model utilizes Stochastic Gradient Descent to learn the inverse relationship, where voltage ($X$) is the target and temperature ($Y$) is the feature ($X = f(Y)$). Similar to the Inverse LSQ approach, the model learns to predict voltage from temperature. During inference, the temperature is derived by numerically inverting the learned function.
 
-\subsubsection{Random Forest Regressor (Wheatstone with ADC)}
+\item {\em Random Forest Regressor (Wheatstone with ADC): }
 The Random Forest Regressor is an ensemble learning method that constructs a multitude of decision trees during training \cite{scikit-learn}. For regression tasks, it averages the predictions of individual trees to produce a more stable and accurate prediction. This model was applied to predict temperature (Y) from voltage (X) directly, leveraging its ability to capture complex non-linear relationships without explicit feature engineering.
+\end{enumerate}
+
+\section{Model Evaluation and Comparison}
 
 \subsection{Performance Metrics Summary}
 
@@ -318,6 +318,12 @@ The final training data is in the following text file
 }}
 
 \section{Appendix - Arduino Deployment}
+\label{app:models}
+The models are obtained and implemented using Python and the scikit-learn. 
+This section presents the evaluation of the trained models and a comparison of their performance based on Mean Squared Error (MSE) and R-squared (R2) metrics.
+\ref{app:models}
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/codes/models/PT100_models.ipynb}
+}}
 Following are the steps to upload code to the Arduino
 \begin{enumerate}
     \item Connect Arduino to computer via USB

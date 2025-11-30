@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2025/Termux)
+This is BibTeX, Version 0.99d (TeX Live 2025/Homebrew)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: IEEEtran.bst
@@ -16,8 +16,8 @@ Done.
 You've used 11 entries,
             4087 wiz_defined-function locations,
             896 strings with 9589 characters,
-and the built_in function-call counts, 7251 in all, are:
-= -- 594
+and the built_in function-call counts, 7253 in all, are:
+= -- 595
 > -- 171
 < -- 45
 + -- 91
@@ -32,7 +32,7 @@ cite$ -- 11
 duplicate$ -- 533
 empty$ -- 581
 format.name$ -- 39
-if$ -- 1665
+if$ -- 1666
 int.to.chr$ -- 0
 int.to.str$ -- 11
 missing$ -- 95

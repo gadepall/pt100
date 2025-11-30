@@ -7,14 +7,16 @@
 \citation{paper1}
 \citation{paper3}
 \citation{paper2}
+\citation{callendar_vd}
+\citation{scikit-learn}
 \citation{sensor_physics}
 \citation{callendar_vd}
 \citation{wheatstone_ref}
 \citation{lsq_method}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {II}PT-100 Fundamentals}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {III}Hardware Setup}{1}{section.3}\protected@file@percent }
 \citation{ads1115_datasheet}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Hardware Setup}{2}{section.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Component List}}{2}{table.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{table:list_table}{{I}{2}{Component List}{table.caption.1}{}}
@@ -27,22 +29,15 @@
 \@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces LCD Connections}}{2}{table.caption.5}\protected@file@percent }
 \newlabel{table:lcd_connections}{{III}{2}{LCD Connections}{table.caption.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Automated Training Using OCR}{2}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Experimental Setup}{2}{subsection.4.1}\protected@file@percent }
-\citation{scikit-learn}
 \citation{lsq_method}
 \citation{callendar_vd}
 \citation{scikit-learn}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Experimental Setup}{3}{subsection.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Auto-Trainer representation}}{3}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:autotrainer_schematic}{{3}{3}{Auto-Trainer representation}{figure.caption.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Data Collection Methodology}{3}{subsection.4.2}\protected@file@percent }
 \newlabel{data-collection-methodology}{{\mbox  {IV-B}}{3}{Data Collection Methodology}{subsection.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Models Used}{3}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Model Evaluation and Comparison}{3}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Model Explanations}{3}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}1}Inverse LSQ (Quadratic) for Voltage Divider without ADC}{3}{subsubsection.6.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}2}Inverse LSQ (Quadratic) for Wheatstone with ADC}{3}{subsubsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}3}LSQ (Quadratic) for Wheatstone with ADC}{3}{subsubsection.6.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}4}Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC)}{3}{subsubsection.6.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Machine Lerning Models}{3}{section.5}\protected@file@percent }
 \citation{scikit-learn}
 \bibstyle{IEEEtran}
 \bibdata{references}
@@ -51,28 +46,27 @@
 \bibcite{paper1}{3}
 \bibcite{paper3}{4}
 \bibcite{paper2}{5}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}5}Inverse SGD Regressor (Wheatstone with ADC)}{4}{subsubsection.6.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-A}6}Random Forest Regressor (Wheatstone with ADC)}{4}{subsubsection.6.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Performance Metrics Summary}{4}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Model Evaluation and Comparison}{4}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Performance Metrics Summary}{4}{subsection.6.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Model Performance Metrics}}{4}{table.caption.7}\protected@file@percent }
 \newlabel{tab:model_performance}{{IV}{4}{Model Performance Metrics}{table.caption.7}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Comparison of Model Performance}}{4}{table.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Validation Data and Model Predictions (Subset)}{4}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Validation Data and Model Predictions (Subset)}{4}{subsection.6.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Voltage Divider Validation Table with Predictions}}{4}{table.caption.9}\protected@file@percent }
 \newlabel{tab:voltage_divider_validation_predictions}{{VI}{4}{Voltage Divider Validation Table with Predictions}{table.caption.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Wheatstone Validation Data and Predictions}}{4}{table.caption.10}\protected@file@percent }
 \newlabel{tab:validation_data_subset}{{VII}{4}{Wheatstone Validation Data and Predictions}{table.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Graphical Comparison of Wheatstone ADC Models}{4}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Graphical Comparison of Wheatstone ADC Models}{4}{subsection.6.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5\degree  $C to $56.5\degree  $C}}{4}{figure.caption.11}\protected@file@percent }
 \newlabel{fig:wheatstone_model_comparison}{{4}{4}{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5\degree $C to $56.5\degree $C}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Model Comparison and Conclusion}{4}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Model Comparison and Conclusion}{4}{subsection.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{References}{4}{section*.12}\protected@file@percent }
-\bibcite{sensor_physics}{6}
-\bibcite{callendar_vd}{7}
-\bibcite{wheatstone_ref}{8}
-\bibcite{lsq_method}{9}
-\bibcite{ads1115_datasheet}{10}
-\bibcite{scikit-learn}{11}
+\bibcite{callendar_vd}{6}
+\bibcite{scikit-learn}{7}
+\bibcite{sensor_physics}{8}
+\bibcite{wheatstone_ref}{9}
+\bibcite{lsq_method}{10}
+\bibcite{ads1115_datasheet}{11}
 \@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A}{5}{section*.13}\protected@file@percent }
 \newlabel{app:AutoTrainer}{{A}{5}{\appendixname \nobreakspace \thesectiondis }{section*.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-A}}Prerequisites}{5}{subsection.Appendix.A.1}\protected@file@percent }
@@ -94,4 +88,5 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-E}}Output}{6}{subsection.Appendix.A.5}\protected@file@percent }
 \newlabel{output}{{\mbox  {A-E}}{6}{Output}{subsection.Appendix.A.5}{}}
 \@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  B: Appendix - Arduino Deployment}{6}{section*.15}\protected@file@percent }
+\newlabel{app:models}{{B}{6}{\appendixname \nobreakspace \thesectiondis \\* Appendix - Arduino Deployment}{section*.15}{}}
 \gdef \@abspage@last{6}
