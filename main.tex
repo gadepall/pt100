@@ -213,7 +213,7 @@ The experimental setup is available in
 In the following we introduce the models obtained from the dataset derived in the previous section.  The relevant software description for obtaining these models is available in Appendix \ref{app:models} 
 \begin{enumerate}
 \item {\em Inverse LSQ (Quadratic) for Voltage Divider without ADC: }
-This model approximates the relationship between resistance ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
+This model approximates the relationship between temperature ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
 	X = -0.000014990Y^2 + 0.005589496Y + 2.526066163 
 \end{align}
 	The coefficients are determined through linear least squares regression \cite{lsq_method}. The model predicts resistance ($Y$) from measured voltage ($X$) using the positive root of the quadratic equation: \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
@@ -245,6 +245,13 @@ This model utilizes Stochastic Gradient Descent to learn the inverse relationshi
 \item {\em Random Forest Regressor (Wheatstone with ADC): }
 The Random Forest Regressor is an ensemble learning method that constructs a multitude of decision trees during training \cite{scikit-learn}. For regression tasks, it averages the predictions of individual trees to produce a more stable and accurate prediction. This model was applied to predict temperature (Y) from voltage (X) directly, leveraging its ability to capture complex non-linear relationships without explicit feature engineering.
 \end{enumerate}
+%\begin{table}[H]
+ %   \centering
+ %   \caption{Model Coefficients}
+ %   \label{tab:model_Coefficients}
+ %   \input{tables/model_coefficients.tex}
+%\end{table}
+\input{tables/model_coefficients.tex}
 
 \section{Model Evaluation and Comparison}
 
@@ -252,7 +259,7 @@ The Random Forest Regressor is an ensemble learning method that constructs a mul
 
 The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) scores for all evaluated models.
 
-\begin{table}[h!]
+\begin{table}[htbp]
     \centering
     \caption{Model Performance Metrics}
     \label{tab:model_performance}
