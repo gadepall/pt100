@@ -150,12 +150,51 @@ The complete circuit schematic for the simple voltage divider setup is illustrat
 The Arduino-LCD connections are available in 
 \tabref{table:lcd_connections}.
 \input{tables/lcd_connections}
-\section{Automated Training Using Optical Character Recognition (OCR)}
+\section{Automated Training Using OCR}
 %\markdownInput{AutoTrainer/README.md}
-\input{AutoTrainer/output.tex}
-The final training data is in the following text file
-\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
-}}
+The dataset is collected by simulating a real-world thermal change (cooling cycle) to capture paired temperature readings. Since the training data is available only on an analog thermometer, instead of manually noting the temperature, we automate the data collection process using OCR based techniques.
+Appendix \ref{app:AutoTrainer} has more information on the software execution.
+\subsection{Experimental Setup}
+The experimental setup is available in 
+\figref{fig:autotrainer_schematic}.
+  The practical requirements are listed below
+\begin{enumerate}
+	\item {\em Hardware:}
+\begin{itemize}
+    \item A webcam connected to your computer.
+    \item {(Optional)} An NVIDIA GPU with CUDA installed. The script is pre-set to use \texttt{gpu=True} for much faster processing.
+\end{itemize}
+%
+\item {\em Software:}
+\begin{itemize}
+    \item Python 3.x
+    \item The required Python libraries: \texttt{opencv-python}, \texttt{easyocr}, and \texttt{numpy}.
+\end{itemize}
+\end{enumerate}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/autotrainer_schematic.png}
+    \caption{Auto-Trainer representation}
+    \label{fig:autotrainer_schematic}
+\end{figure}
+
+\subsection{Data Collection Methodology}\label{data-collection-methodology}
+\begin{enumerate}
+    \item {Setup:} Place both the PT100 probe and the reference thermometer inside an electric kettle, submerged in water.
+    \item {Heating Phase:} Turn on the kettle and heat the water to its boiling point.
+    \item {Recording Phase:} 
+    \begin{itemize}
+        \item Switch off the kettle at boiling point.
+        \item Start recording a {video} using the smartphone.
+        \item Ensure {both the PT100 LCD display} and {reference thermometer} are visible in the frame.
+    \end{itemize}
+    \item {Cooling Phase:} Continue recording the cooling process as the water temperature drops naturally.
+    \item {Data Extraction:} The recorded video acts as the raw dataset.
+%    \begin{itemize}
+        \item Extract frames and apply OCR to detect readings from both displays.
+%    \end{itemize}
+\end{enumerate}
 
 %\subsection{Component Lists}
 %\subsection{Connection Schematics and Diagrams}
@@ -265,7 +304,18 @@ The following table presents a small subset of the test data, showing the actual
 \subsection{Model Comparison and Conclusion}
 
 Comparing the performance metrics, the Least Squares (Quadratic) model for the Wheatstone bridge achieved the highest R-squared score of $0.999956$. It also achieved the lowest mean squared error of $0.009198$. Qualitatively, we can say that the \textbf{Least Squares Quadratic} model is the best at predicting the temperature.
-\newpage
+% --- Bibliography Section ---
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+%\newpage
+\appendices
+
+\section{}
+\label{app:AutoTrainer}
+\input{AutoTrainer/output.tex}
+The final training data is in the following text file
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
+}}
 
 \section{Appendix - Arduino Deployment}
 Following are the steps to upload code to the Arduino
@@ -286,8 +336,5 @@ The Arduino code,
     \item Displays the temperature on the LCD display.
 \end{itemize}
 
-% --- Bibliography Section ---
-\bibliographystyle{IEEEtran}
-\bibliography{references}
 
 \end{document}
