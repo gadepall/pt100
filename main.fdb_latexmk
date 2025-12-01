@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1764508881.85664 "main.aux" "main.bbl" "main" 1764509180.28486 0
+["bibtex main"] 1764586530.32081 "main.aux" "main.bbl" "main" 1764586595.21838 0
   "./references.bib" 1764508687.83466 5638 e726f14ad92e28a6177ad0bd6c384bd0 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1741388039 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1764509180.10777 8363 9d4d35f8bc0884cf5b7ca5df70ad0180 "pdflatex"
+  "main.aux" 1764586595.03619 8645 d6543baff9d0d40dcbf40938b5a57f21 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764509177.20672 "main.tex" "main.pdf" "main" 1764509180.28495 0
+["pdflatex"] 1764586592.07102 "main.tex" "main.pdf" "main" 1764586595.21848 0
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1741388039 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1741388039 5466553 2748998d7db8078826afa1f272036265 ""
@@ -348,14 +348,15 @@
   "figs/combined_model_plot.png" 1764508687.83193 74487 c7287c3afd1049ba0f6a2392a23fc630 ""
   "gvv-book.sty" 1764508687.83427 2557 5f6743c9cad70a97ff45c57365b61b12 ""
   "gvv.sty" 1764508687.83437 4336 97f65366116b856fe4227bfe43692b6c ""
-  "main.aux" 1764509180.10777 8363 9d4d35f8bc0884cf5b7ca5df70ad0180 "pdflatex"
-  "main.bbl" 1764509173.21399 3890 3613eba4dcb2dbf29e4aa7fc6dab25e2 "bibtex main"
-  "main.out" 1764509180.11099 3956 37865fd8339ac104e4b648594f4a3383 "pdflatex"
-  "main.tex" 1764509173.21824 19789 0e6c8a771ee4086c024cfba564a3e360 ""
+  "main.aux" 1764586595.03619 8645 d6543baff9d0d40dcbf40938b5a57f21 "pdflatex"
+  "main.bbl" 1764586530.36011 3890 3613eba4dcb2dbf29e4aa7fc6dab25e2 "bibtex main"
+  "main.out" 1764586595.0402 3956 2187678c7e9503d69ac53ad262942b0f "pdflatex"
+  "main.tex" 1764586592.8916 20217 44d87643df39a825b97243c1ce0948bc ""
   "tables/ads1115_connections.tex" 1764509173.22253 1545 d4dfc444882cc564e97a02139a6cca8d ""
   "tables/lcd_connections.tex" 1764509173.2228 632 f5750d7cdaa1f3ce0427d62b0a5e1c02 ""
   "tables/list_table.tex" 1764509173.2231 1236 cf0126994b65d795130b683dbe24c2fe ""
-  "tables/performance.tex" 1764509173.22352 805 bd132d3c01c3ba73c8345425bb80c1fc ""
+  "tables/model_coefficients.tex" 1764586318.50687 1651 b034d9fa02c282db8448b49e377b47cf ""
+  "tables/performance.tex" 1764585945.18729 805 aa04281cbbdeaf6acf075fd96f2b1cc9 ""
   "tables/validation.tex" 1764509173.22368 916 f850ff89064d3ba705891bb44298b579 ""
   (generated)
   "main.aux"

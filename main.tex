@@ -210,13 +210,27 @@ The experimental setup is available in
 %As mentioned earlier, we investigate Random Forest Regressor, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches \cite{scikit-learn}.
 
 %\subsection{Model Explanations}
-In the following we introduce the models obtained from the dataset derived in the previous section.  The relevant software description for obtaining these models is available in Appendix \ref{app:models} 
+The LSQ and SDG models obtained from the dataset derived in the previous section are available in 
+    \tabref{tab:model_coefficients}.
+The relevant software description for obtaining these models is available in Appendix \ref{app:models} 
+	The coefficients are determined through linear least squares regression \cite{lsq_method}.  
+\input{tables/model_coefficients.tex}
 \begin{enumerate}
+
+\item 	For 
+inverse LSQ
+methods, 
+To predict $Y$ from a given $X$, we use the quadratic formula
+\begin{align}
+Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} 
+\end{align}
+This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
+	\iffalse
 \item {\em Inverse LSQ (Quadratic) for Voltage Divider without ADC: }
 This model approximates the relationship between temperature ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
 	X = -0.000014990Y^2 + 0.005589496Y + 2.526066163 
 \end{align}
-	The coefficients are determined through linear least squares regression \cite{lsq_method}. The model predicts resistance ($Y$) from measured voltage ($X$) using the positive root of the quadratic equation: \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
+ The model predicts resistance ($Y$) from measured voltage ($X$) using the positive root of the quadratic equation: \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 This method is suitable for circuits where the voltage-resistance relationship can be approximated quadratically.
 
 \item {\em Inverse LSQ (Quadratic) for Wheatstone with ADC: }
@@ -224,7 +238,7 @@ This model approaches the Wheatstone bridge problem by fitting a quadratic equat
 \[ X = -0.000006744Y^2 + 0.004344843Y + 0.056019368 \]
 To predict Y from a given X, we use the quadratic formula:
 \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
-This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
+\fi
 
 \item {\em LSQ (Quadratic) for Wheatstone with ADC: }
 This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as $Y = aX^2 + bX + c$. Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
@@ -251,7 +265,6 @@ The Random Forest Regressor is an ensemble learning method that constructs a mul
  %   \label{tab:model_Coefficients}
  %   \input{tables/model_coefficients.tex}
 %\end{table}
-\input{tables/model_coefficients.tex}
 
 \section{Model Evaluation and Comparison}
 
