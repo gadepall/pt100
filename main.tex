@@ -218,13 +218,14 @@ The relevant software description for obtaining these models is available in App
 \begin{enumerate}
 
 \item 	For 
-inverse LSQ
+inverse LSQ and SDG
 methods, 
-To predict $Y$ from a given $X$, we use the quadratic formula
+to predict $Y$ from a given $X$, we use the quadratic formula
 \begin{align}
 Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} 
 \end{align}
 This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
+The SGD Regressor is a linear model trained with Stochastic Gradient Descent \cite{scikit-learn}. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
 	\iffalse
 \item {\em Inverse LSQ (Quadratic) for Voltage Divider without ADC: }
 This model approximates the relationship between temperature ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
@@ -240,8 +241,13 @@ To predict Y from a given X, we use the quadratic formula:
 \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 \fi
 
-\item {\em LSQ (Quadratic) for Wheatstone with ADC: }
-This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as $Y = aX^2 + bX + c$. Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
+\item {\em Standard LSQ and SDG: }
+This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as 
+\begin{align}
+Y = aX^2 + bX + c.
+\end{align}
+ Unlike the inverse models, this approach predicts temperature ($Y$) directly from the voltage ($X$) without requiring the use of the quadratic formula for inversion during the prediction phase.
+\iffalse
 \begin{itemize}
     \item \textbf{Fitted Equation:} $Y = aX^2 + bX + c$
     \item \textbf{Coefficients:} 
@@ -249,14 +255,13 @@ This model applies a standard quadratic fit directly mapping voltage to temperat
         a=190.226107678\\ b=173.380527679\\ c=-7.072446221
     \end{align*}
 \end{itemize}
+\fi
+%\item {\em Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC): }
 
-\item {\em Stochastic Gradient Descent (SGD) Regressor (Wheatstone with ADC): }
-The SGD Regressor is a linear model trained with Stochastic Gradient Descent \cite{scikit-learn}. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
+%\item {\em Inverse SGD Regressor (Wheatstone with ADC): }
+%This model utilizes Stochastic Gradient Descent to learn the inverse relationship, where voltage ($X$) is the target and temperature ($Y$) is the feature ($X = f(Y)$). Similar to the Inverse LSQ approach, the model learns to predict voltage from temperature. During inference, the temperature is derived by numerically inverting the learned function.
 
-\item {\em Inverse SGD Regressor (Wheatstone with ADC): }
-This model utilizes Stochastic Gradient Descent to learn the inverse relationship, where voltage ($X$) is the target and temperature ($Y$) is the feature ($X = f(Y)$). Similar to the Inverse LSQ approach, the model learns to predict voltage from temperature. During inference, the temperature is derived by numerically inverting the learned function.
-
-\item {\em Random Forest Regressor (Wheatstone with ADC): }
+\item {\em Random Forest Regressor: }
 The Random Forest Regressor is an ensemble learning method that constructs a multitude of decision trees during training \cite{scikit-learn}. For regression tasks, it averages the predictions of individual trees to produce a more stable and accurate prediction. This model was applied to predict temperature (Y) from voltage (X) directly, leveraging its ability to capture complex non-linear relationships without explicit feature engineering.
 \end{enumerate}
 %\begin{table}[H]
@@ -272,9 +277,9 @@ The Random Forest Regressor is an ensemble learning method that constructs a mul
 
 The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) scores for all evaluated models.
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
-    \caption{Model Performance Metrics}
+%    \caption{Model Performance Metrics}
     \label{tab:model_performance}
     \input{tables/performance}
 \end{table}
