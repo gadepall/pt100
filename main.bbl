@@ -88,4 +88,10 @@ A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie
 \emph{ADS111x Ultra-Small, Low-Power, I2C-Compatible, 860-SPS, 16-Bit ADCs},
   Texas Instruments, 2018, sBAS444D.
 
+\bibitem{MSER2}
+Y.~M. Jaradat, M.~A. Alia, M.~Z. Masoud, A.~A. Manasrah, I.~A. Jannoud, and
+  O.~Alheyasat, ``Beyond one-size-fits-all: Comparing and selecting regression
+  metrics for robust model assessment,'' in \emph{2025 12th International
+  Conference on Information Technology (ICIT)}, 2025, pp. 416--422.
+
 \end{thebibliography}
