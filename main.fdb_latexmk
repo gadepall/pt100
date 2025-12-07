@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1764605257.93016 "main.aux" "main.bbl" "main" 1764605264.7232 0
-  "./references.bib" 1764233133 5638 e726f14ad92e28a6177ad0bd6c384bd0 ""
+["bibtex main"] 1765116828.23594 "main.aux" "main.bbl" "main" 1765116832.78276 0
+  "./references.bib" 1765115979 6327 ff9defa6b23ca9b7376730af7f8c63f4 ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1764605264 8645 80908c8f70a0097eb54cf1481e05e488 "pdflatex"
+  "main.aux" 1765116832 8539 5a5d8b4446cca55d831ca22f53708495 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764605258.06722 "main.tex" "main.pdf" "main" 1764605264.72479 0
+["pdflatex"] 1765116828.3397 "main.tex" "main.pdf" "main" 1765116832.78434 0
   "/data/data/com.termux/files/home/texmf/tex/latex/tfrupee/tfrupee.sty" 1292385308 424 a47f1b52cb407ee9e00dd6837919bbbd ""
   "/data/data/com.termux/files/usr/share/texlive/2025.0/texmf-dist/web2c/texmf.cnf" 1757850567 42356 f62ae7f3325ea805428eb7f006288d9f ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -348,15 +348,15 @@
   "figs/combined_model_plot.png" 1764045829 74487 c7287c3afd1049ba0f6a2392a23fc630 ""
   "gvv-book.sty" 1764067691 2557 5f6743c9cad70a97ff45c57365b61b12 ""
   "gvv.sty" 1763017371 4336 97f65366116b856fe4227bfe43692b6c ""
-  "main.aux" 1764605264 8645 80908c8f70a0097eb54cf1481e05e488 "pdflatex"
-  "main.bbl" 1764605258 3944 dd38358a2943774f393fec86857eb114 "bibtex main"
-  "main.out" 1764605264 3956 2187678c7e9503d69ac53ad262942b0f "pdflatex"
-  "main.tex" 1764605247 20225 143d048f65744ba31f37786263fe55c6 ""
+  "main.aux" 1765116832 8539 5a5d8b4446cca55d831ca22f53708495 "pdflatex"
+  "main.bbl" 1765116828 4258 81375fa8e2eefea97bc4a26ad60d47ed "bibtex main"
+  "main.out" 1765116832 3956 37865fd8339ac104e4b648594f4a3383 "pdflatex"
+  "main.tex" 1765116821 20240 9238bbe0cd02b2c31f3daa7f1c2b42e2 ""
   "tables/ads1115_connections.tex" 1764241076 1545 d4dfc444882cc564e97a02139a6cca8d ""
   "tables/lcd_connections.tex" 1764144578 632 f5750d7cdaa1f3ce0427d62b0a5e1c02 ""
   "tables/list_table.tex" 1764234104 1236 cf0126994b65d795130b683dbe24c2fe ""
-  "tables/model_coefficients.tex" 1764603643 1651 b034d9fa02c282db8448b49e377b47cf ""
-  "tables/performance.tex" 1764585757 805 aa04281cbbdeaf6acf075fd96f2b1cc9 ""
+  "tables/model_coefficients.tex" 1765116722 1651 b034d9fa02c282db8448b49e377b47cf ""
+  "tables/performance.tex" 1764605632 840 f910f2a7c3783a2ed1109f7d578fcdf6 ""
   "tables/validation.tex" 1764045829 916 f850ff89064d3ba705891bb44298b579 ""
   (generated)
   "main.aux"
