@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Termux) (preloaded format=pdflatex 2025.11.8)  7 DEC 2025 19:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Termux) (preloaded format=pdflatex 2025.11.8)  10 DEC 2025 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2169,12 +2169,12 @@ ist/fonts/enc/dvips/base/8r.enc}
 
 
 ]) (./tables/ads1115_connections.tex)
-<figs/circuit_schematic.png, id=163, 1238.6275pt x 610.28pt>
+<figs/circuit_schematic.png, id=147, 1238.6275pt x 610.28pt>
 File: figs/circuit_schematic.png Graphic file (type png)
 <use figs/circuit_schematic.png>
 Package pdftex.def Info: figs/circuit_schematic.png  used on input line 135.
 (pdftex.def)             Requested size: 252.0pt x 124.15837pt.
-<figs/circuit_schematic_2.jpg, id=166, 566.61688pt x 282.05376pt>
+<figs/circuit_schematic_2.jpg, id=150, 566.61688pt x 282.05376pt>
 File: figs/circuit_schematic_2.jpg Graphic file (type jpg)
 <use figs/circuit_schematic_2.jpg>
 Package pdftex.def Info: figs/circuit_schematic_2.jpg  used on input line 142.
@@ -2205,7 +2205,7 @@ Underfull \hbox (badness 6792) in paragraph at lines 171--172
 on\OT1/txr/m/n/10 ,
  []
 
-<figs/autotrainer_schematic.png, id=181, 963.6pt x 722.7pt>
+<figs/autotrainer_schematic.png, id=165, 963.6pt x 722.7pt>
 File: figs/autotrainer_schematic.png Graphic file (type png)
 <use figs/autotrainer_schematic.png>
 Package pdftex.def Info: figs/autotrainer_schematic.png  used on input line 177
@@ -2233,26 +2233,29 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 (./tables/performance.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [3 <./figs/autotrainer_schematic.png>] (./tables/validation.tex)
-<figs/combined_model_plot.png, id=214, 430.0065pt x 328.8285pt>
+<figs/combined_model_plot.png, id=203, 430.0065pt x 328.8285pt>
 File: figs/combined_model_plot.png Graphic file (type png)
 <use figs/combined_model_plot.png>
-Package pdftex.def Info: figs/combined_model_plot.png  used on input line 324.
+Package pdftex.def Info: figs/combined_model_plot.png  used on input line 331.
 (pdftex.def)             Requested size: 201.60077pt x 154.16307pt.
 (./main.bbl
 
 ) (./AutoTrainer/output.tex
+(/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/tex/latex/listin
+gs/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/tex/latex/listin
+gs/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
 
 [4 <./figs/combined_model_plot.png>]
-(/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/tex/latex/listin
-gs/lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
-(/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/tex/latex/listin
-gs/lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 []\OT1/txr/m/n/10 Two win-dows will ap-pear: \OT1/txtt/m/n/10 'Voltage' \OT1/tx
 r/m/n/10 and
@@ -2263,11 +2266,11 @@ r/m/n/10 and
 gs/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-
-
 Underfull \hbox (badness 1533) in paragraph at lines 73--74
 \OT1/txr/m/n/10 Python slices are in [y1:y2, x1:x2] for-mat (rows, then
  []
+
+
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 100--101
@@ -2279,30 +2282,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 []\OT1/txtt/m/n/10 cv2.getStructuringElement(cv2.MORPH[]RECT,
  []
 
-
-
-[5])
-Underfull \hbox (badness 1968) in paragraph at lines 341--344
+)
+Underfull \hbox (badness 1968) in paragraph at lines 345--348
 []\OT1/txr/m/n/10 The fi-nal train-ing data is in the fol-low-ing text file
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 341--344
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 345--348
 [] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 347--354
+
+[5]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 351--358
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--362
+Underfull \hbox (badness 10000) in paragraph at lines 359--366
 []\OT1/txr/m/n/10 Upload the fol-low-ing code to the Ar-duino
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 355--362
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 359--366
 [] 
  []
 
@@ -2329,16 +2332,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 37865FD8339AC104E4B648594F4A3383;3956.
+(rerunfilecheck)             Checksum: A4E23422091C40723FA6F854DE12C881;2928.
  ) 
 Here is how much of TeX's memory you used:
- 57229 strings out of 473190
- 1396555 string characters out of 5701732
- 2301240 words of memory out of 5000000
- 79486 multiletter control sequences out of 15000+600000
+ 57219 strings out of 473190
+ 1396375 string characters out of 5701732
+ 2304610 words of memory out of 5000000
+ 79481 multiletter control sequences out of 15000+600000
  642116 words of font info for 215 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,18n,123p,1194b,1356s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,123p,1194b,1358s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/fonts/type1/pu
 blic/txfonts/rtxb.pfb></data/data/com.termux/files/usr/share/texlive/2025/texmf
 -dist/fonts/type1/public/txfonts/rtxi.pfb></data/data/com.termux/files/usr/shar
@@ -2354,10 +2357,10 @@ t.pfb></data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/fonts/type
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></data/data/com.termux/files/usr/share
 /texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></data/data/com.termu
 x/files/usr/share/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 404814 bytes).
+Output written on main.pdf (6 pages, 403814 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
