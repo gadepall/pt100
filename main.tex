@@ -5,7 +5,7 @@
 \usepackage{tabularx}
 \usepackage{placeins}
 \usepackage{cite}
-\usepackage{enumitem}
+%\usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -20,7 +20,7 @@
 
 %\usepackage{minted}
 %\usepackage{markdown}
-\usepackage[citations,hybrid]{markdown}
+%\usepackage[citations,hybrid]{markdown}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -46,11 +46,11 @@
 }
 \lstset{style=mystyle}
 
-\markdownSetup{
-  renderers = {
-    link = {\href{#3}{#1}}
-  }
-}
+%\markdownSetup{
+%  renderers = {
+%    link = {\href{#3}{#1}}
+%  }
+%}
 
 %\title{High-Precision Temperature Measurement for PT100: A Comparative Model Analysis}
 \title{An AI Based High-Precision Industrial Thermometer}
@@ -273,19 +273,19 @@ The Random Forest Regressor is an ensemble learning method that constructs a mul
 
 \section{Model Evaluation and Comparison}
 
-\subsection{Performance Metrics Summary}
+%\subsection{Performance Metrics Summary}
 
-The following table summarizes the Mean Squared Error (MSE) and R-squared (R2) scores for all evaluated models \cite{MSER2}.
-
+    \tabref{tab:model_performance}
+summarizes the Mean Squared Error (MSE) and R-squared (R2) scores for all evaluated models \cite{MSER2}.  Based on these metrics, 
+the LSQ (Quadratic) model for the Wheatstone bridge with ADC outperforms the rest.  Therefore,  the voltage divider method without external ADC is not suitable for our design.
+    \input{tables/performance}
 %\begin{table}[H]
 %    \centering
 %    \caption{Model Performance Metrics}
 %    \label{tab:model_performance}
-    \input{tables/performance}
 %\end{table}
-
-\subsection{Validation Data and Model Predictions (Subset)}
-
+%\subsection{Validation Data and Model Predictions (Subset)}
+    \iffalse
 The below table presents a small subset of test data, showing the actual and predicted temperature values for the Voltage Divider setup.
 
 \begin{table}[h!]
@@ -305,10 +305,19 @@ Voltage & Actual Temperature & Prediction \\
 \hline
 \end{tabular}
 \end{table}
+\fi
 
-The following table presents a small subset of the test data, showing the actual temperature values alongside the predictions from the Random Forest, Inverse LSQ, LSQ, SGD, and Inverse SGD Regressor models for the Wheatstone bridge setup with ADC.
-
-\begin{table}[h!]
+\tabref{tab:validation_data_subset}
+presents a small subset of the test data, showing the actual temperature values alongside the predictions from the Random Forest, Inverse LSQ, LSQ, SGD, and Inverse SGD Regressor models for the Wheatstone bridge setup with ADC.
+The corresponding graph is available in 
+\figref{fig:wheatstone_model_comparison}.
+%
+We thus conclude that the LSQ model is best at predicting the temperature.  Thouge the results are provided only for a small range of temperatures in 
+\tabref{tab:validation_data_subset}
+and
+\figref{fig:wheatstone_model_comparison}
+for brevity and visualization respectively,  the results hold true for all values of practical interest.
+\begin{table}[H]
 \centering
 \caption{Wheatstone Validation Data and Predictions}
 \label{tab:validation_data_subset}
@@ -316,19 +325,14 @@ The following table presents a small subset of the test data, showing the actual
 \input{tables/validation}%
 }
 \end{table}
-
-\subsection{Graphical Comparison of Wheatstone ADC Models}
-
+%\subsection{Graphical Comparison of Wheatstone ADC Models}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{figs/combined_model_plot.png}
     \caption{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5\degree$C to $56.5\degree$C}
     \label{fig:wheatstone_model_comparison}
 \end{figure}
-
-\subsection{Model Comparison and Conclusion}
-
-Comparing the performance metrics, the Least Squares (Quadratic) model for the Wheatstone bridge achieved the highest R-squared score of $0.999956$. It also achieved the lowest mean squared error of $0.009198$. Qualitatively, we can say that the \textbf{Least Squares Quadratic} model is the best at predicting the temperature.
+%\subsection{Model Comparison and Conclusion}
 % --- Bibliography Section ---
 \bibliographystyle{IEEEtran}
 \bibliography{references}
