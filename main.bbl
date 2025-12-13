@@ -94,4 +94,32 @@ Y.~M. Jaradat, M.~A. Alia, M.~Z. Masoud, A.~A. Manasrah, I.~A. Jannoud, and
   metrics for robust model assessment,'' in \emph{2025 12th International
   Conference on Information Technology (ICIT)}, 2025, pp. 416--422.
 
+\bibitem{opencv_library}
+A.~Kaehler and G.~Bradski, \emph{Learning OpenCV 3: Computer vision in C++ with
+  the OpenCV library}.\hskip 1em plus 0.5em minus 0.4em\relax " O'Reilly Media,
+  Inc.", 2016.
+
+\bibitem{easyocr}
+JaidedAI, ``Easyocr: Ready-to-use ocr with 80+ supported languages,''
+  \url{https://github.com/JaidedAI/EasyOCR}, 2020.
+
+\bibitem{droidcam}
+{Dev47Apps}, ``Droidcam: Use your phone as a webcam,''
+  \url{https://droidcam.app/obs/}, 2023, accessed: 2023-10-27.
+
+\bibitem{obsstudio}
+{OBS Project}, ``Open broadcaster software ({OBS}) studio,''
+  \url{https://obsproject.com/}, 2012, software.
+
+\bibitem{pytorch}
+\BIBentryALTinterwordspacing
+A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
+  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Kopf, E.~Yang, Z.~DeVito,
+  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and
+  S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning
+  library,'' in \emph{Advances in Neural Information Processing Systems},
+  vol.~32, 2019, pp. 8024--8035. [Online]. Available:
+  \url{http://papers.neurips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-learning-library.pdf}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

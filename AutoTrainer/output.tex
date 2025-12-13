@@ -1,5 +1,5 @@
 %%\section{Introduction}
-This script uses OpenCV and EasyOCR to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
+This script uses OpenCV\cite{opencv_library} and EasyOCR\cite{easyocr} to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
 
 It is designed to be calibrated for a specific, fixed-camera setup, such as this case where we are reading data from an LCD screen and a separate standard thermometer.
 
@@ -14,8 +14,8 @@ This script will work with any webcam that OpenCV can detect, including built-in
 
 For reference, the development and testing for this project were done using a virtual camera setup:
 \begin{itemize}
-    \item DroidCam: An application to use a smartphone as a high-quality webcam.
-    \item OBS Studio: This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
+    \item DroidCam\cite{droidcam}: An application to use a smartphone as a high-quality webcam.
+    \item OBS Studio\cite{obsstudio}: This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
 \end{itemize}
 
 Again, this specific setup is not required. It is just one example of how to provide a camera feed to the script. Any simple webcam will work perfectly fine.
@@ -31,7 +31,7 @@ Again, this specific setup is not required. It is just one example of how to pro
     \begin{lstlisting}[language=bash]
     pip install opencv-python easyocr numpy
     \end{lstlisting}
-    {Note:} \texttt{easyocr} will also install \texttt{PyTorch}, which is a large download and a required dependency.
+        {Note:} \texttt{easyocr} will also install \texttt{PyTorch\cite{pytorch}}, which is a large download and a required dependency.
 \end{itemize}
 
 \subsection{How to Run}\label{how-to-run}
