@@ -12,6 +12,7 @@
 \usepackage{xcolor}
 \usepackage{makecell}
 \usepackage{listings}
+\usepackage{url}
 \usepackage{xurl}
 \usepackage{hyperref}
 \usepackage{booktabs}
@@ -67,7 +68,7 @@
 
 \begin{abstract}
 	In this paper, we design and develop an industrial thermometer using the PT100 temperature sensor.   This is done by 
-analyzing the suitability of five machine learning (ML) techniques: a quadratic/inverse quadratic Least Squares (LSQ) model, a Stochastic/inverse Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor (RSR) by calibrating them with respect to a commercial pen thermometer.  The calibration process is also automated using Optical Character Recognition (OCR).
+analyzing the suitability of five machine learning (ML) techniques: a quadratic/inverse quadratic Least Squares (LSQ) model, a Stochastic/inverse Stochastic Gradient Descent (SGD) trained model, and a non-linear Random Forest Regressor (RFR) by calibrating them with respect to a commercial pen thermometer.  The calibration process is also automated using Optical Character Recognition (OCR).
 Through numerical results, we conclude that the LSQ model is superior to the other models and implement it using the Arduino framework on an Arduino UNO. 
 
 
@@ -98,7 +99,7 @@ A high-accuracy temperature measurement circuit using a Wheatstone bridge, an AD
     % --- Paper 4: Dynamic Properties Identification (237074979) ---
    % \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
 
-To address the above issues,   we compare the accuracy of three different regression approaches:  the LSQ quadratic, grounded in the theoretical Callendar-Van Dusen equation \cite{callendar_vd}, the SDG and RSR \cite{scikit-learn}.  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
+To address the above issues,   we compare the accuracy of three different regression approaches:  the LSQ quadratic, grounded in the theoretical Callendar-Van Dusen equation \cite{callendar_vd}, the SGD\cite{SGD} and RFR \cite{RFR} \cite{scikit-learn}.  The coefficients, mathematical formulations, and validation accuracy for each model are presented, demonstrating that machine learning approaches can augment traditional calibration methods.
 In the process, we  detail the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC.   
 We also automate the process of generating the dataset by using OCR to capture the readings of the analog thermometer through a mobile phone camera.
 The parameters for all the above ML techniques are finally hardcoded in the ATMEGA328P microcontroller, using the Arduino board.  Through numerical performance plots, we show that LSQ outperforms other ML techniques considered in this paper.
@@ -210,7 +211,7 @@ The experimental setup is available in
 %As mentioned earlier, we investigate Random Forest Regressor, Inverse Quadratic Least Squares (LSQ), Direct LSQ, and Stochastic Gradient Descent (SGD) approaches \cite{scikit-learn}.
 
 %\subsection{Model Explanations}
-The LSQ and SDG models obtained from the dataset derived in the previous section are available in 
+The LSQ and SGD models obtained from the dataset derived in the previous section are available in 
     \tabref{tab:model_coefficients}.
 The relevant software description for obtaining these models is available in Appendix \ref{app:models} 
 	The coefficients are determined through linear least squares regression \cite{lsq_method}.  
@@ -218,14 +219,14 @@ The relevant software description for obtaining these models is available in App
 \begin{enumerate}
 
 \item 	For 
-inverse LSQ and SDG
+inverse LSQ and SGD
 methods, 
 to predict $Y$ from a given $X$, we use the quadratic formula
 \begin{align}
 Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} 
 \end{align}
 This method aligns with the physical properties described by the Callendar-Van Dusen equation \cite{callendar_vd}.
-The SGD Regressor is a linear model trained with Stochastic Gradient Descent \cite{scikit-learn}. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
+        The SGD Regressor is a linear model trained with Stochastic Gradient Descent \cite{SGD}\cite{scikit-learn}. Due to its sensitivity to feature scaling, both the input features (X) and the target variable (Y) were scaled using StandardScaler before training. The predictions were then inverse-transformed back to the original scale for evaluation.
 	\iffalse
 \item {\em Inverse LSQ (Quadratic) for Voltage Divider without ADC: }
 This model approximates the relationship between temperature ($Y$) and voltage ($X$) from the voltage divider circuit as $X = aY^2 + bY + c$. The fitted equation for the Voltage Divider is\begin{align} 
@@ -241,7 +242,7 @@ To predict Y from a given X, we use the quadratic formula:
 \[ Y = \frac{{-b \pm \sqrt{{b^2 - 4a(c - X)}}}}{{2a}} \]
 \fi
 
-\item {\em Standard LSQ and SDG: }
+\item {\em Standard LSQ and SGD: }
 This model applies a standard quadratic fit directly mapping voltage to temperature, expressed as 
 \begin{align}
 Y = aX^2 + bX + c.
