@@ -31,7 +31,7 @@ T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems \&
 V.~Chudý and F.~Janíček, ``Identification and prediction of the dynamic
   properties of resistance temperature sensors,'' \emph{Sensors and Actuators
   A: Physical}, vol. 197, pp. 69--75, 2013. [Online]. Available:
-  \url{https://www.researchgate.net/publication/237074979_Identification_and_prediction_of_the_dynamic_properties_of_resistance_temperature_sensors}
+  \url{[https://doi.org/10.1098/rsta.1887.0006](https://doi.org/10.1098/rsta.1887.0006)}
 \BIBentrySTDinterwordspacing
 
 \bibitem{paper1}
@@ -46,7 +46,7 @@ C.~Liu, C.~Zhao, Y.~Wang, and H.~Wang, ``Machine-learning-based calibration of
 M.~Li, C.~Zeng, and Y.~Wang, ``Pt100 temperature measurement sensors design and
   transducer simulation,'' \emph{Journal of Physics: Conference Series}, vol.
   2897, no.~1, p. 012011, 2024. [Online]. Available:
-  \url{https://www.researchgate.net/publication/386448957_Pt100_temperature_measurement_sensors_design_and_transducer_simulation}
+  \url{[https://doi.org/10.1088/1742-6596/2897/1/012011](https://doi.org/10.1088/1742-6596/2897/1/012011)}
 \BIBentrySTDinterwordspacing
 
 \bibitem{paper2}
@@ -74,25 +74,31 @@ H.~Robbins and S.~Monro, ``{A Stochastic Approximation Method},'' \emph{The
 \BIBentryALTinterwordspacing
 L.~Breiman, ``Random forests,'' \emph{Machine Learning}, vol.~45, no.~1, pp.
   5--32, Oct 2001. [Online]. Available:
-  \url{https://doi.org/10.1023/A:1010933404324}
+  \url{[https://doi.org/10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)}
 \BIBentrySTDinterwordspacing
 
 \bibitem{scikit-learn}
+\BIBentryALTinterwordspacing
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
   D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn:
   Machine learning in python,'' \emph{Journal of Machine Learning Research},
-  vol.~12, pp. 2825--2830, 2011.
+  vol.~12, pp. 2825--2830, 2011. [Online]. Available:
+  \url{[http://jmlr.org/papers/v12/pedregosa11a.html](http://jmlr.org/papers/v12/pedregosa11a.html)}
+\BIBentrySTDinterwordspacing
 
 \bibitem{sensor_physics}
 J.~Fraden, \emph{Handbook of Modern Sensors: Physics, Designs, and
   Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016.
 
 \bibitem{wheatstone_ref}
+\BIBentryALTinterwordspacing
 T.~Mien and N.~Hien, ``Precision temperature measurement using wheatstone
   bridge,'' in \emph{2019 International Conference on System Science and
   Engineering (ICSSE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2019, pp.
-  145--149.
+  145--149. [Online]. Available:
+  \url{[https://ieeexplore.ieee.org/document/8823122](https://ieeexplore.ieee.org/document/8823122)}
+\BIBentrySTDinterwordspacing
 
 \bibitem{lsq_method}
 A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie
@@ -103,10 +109,14 @@ A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie
   Texas Instruments, 2018, sBAS444D.
 
 \bibitem{MSER2}
+\BIBentryALTinterwordspacing
 Y.~M. Jaradat, M.~A. Alia, M.~Z. Masoud, A.~A. Manasrah, I.~A. Jannoud, and
   O.~Alheyasat, ``Beyond one-size-fits-all: Comparing and selecting regression
   metrics for robust model assessment,'' in \emph{2025 12th International
-  Conference on Information Technology (ICIT)}, 2025, pp. 416--422.
+  Conference on Information Technology (ICIT)}, 2025, pp. 416--422. [Online].
+  Available:
+  \url{[https://doi.org/10.1109/ICIT64950.2025.11049268](https://doi.org/10.1109/ICIT64950.2025.11049268)}
+\BIBentrySTDinterwordspacing
 
 \bibitem{opencv_library}
 A.~Kaehler and G.~Bradski, \emph{Learning OpenCV 3: Computer vision in C++ with
