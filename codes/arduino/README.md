@@ -25,5 +25,5 @@ pio run −t nobuild −t upload
 ```
 
 ## Code Guide
-[Dataset Collection](https://github.com/gadepall/pt100)
+[Dataset Collection](https://github.com/gadepall/pt100)\
 [Inference of Temperature using Model](https://github.com/gadepall/pt100)
