@@ -1,9 +1,9 @@
 # Arduino Deployment Guide
 This guide outlines the steps to compile the project using PlatformIO and upload the firmware to the Arduino board.  
 ## Prerequisites
-PlatformIO: Ensure PlatformIO is installed to manage the project build.
-Arduino IDE: Required for the final upload step.
-Hardware: Arduino UNO connected to the computer via USB.  
+PlatformIO: Ensure PlatformIO is installed to manage the project build.\
+Arduino IDE: Required for the final upload step.\
+Hardware: Arduino UNO connected to the computer via USB.\  
 
 Project Initialization
 
