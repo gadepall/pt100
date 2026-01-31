@@ -151,8 +151,8 @@ The complete circuit schematic for the simple voltage divider setup is illustrat
 The Arduino-LCD connections are available in 
 \tabref{table:lcd_connections}.
 \input{tables/lcd_connections}
-The code for the Arduino and flashing instructions are available here
-\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/codes/arduino}
+The code for the Arduino, which reads the voltage across the PT-100 and displays it into the LCD and flashing instructions are available here
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/codes/arduino/datacollection}
 }}
 
 \section{Automated Training Using OCR}
@@ -166,7 +166,8 @@ The experimental setup is available in
 \begin{enumerate}
 	\item {\em Hardware:}
 \begin{itemize}
-    \item A webcam connected to your computer.
+    \item The arduino setup with the code from the previous section flashed.
+    \item A phone connected to your computer.
     \item {(Optional)} An NVIDIA GPU with CUDA installed. The script is pre-set to use \texttt{gpu=True} for much faster processing.
 \end{itemize}
 %
@@ -341,6 +342,10 @@ for brevity and visualization respectively,  the results hold true for all value
     \caption{Comparison of Random Forest, Inverse LSQ, LSQ, SGD and Inverse SGD Regressor predictions against actual test data for the Wheatstone bridge with ADC for temperatures between $53.5\degree$C to $56.5\degree$C}
     \label{fig:wheatstone_model_comparison}
 \end{figure}
+
+The code for the Arduino, which predicts the temperature from the voltage and flashing instructions are available here
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/codes/arduino/inference}
+}}
 %\subsection{Model Comparison and Conclusion}
 % --- Bibliography Section ---
 \bibliographystyle{IEEEtran}
