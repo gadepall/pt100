@@ -15,7 +15,7 @@ This script will work with any webcam that OpenCV can detect, including built-in
 For reference, the development and testing for this project were done using a virtual camera setup:
 \begin{itemize}
     \item DroidCam\cite{droidcam}: An application to use a smartphone as a high-quality webcam.
-    \item OBS Studio\cite{obsstudio}: This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
+    \item OBS Studio\cite{obsstudio}: This software (installed in the computer) was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
 \end{itemize}
 
 Again, this specific setup is not required. It is just one example of how to provide a camera feed to the script. Any simple webcam will work perfectly fine.
@@ -111,6 +111,17 @@ It is also preferred to hide the decimal point, either physically or by further 
 \end{itemize}
 
 \subsection{Output}\label{output}
+\begin{lstlisting}[caption={Directory Structure}]
+codes/
+|-- out.txt
+|-- img/
+|  |--voltage\_1.png
+|  |--temperature\_1.png
+|  |--voltage\_2.png
+|  |--temperature\_2.png
+|  |--voltage\_XX.png
+|  |--temperature\_XX.png
+\end{lstlisting}
 The script generates two types of output:
 \begin{itemize}
     \item \texttt{out.txt}: A text file that logs the detected readings. Every 15 frames, if text is found in both regions, a new line is added, formatted as: \texttt{[voltage\_reading] [temperature\_reading]}.
