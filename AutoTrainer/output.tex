@@ -95,12 +95,23 @@ pretemp = cv2.bitwise_not(closed_img)
 temp = cv2.GaussianBlur(pretemp, (17, 17), 0)
 \end{lstlisting}
 
-\paragraph{Key Values to Change:}\label{key-values-to-change}
-\begin{itemize}
-    \item \texttt{cv2.threshold(gray\_t,130,255, cv2.THRESH\_BINARY\_INV)}: The 130 is the threshold value. This is highly sensitive to lighting. Adjust it up or down until the text is clearly separated from the background in the \texttt{'Temperature'} window.
-    \item \texttt{cv2.getStructuringElement(cv2.MORPH\_RECT, (11,11))}: This is the kernel size for the \texttt{'closing'} operation, which helps connect broken parts of a number. You may need to make it larger or smaller.
-    \item \texttt{cv2.GaussianBlur(pretemp, (17,17), 0)}: This is the kernel size for the blur.
-\end{itemize}
+\paragraph{Key Values to Change}\label{key-values-to-change}
+
+Some of the values that need to be adjusted are given in the following table
+\begin{table}[!h]
+\centering
+\small
+\label{table:key_variables_table}
+\begin{tabularx}{\columnwidth}{|X|X|}
+\hline
+ \texttt{cv2.threshold(gray\_t,130, 255, cv2.THRESH\_BINARY\_INV)} & 130 is the threshold value. This is highly sensitive to lighting. Adjust it up or down until the text is clearly separated from the background in the \texttt{'Temperature'} window. \\
+\hline
+    \texttt{cv2.getStructuringEleme} \texttt{nt( cv2.MORPH\_RECT, (11,11))} & This is the kernel size for the \texttt{'closing'} operation, which helps connect broken parts of a number. You may need to make it larger or smaller. \\
+\hline
+ \texttt{cv2.GaussianBlur(pretemp, (17,17), 0)} & This is the kernel size for the blur. \\
+\hline
+\end{tabularx}
+\end{table}
 
 Look at the \texttt{Temperature} window while calibrating. Your goal is to make the numbers you want to read clear and solid, while removing as much background noise as possible.
 
@@ -111,7 +122,14 @@ It is also preferred to hide the decimal point, either physically or by further 
 \end{itemize}
 
 \subsection{Output}\label{output}
-\begin{lstlisting}[caption={Directory Structure}]
+The script generates two types of output:
+\begin{itemize}
+    \item \texttt{out.txt}: A text file that logs the detected readings. Every 15 frames, if text is found in both regions, a new line is added, formatted as: \texttt{[voltage\_reading] [temperature\_reading]}.
+    \item \texttt{img/} Directory: This folder saves \texttt{voltageXX.png} and \texttt{tempXX.png} images. These are the exact frames that were sent to EasyOCR. If you are getting bad readings, check these images to see why. They are perfect for debugging your calibration and fixing the readings.
+\end{itemize}
+
+The directory structure will look similar to this:
+\begin{lstlisting}
 codes/
 |-- out.txt
 |-- img/
@@ -122,11 +140,6 @@ codes/
 |  |--voltage\_XX.png
 |  |--temperature\_XX.png
 \end{lstlisting}
-The script generates two types of output:
-\begin{itemize}
-    \item \texttt{out.txt}: A text file that logs the detected readings. Every 15 frames, if text is found in both regions, a new line is added, formatted as: \texttt{[voltage\_reading] [temperature\_reading]}.
-    \item \texttt{img/} Directory: This folder saves \texttt{voltageXX.png} and \texttt{tempXX.png} images. These are the exact frames that were sent to EasyOCR. If you are getting bad readings, check these images to see why. They are perfect for debugging your calibration and fixing the readings.
-\end{itemize}
 
 \texttt{out.txt} is not perfect due to some instances of incorrect character recognition. The data was manually updated and is saved in \texttt{trainingdata.txt}.
 
