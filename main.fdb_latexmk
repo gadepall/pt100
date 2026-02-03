@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1769848165.94738 "main.aux" "main.bbl" "main" 1769848169.62381 0
+["bibtex main"] 1769849781.37561 "main.aux" "main.bbl" "main" 1769849785.5826 0
   "./references.bib" 1769771427 8784 6f4bbda62032f6fcb079414de953ea6f ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1769848169 7703 b6e79197bcee8a73a995c76c581e1bad "pdflatex"
+  "main.aux" 1769849785 7703 7288bc45b63e5ef74ca28e2c5e7e7225 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1769848166.05117 "main.tex" "main.pdf" "main" 1769848169.62509 0
+["pdflatex"] 1769849781.48949 "main.tex" "main.pdf" "main" 1769849785.58413 0
   "/data/data/com.termux/files/home/texmf/tex/latex/tfrupee/tfrupee.sty" 1292385308 424 a47f1b52cb407ee9e00dd6837919bbbd ""
   "/data/data/com.termux/files/usr/share/texlive/2025.0/texmf-dist/web2c/texmf.cnf" 1768516933 42356 f62ae7f3325ea805428eb7f006288d9f ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -328,17 +328,17 @@
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-dist/tex/latex/xurl/xurl.sty" 1641763214 4675 e4b8c405820368c2dfb03526e16d725a ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1769362099 5541431 dbc35105889154acf96b1aaf87b3de1a ""
   "/data/data/com.termux/files/usr/share/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1769362094 3636636 8fa6b054f8c9499e797746af45f1fa36 ""
-  "AutoTrainer/output.tex" 1769848159 8140 0ef6d9ff29827a91d739336953f777f2 ""
+  "AutoTrainer/output.tex" 1769849759 8134 90eddb06725883644328313f15366885 ""
   "figs/autotrainer_schematic.png" 1764062197 76030 9e153984efa2e034c5605e21a7a7f11d ""
   "figs/circuit_schematic.png" 1762266142 101032 d121382b24658f189be24161f874e951 ""
   "figs/circuit_schematic_2.jpg" 1764231517 85146 11f11e74c20c5baf4f49c8a010f42097 ""
   "figs/combined_model_plot.png" 1764045829 74487 c7287c3afd1049ba0f6a2392a23fc630 ""
   "gvv-book.sty" 1764067691 2557 5f6743c9cad70a97ff45c57365b61b12 ""
   "gvv.sty" 1763017371 4336 97f65366116b856fe4227bfe43692b6c ""
-  "main.aux" 1769848169 7703 b6e79197bcee8a73a995c76c581e1bad "pdflatex"
-  "main.bbl" 1769848166 6519 e7d4ada142151668111ba141a1de24bb "bibtex main"
-  "main.out" 1769848169 2744 f4680a1a74f7ae248f0ab53946009980 "pdflatex"
-  "main.tex" 1769847939 20050 31ef42d6c561f33fd9a84f188a2727ef ""
+  "main.aux" 1769849785 7703 7288bc45b63e5ef74ca28e2c5e7e7225 "pdflatex"
+  "main.bbl" 1769849781 6519 e7d4ada142151668111ba141a1de24bb "bibtex main"
+  "main.out" 1769849785 2744 f4680a1a74f7ae248f0ab53946009980 "pdflatex"
+  "main.tex" 1769849774 20045 d35014a1d302e828981387f16c14c1a6 ""
   "tables/ads1115_connections.tex" 1764241076 1545 d4dfc444882cc564e97a02139a6cca8d ""
   "tables/lcd_connections.tex" 1764144578 632 f5750d7cdaa1f3ce0427d62b0a5e1c02 ""
   "tables/list_table.tex" 1764234104 1236 cf0126994b65d795130b683dbe24c2fe ""
