@@ -16,7 +16,7 @@ Before you run the script, you'll need a few things set up.
 
 **Software:**
 * Python 3.x
-* The required Python libraries:  `opencv-python`[https://github.com/opencv/opencv], `easyocr`[@easyocr], and `numpy`[@numpy].
+* The required Python libraries:  [`opencv-python`](https://github.com/opencv/opencv), `easyocr`[@easyocr], and `numpy`[@numpy].
 
  ### **A Note on the Webcam (Optional)**
 This script will work with any webcam that OpenCV can detect, including built-in laptop cameras or standard USB webcams. The most important factor is a stable, well-positioned camera.
