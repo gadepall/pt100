@@ -25,5 +25,5 @@ pio run −t nobuild −t upload
 ```
 
 ## Code Guide
-[Dataset Collection](https://github.com/gadepall/pt100/codes/arduino/datacollection/code/code.ino)\
-[Inference of Temperature using Model](https://github.com/gadepall/pt100/codes/inference/code/code.ino)
+[Dataset Collection](https://github.com/gadepall/pt100/tree/main/codes/arduino/datacollection/code)\
+[Inference of Temperature using Model](https://github.com/gadepall/pt100/tree/main/codes/arduino/inference/code)
