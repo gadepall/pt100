@@ -1,3 +1,4 @@
+
 This script uses OpenCV and EasyOCR to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
 
 It is designed to be calibrated for a specific, fixed-camera setup, such as this case where we are reading data from an LCD screen and a separate standard thermometer.
@@ -128,12 +129,7 @@ In this case, the cropped voltage frame, is converted to grayscale before it is 
 
 The dataset is collected by simulating a **real-world thermal change (cooling cycle)** to capture paired temperature readings.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figs/autotrainer_schematic.png}
-    \caption{Auto-Trainer representation}
-    \label{fig:autotrainer_schematic}
-\end{figure}
+<img width="1252" height="424" alt="image" src="https://github.com/user-attachments/assets/4306808d-0d1f-4563-ad28-ff0352d24cd1" />
 
 1. **Setup:**  
    - Place both the PT100 probe and the reference thermometer inside an electric kettle, submerged in water.
