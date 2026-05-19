@@ -1,7 +1,8 @@
+
 # Automated OCR Training Pipeline
  
 A Python-based pipeline that uses a webcam feed to automatically capture and log voltage and temperature readings from physical displays, building a dataset for OCR model training.
- 
+<img width="1252" height="424" alt="image" src="https://github.com/user-attachments/assets/4db5ebca-a4bb-4b6c-b582-2932fa03fd34" />
 ---
  
 ## Prerequisites
