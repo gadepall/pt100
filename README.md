@@ -47,7 +47,7 @@ Tested on the Wheatstone bridge + ADS1115 setup:
 The **LSQ Quadratic model on the Wheatstone bridge** is the clear winner. The Random Forest performs worst due to its step-function interpolation being poorly suited to continuous analog data.
 
 Model implementation and evaluation notebook: [`codes/models/PT100_models.ipynb`](https://github.com/gadepall/pt100/blob/main/codes/models/PT100_models.ipynb)  
-Temperature inference Arduino code: [`codes/arduino/inference`](https://github.com/gadepall/pt100/codes/arduino/inference)
+Temperature inference Arduino code: [`codes/arduino/inference`](https://github.com/gadepall/pt100/tree/main/codes/arduino/inference/code)
 
 ## Data Collection
 
