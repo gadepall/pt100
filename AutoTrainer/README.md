@@ -72,11 +72,7 @@ codes/
  
 > `out.txt` may contain some incorrect readings due to OCR errors. In such cases, manually correct the data and save it as `trainingdata.txt`.
  
-The final training data is available at:
- 
-```
-https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt
-```
+The final training data is available [here](https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt)
  
 ---
  
