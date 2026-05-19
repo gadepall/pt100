@@ -1,9 +1,0 @@
-*.aux
-*.log
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.out
-*.lua
-*.nvimlog
