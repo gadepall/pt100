@@ -47,7 +47,7 @@
     tabsize=2
 }
 \lstset{style=mystyle}
-
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
 %\markdownSetup{
 %  renderers = {
 %    link = {\href{#3}{#1}}
@@ -152,12 +152,113 @@ The practical requirements and experimental setup are listed below
 \end{itemize}
 \end{enumerate}
 
-% \begin{figure}[H]
+%\begin{figure}[H]
     % \centering
     % \includegraphics[width=\columnwidth]{figs/autotrainer_schematic.png}
     % \caption{Auto-Trainer representation}
     % \label{fig:autotrainer_schematic}
 % \end{figure}
+\begin{figure}[H]
+\centering
+\resizebox{\columnwidth}{!}{
+\begin{tikzpicture}[
+    font=\small,
+    >=Stealth,
+    node distance=0.75cm and 1.2cm,
+    mainblock/.style={
+        draw=black, fill=white,
+        rectangle,
+        minimum width=2.5cm,
+        minimum height=1cm,
+        line width=0.7pt,
+        align=center
+    },
+    groupbox/.style={
+        draw=black!70,
+        dashed,
+        rectangle,
+        rounded corners=3pt,
+        line width=0.65pt,
+        inner sep=8pt
+    },
+    arrow/.style={->, line width=0.7pt},
+    lblstyle/.style={
+        font=\scriptsize\itshape,
+        align=center
+    }
+]
+
+%----- Column 1: Measurement Source -----
+\node[mainblock] (hotwater) {Hot Water\\Container};
+\node[mainblock, below=0.8cm of hotwater] (tempdevice) {Temperature Probe\\with Digital Display};
+
+%----- Column 2: Image Capture (top) + Display Unit (bottom) -----
+\node[mainblock, right=2.2cm of hotwater] (camera) {Smartphone\\Camera};
+\node[mainblock, below=0.8cm of camera] (lcd) {LCD Voltage\\Display};
+
+%----- Column 3: Processing & Output -----
+\node[mainblock, right=2.0cm of camera] (ocr) {Computer\\(EasyOCR)};
+\node[mainblock, below=0.8cm of ocr] (output) {Extracted\\Readings};
+
+%----- Background Groups -----
+\begin{scope}[on background layer]
+  % Measurement Source box
+  \node[groupbox,
+        fit=(hotwater)(tempdevice),
+        label={[font=\scriptsize\bfseries]above:Measurement Source}] (grp1) {};
+
+  % Image Capture box (camera only, top half)
+  \node[groupbox,
+        fit=(camera),
+        label={[font=\scriptsize\bfseries]above:Image Capture}] (grp2) {};
+
+  % Display Unit box (lcd only, bottom half)
+  \node[groupbox,
+        fit=(lcd),
+        label={[font=\scriptsize\bfseries]below:Display Unit}] (grp3) {};
+
+  % Processing & Output box
+  \node[groupbox,
+        fit=(ocr)(output),
+        label={[font=\scriptsize\bfseries]above:Processing \& Output}] (grp4) {};
+\end{scope}
+
+%----- Connections -----
+
+% Hot Water -> Temperature Probe (downward, labelled "temperature")
+\draw[arrow]
+    (hotwater) --
+    node[right, lblstyle]{temperature}
+    (tempdevice);
+
+% Temperature Probe -> Smartphone Camera (zig-zag: right, then up, avoiding LCD block)
+\draw[arrow]
+    (tempdevice.east) --
+    node[below, lblstyle]{display}
+    ++(1.5,0)
+    |- (camera.west);
+
+% LCD Voltage Display -> Smartphone Camera (upward)
+\draw[arrow]
+    (lcd.north) -- (camera.south);
+
+% Smartphone Camera -> Computer/EasyOCR (rightward, labelled "video frames")
+\draw[arrow]
+    (camera) --
+    node[above, lblstyle]{video\\frames}
+    (ocr);
+
+% Computer -> Extracted Readings (downward, labelled "parsed text")
+\draw[arrow]
+    (ocr) --
+    node[right, lblstyle]{parsed\\text}
+    (output);
+
+\end{tikzpicture}
+}
+\caption{Block diagram of the experimental setup}
+\label{fig:setup}
+\end{figure}
 
 \subsection{Data Collection Methodology}\label{data-collection-methodology}
 \begin{enumerate}
