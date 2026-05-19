@@ -30,7 +30,7 @@ pip install opencv-python easyocr numpy
  
 1. Navigate to the project directory and run the script:
    ```
-   https://github.com/gadepall/pt100/AutoTrainer/
+   https://github.com/gadepall/pt100/tree/main/AutoTrainer/
    ```
  
    ```bash
