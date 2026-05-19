@@ -128,8 +128,17 @@ Two main analog front-ends were tested to evaluate the trade-off between circuit
 	The complete circuit schematic for the simple voltage divider setup is illustrated in \figref{fig:voltage_divider_schematic}.
 
 \end{itemize}
+<<<<<<< HEAD
 The Arduino-LCD connections are available in \tabref{table:lcd_connections}. 
 The code for the Arduino, which reads the voltage across the PT-100 and displays it on the LCD, alongside flashing instructions, is provided in our repository\footnote{Arduino Data Collection Code: \url{https://github.com/gadepall/pt100/tree/main/codes/arduino/datacollection}}.
+=======
+The Arduino-LCD connections are available in 
+\tabref{table:lcd_connections}.
+\input{tables/lcd_connections}
+The code for the Arduino, which reads the voltage across the PT-100 and displays it into the LCD and flashing instructions is available here
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/tree/main/codes/arduino/datacollection}
+}}
+>>>>>>> main
 
 \section{Automated Training Using OCR}
 %\markdownInput{AutoTrainer/README.md}
@@ -441,8 +450,19 @@ for brevity and visualization respectively,  the results hold true for all value
     \label{fig:wheatstone_model_comparison}
 \end{figure}
 
+<<<<<<< HEAD
 The code for the Arduino, which predicts the temperature from the voltage and flashing instructions are available in the repository\footnote{Temperature Prediction: \url{https://github.com/gadepall/pt100/codes/arduino/inference}}.
 
+=======
+The code for the Arduino, which predicts the temperature from the voltage and flashing instructions are available here
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/tree/main/codes/arduino/inference}
+}}
+%\subsection{Model Comparison and Conclusion}
+% --- Bibliography Section ---
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+%\newpage
+>>>>>>> main
 \appendices
 
 \section{Hardware Configuration and Schematics}
