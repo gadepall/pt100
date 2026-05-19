@@ -131,6 +131,8 @@ temp = cv2.GaussianBlur(pretemp, (17, 17), 0)
 **Key values to adjust:**
  
 
-ParameterDescription`cv2.threshold(gray_t, 130, 255, cv2.THRESH_BINARY_INV)``130` is the threshold value — highly sensitive to lighting. Adjust up or down until the text is clearly separated from the background in the `Temperature` window.`cv2.getStructuringElement(cv2.MORPH_RECT, (11, 11))`Kernel size for the morphological closing operation, which connects broken parts of a digit. Increase or decrease as needed.`cv2.GaussianBlur(pretemp, (17, 17), 0)`Kernel size for the Gaussian blur.
+`cv2.threshold(gray_t, 130, 255, cv2.THRESH_BINARY_INV)` 130 is the threshold value — highly sensitive to lighting. Adjust up or down until the text is clearly separated from the background in the `Temperature` window.
+`cv2.getStructuringElement(cv2.MORPH_RECT, (11, 11))` Kernel size for the morphological closing operation, which connects broken parts of a digit. Increase or decrease as needed.
+`cv2.GaussianBlur(pretemp, (17, 17), 0)` Kernel size for the Gaussian blur.
 
 While calibrating, watch the **`Temperature`** window. The goal is to make the digits clear and solid while removing as much background noise as possible. It is also recommended to hide the decimal point, either physically or through additional image processing. It can also be done by displaying the voltage in millivolts.
