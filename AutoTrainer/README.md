@@ -23,9 +23,9 @@ This script will work with any webcam that OpenCV can detect, including built-in
 
 For reference, the development and testing for this project were done using a virtual camera setup:
 
-* DroidCam[@droidcam]: An application to use a smartphone as a high-quality webcam.
+* [DroidCam](https://droidcam.app): An application to use a smartphone as a high-quality webcam.
 
-* OBS Studio[@obsstudio]: This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
+* [OBS Studio](https://obsproject.com): This software was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
 
 Again, this specific setup is not required. It is just one example of how to provide a camera feed to the script. Any simple webcam will work perfectly fine.
 
@@ -42,7 +42,7 @@ Again, this specific setup is not required. It is just one example of how to pro
     ```bash
     pip install opencv-python easyocr numpy
     ```
-    > **Note:** easyocr[@easyocr] will also install PyTorch[@pytorch], which is a large download and a required dependency.
+    > **Note:** [easyocr](https://github.com/jaidedai/easyocr) will also install [PyTorch](https://pytorch.org), which is a large download and a required dependency.
 
 ##  **How to Run**
 
