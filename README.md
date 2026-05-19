@@ -1,44 +1,56 @@
-# PT100 Temperature Sensor with Arduino: A Comparative Model Analysis
+# AI-Based High-Precision Industrial Thermometer (PT100)
 
-The idea of this project is to build an accurate digital thermometer using a PT100 RTD (Resistance Temperature Detector). This repository explores two different hardware and software approaches to this problem.
+A cost-effective PT100 sensor calibration system using OCR-based automated data collection and machine learning regression models — no thermal chamber required.
+
+## Overview
+
+PT100 RTDs are standard for industrial precision thermometry but traditionally require expensive calibration hardware. This project replaces that with:
+
+1. An **OCR pipeline** that automatically pairs analog thermometer readings with sensor voltages during a natural cooling cycle (see [`AutoTrainer/README.md`](AutoTrainer/README.md)).
+2. **ML regression models** trained on that data to predict temperature from voltage.
 
 ## Hardware
-* PT-100 RTD Sensor
-* Arduino Uno
-* ADS1115 16-bit ADC (for Exp. 1)
-* 100 ohms Precision Resistor
-* Two 4 kilo ohms Resistors (for Exp. 1)
-* JHD 162A (16x2) Parallel LCD
-* 22k ohm Potentiometer
-* Breadboard & Jumper Wires
 
-## Experiment 1: Wheatstone Bridge + ADS1115
-This experiment aims for maximum hardware precision.
+Two analog front-ends were evaluated:
 
-* **Circuit:** A Wheatstone bridge (100$\Omega$ resistor and PT100 balanced by two 4k$\Omega$ resistors) is used.
-* **ADC:** The high-precision ADS1115 16-bit ADC measures the differential voltage from the bridge.
-* **Model:** A quadratic Least Squares model of the form `V = aT^2 + bT + c` is trained (`lsq.py`).
-* **Data:** This uses the low-voltage (`~0.2-0.4V`) dataset (`data_exp1/`).
+| Setup | ADC | Notes |
+|---|---|---|
+| Wheatstone Bridge + ADS1115 | 16-bit external | High precision, differential measurement |
+| Simple Voltage Divider | 10-bit internal (Arduino) | Lower cost, simpler circuit |
 
-![Circuit Schematic](figs/circuit_schematic.png)
-![Training Data Plot](figs/training_data.png)
+**Common components:** Arduino Uno, PT100 RTD, JHD 162A LCD, 22kΩ potentiometer, breadboard and jumper wires.
 
-## Experiment 2: Internal ADC + Direct Models
-This experiment tests simpler hardware and direct `T = f(V)` models.
+**Wheatstone bridge additions:** ADS1115 ADC, 100Ω precision resistor, two 4kΩ resistors.
 
-* **Circuit:** A simpler circuit (e.g., voltage divider) connected to the Arduino's analog input.
-* **ADC:** The Arduino's built-in 10-bit ADC (`analogRead()`) is used.
-* **Models:**
-    1.  **SGD:** A machine learning pipeline using `PolynomialFeatures`, `StandardScaler`, and `SGDRegressor` (`model_trainer.py`).
-    2.  **Inverse LSQ:** A simple quadratic model (`T = aV^2 + bV + c`) is trained for direct comparison.
-* **Data:** This uses the high-voltage (`~2.6-2.9V`) dataset (`data_exp2/`).
+Full pin connection tables and circuit schematics are in the paper (Appendix A). Arduino data collection code is [here](https://github.com/gadepall/pt100/tree/main/codes/arduino/datacollection).
 
-## Combined Model Comparison
-To visualize all three models, the data from Experiment 1 is artificially scaled to match the voltage range of Experiment 2. The plot shows the data and all three model predictions.
+## Models
 
-![Combined Plot](figs/combined_model_plot.png)
+Three models were evaluated, all fitting a quadratic curve motivated by the Callendar-Van Dusen equation (R(t) = R₀(1 + At + Bt²)):
 
-## Conclusion
-Comparing the models, the **Inverse LSQ model (`T = f(V)`)** from Experiment 2 is the best compromise. It provides accuracy nearly identical to the complex SGD pipeline but is far simpler to train and implement on the microcontroller.
+- **LSQ (Quadratic)** — physically-informed least squares; forward model `T = aV² + bV + c`
+- **SGD Regressor** — stochastic gradient descent on a polynomial feature expansion
+- **Random Forest Regressor** — ensemble tree-based model
 
-However, the **hardware from Experiment 1** (Wheatstone bridge + ADS1115) is the most robust and precise. The optimal system would combine the superior hardware from Exp. 1 with the simple and direct Inverse LSQ modeling approach from Exp. 2.
+## Results
+
+Tested on the Wheatstone bridge + ADS1115 setup:
+
+| Model | MSE | R² |
+|---|---|---|
+| LSQ Quadratic | **0.009198** | **0.999956** |
+| Inverse LSQ | 0.016221 | 0.999922 |
+| SGD Regressor | 0.030477 | 0.999854 |
+| Random Forest | 1.161318 | 0.994451 |
+| Voltage Divider (no ADC) | 0.6612 | 0.9977 |
+
+The **LSQ Quadratic model on the Wheatstone bridge** is the clear winner. The Random Forest performs worst due to its step-function interpolation being poorly suited to continuous analog data.
+
+Model implementation and evaluation notebook: [`codes/models/PT100_models.ipynb`](https://github.com/gadepall/pt100/blob/main/codes/models/PT100_models.ipynb)  
+Temperature inference Arduino code: [`codes/arduino/inference`](https://github.com/gadepall/pt100/codes/arduino/inference)
+
+## Data Collection
+
+See **[`AutoTrainer/README.md`](AutoTrainer/README.md)** for the full OCR pipeline setup and calibration guide.
+
+The final training dataset: [`AutoTrainer/trainingdata.txt`](https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt)
