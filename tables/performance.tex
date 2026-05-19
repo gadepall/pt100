@@ -1,0 +1,24 @@
+\begin{table}[H]
+    \centering
+    % |X|c|c| -> First column wraps text, others are centered
+    \begin{tabularx}{\columnwidth}{|X|c|c|} 
+        \hline
+        \textbf{Model} & \textbf{MSE} & \textbf{R2} \\
+        \hline
+        1. Inverse LSQ (Volt. Div w/o ADC) & 0.6612 & 0.9977 \\
+        \hline
+        2. Inverse LSQ (Wheatstone w/ ADC) & 0.016221 & 0.999922 \\
+        \hline
+        3. LSQ (Wheatstone w/ ADC) & 0.009198 & 0.999956 \\
+        \hline
+        4. SGD Regressor (Wheatstone w/ ADC) & 0.030477 & 0.999854 \\
+        \hline
+        5. Inverse SGD (Wheatstone w/ ADC) & 0.016221 & 0.999922 \\
+        \hline
+        6. Random Forest (Wheatstone w/ ADC) & 1.161318 & 0.994451 \\
+        \hline
+    \end{tabularx}
+    \caption{Low MSE and high R2 is desirable}
+    \label{tab:model_performance}
+\end{table}
+%\FloatBarrier

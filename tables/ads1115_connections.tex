@@ -1,0 +1,49 @@
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|c|l|}
+    \hline
+    \textbf{ADS1115 Pin} & \textbf{Arduino Pin} & \textbf{Purpose} \\
+    \hline
+    VDD & 5V & Power Supply \\
+    \hline
+    GND & GND & Common Ground \\
+    \hline
+    SCL & A5 (SCL) & I2C Clock Line \\
+    \hline
+    SDA & A4 (SDA) & I2C Data Line \\
+    \hline
+    A0 & \makecell{Input from Voltage Divider Node \\ (between PT100 and R\_REF)} &  Reading Voltage\\
+    \hline
+    A1 & \makecell{Junction between the two \\4k$\Omega$ resistors} & \makecell{Reference for \\differential reading} \\
+    \hline
+\end{tabular}
+}
+%=======
+%
+%\begin{table}[h]
+%    \centering
+%    \caption{ADS1115 Connections}
+%    % \columnwidth keeps it inside the margin.
+%    % 'X' columns automatically wrap long text.
+%    % 'c' keeps the short pin names centered.
+%    \begin{tabularx}{\columnwidth}{|c|X|X|}
+%        \hline
+%        \textbf{ADS1115 Pin} & \textbf{Arduino Pin} & \textbf{Purpose} \\
+%        \hline
+%        VDD & 5V & Power Supply \\
+%        \hline
+%        GND & GND & Common Ground \\
+%        \hline
+%        SCL & A5 (SCL) & I2C Clock Line \\
+%        \hline
+%        SDA & A4 (SDA) & I2C Data Line \\
+%        \hline
+%        A0 & Input from Voltage Divider Node (between PT100 and R\_REF)  & Reading Voltage\\
+%        \hline
+%        A1 & Junction between the two 4k$\Omega$ resistors & Reference for differential reading \\
+%        \hline
+%    \end{tabularx}
+\caption{ADS1115 Connections}
+\label{table:ads1115_connections}
+\end{table}
