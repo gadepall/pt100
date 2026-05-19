@@ -26,124 +26,62 @@ T.~Bartelt, \emph{Industrial Control Electronics: Devices, Systems \&
   Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Delmar Cengage
   Learning, 2005.
 
-\bibitem{paper4}
-\BIBentryALTinterwordspacing
-V.~Chudý and F.~Janíček, ``Identification and prediction of the dynamic
-  properties of resistance temperature sensors,'' \emph{Sensors and Actuators
-  A: Physical}, vol. 197, pp. 69--75, 2013. [Online]. Available:
-  \url{[https://doi.org/10.1098/rsta.1887.0006](https://doi.org/10.1098/rsta.1887.0006)}
-\BIBentrySTDinterwordspacing
-
-\bibitem{paper1}
-\BIBentryALTinterwordspacing
-C.~Liu, C.~Zhao, Y.~Wang, and H.~Wang, ``Machine-learning-based calibration of
-  temperature sensors,'' \emph{Sensors}, vol.~23, no.~17, p. 7347, 2023.
-  [Online]. Available: \url{https://doi.org/10.3390/s23177347}
-\BIBentrySTDinterwordspacing
-
-\bibitem{paper3}
-\BIBentryALTinterwordspacing
-M.~Li, C.~Zeng, and Y.~Wang, ``Pt100 temperature measurement sensors design and
-  transducer simulation,'' \emph{Journal of Physics: Conference Series}, vol.
-  2897, no.~1, p. 012011, 2024. [Online]. Available:
-  \url{[https://doi.org/10.1088/1742-6596/2897/1/012011](https://doi.org/10.1088/1742-6596/2897/1/012011)}
-\BIBentrySTDinterwordspacing
-
 \bibitem{paper2}
-\BIBentryALTinterwordspacing
 A.~Samuk and M.~{\c{C}}ak{\i}r, ``New circuit design and implementation for
   temperature measurement based on pt100 sensor,'' \emph{ResearchGate}, 2023.
-  [Online]. Available:
-  \url{https://www.researchgate.net/publication/376796536_New_Circuit_Design_and_Implementation_for_Temperature_Measurement_based_on_PT100_Sensor}
-\BIBentrySTDinterwordspacing
 
-\bibitem{callendar_vd}
-H.~L. Callendar, ``On the practical measurement of temperature: Experiments
-  made at the cavendish laboratory, cambridge,'' \emph{Philosophical
-  Transactions of the Royal Society of London. A}, vol. 178, pp. 161--230,
-  1887.
+\bibitem{paper3}
+M.~Li, C.~Zeng, and Y.~Wang, ``Pt100 temperature measurement sensors design and
+  transducer simulation,'' \emph{Journal of Physics: Conference Series}, vol.
+  2897, no.~1, p. 012011, 2024.
 
-\bibitem{SGD}
-\BIBentryALTinterwordspacing
-H.~Robbins and S.~Monro, ``{A Stochastic Approximation Method},'' \emph{The
-  Annals of Mathematical Statistics}, vol.~22, no.~3, pp. 400 -- 407, 1951.
-  [Online]. Available: \url{https://doi.org/10.1214/aoms/1177729586}
-\BIBentrySTDinterwordspacing
-
-\bibitem{RFR}
-\BIBentryALTinterwordspacing
-L.~Breiman, ``Random forests,'' \emph{Machine Learning}, vol.~45, no.~1, pp.
-  5--32, Oct 2001. [Online]. Available:
-  \url{[https://doi.org/10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)}
-\BIBentrySTDinterwordspacing
-
-\bibitem{scikit-learn}
-\BIBentryALTinterwordspacing
-F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
-  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
-  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn:
-  Machine learning in python,'' \emph{Journal of Machine Learning Research},
-  vol.~12, pp. 2825--2830, 2011. [Online]. Available:
-  \url{[http://jmlr.org/papers/v12/pedregosa11a.html](http://jmlr.org/papers/v12/pedregosa11a.html)}
-\BIBentrySTDinterwordspacing
+\bibitem{paper1}
+C.~Liu, C.~Zhao, Y.~Wang, and H.~Wang, ``Machine-learning-based calibration of
+  temperature sensors,'' \emph{Sensors}, vol.~23, no.~17, p. 7347, 2023.
 
 \bibitem{sensor_physics}
 J.~Fraden, \emph{Handbook of Modern Sensors: Physics, Designs, and
   Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2016.
 
+\bibitem{callendar_vd}
+H.~L. Callendar, ``On the practical measurement of temperature,''
+  \emph{Philosophical Transactions of the Royal Society of London. A}, vol.
+  178, pp. 161--230, 1887.
+
 \bibitem{wheatstone_ref}
-\BIBentryALTinterwordspacing
 T.~Mien and N.~Hien, ``Precision temperature measurement using wheatstone
   bridge,'' in \emph{2019 International Conference on System Science and
   Engineering (ICSSE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2019, pp.
-  145--149. [Online]. Available:
-  \url{[https://ieeexplore.ieee.org/document/8823122](https://ieeexplore.ieee.org/document/8823122)}
-\BIBentrySTDinterwordspacing
-
-\bibitem{lsq_method}
-A.~M. Legendre, ``The method of least squares,'' \emph{Memoires de l'Academie
-  Royale des Sciences}, 1805.
+  145--149.
 
 \bibitem{ads1115_datasheet}
 \emph{ADS111x Ultra-Small, Low-Power, I2C-Compatible, 860-SPS, 16-Bit ADCs},
   Texas Instruments, 2018, sBAS444D.
 
+\bibitem{SGD}
+H.~Robbins and S.~Monro, ``{A Stochastic Approximation Method},'' \emph{The
+  Annals of Mathematical Statistics}, vol.~22, pp. 400 -- 407, 1951.
+
+\bibitem{RFR}
+L.~Breiman, ``Random forests,'' \emph{Machine Learning}, vol.~45, no.~1, pp.
+  5--32, 2001.
+
+\bibitem{scikit-learn}
+F.~e.~a. Pedregosa, ``Scikit-learn: Machine learning in python,'' \emph{Journal
+  of Machine Learning Research}, vol.~12, pp. 2825--2830, 2011.
+
 \bibitem{MSER2}
-\BIBentryALTinterwordspacing
-Y.~M. Jaradat, M.~A. Alia, M.~Z. Masoud, A.~A. Manasrah, I.~A. Jannoud, and
-  O.~Alheyasat, ``Beyond one-size-fits-all: Comparing and selecting regression
-  metrics for robust model assessment,'' in \emph{2025 12th International
-  Conference on Information Technology (ICIT)}, 2025, pp. 416--422. [Online].
-  Available:
-  \url{[https://doi.org/10.1109/ICIT64950.2025.11049268](https://doi.org/10.1109/ICIT64950.2025.11049268)}
-\BIBentrySTDinterwordspacing
-
-\bibitem{droidcam}
-{Dev47Apps}, ``Droidcam: Use your phone as a webcam,''
-  \url{https://droidcam.app/obs/}, 2023, accessed: 2023-10-27.
-
-\bibitem{obsstudio}
-{OBS Project}, ``Open broadcaster software ({OBS}) studio,''
-  \url{https://obsproject.com/}, 2012, software.
+Y.~M. e.~a. Jaradat, ``Beyond one-size-fits-all: Comparing and selecting
+  regression metrics for robust model assessment,'' in \emph{2025 12th
+  International Conference on Information Technology (ICIT)}, 2025, pp.
+  416--422.
 
 \bibitem{pytorch}
-\BIBentryALTinterwordspacing
-A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
-  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Kopf, E.~Yang, Z.~DeVito,
-  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and
-  S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning
+A.~e.~a. Paszke, ``Pytorch: An imperative style, high-performance deep learning
   library,'' in \emph{Advances in Neural Information Processing Systems},
-  vol.~32, 2019, pp. 8024--8035. [Online]. Available:
-  \url{http://papers.neurips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-learning-library.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{opencv_library}
-A.~Kaehler and G.~Bradski, \emph{Learning OpenCV 3: Computer vision in C++ with
-  the OpenCV library}.\hskip 1em plus 0.5em minus 0.4em\relax " O'Reilly Media,
-  Inc.", 2016.
+  vol.~32, 2019, pp. 8024--8035.
 
 \bibitem{easyocr}
-JaidedAI, ``Easyocr: Ready-to-use ocr with 80+ supported languages,''
-  \url{https://github.com/JaidedAI/EasyOCR}, 2020.
+JaidedAI, ``Easyocr: Ready-to-use ocr with 80+ supported languages,'' 2020.
 
 \end{thebibliography}

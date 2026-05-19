@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2025/Termux)
+This is BibTeX, Version 0.99e (TeX Live 2026)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: IEEEtran.bst
@@ -8,49 +8,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
+Warning--I didn't find a database entry for "lsq_method"
+Warning--I didn't find a database entry for "droidcam"
+Warning--I didn't find a database entry for "obsstudio"
+Warning--I didn't find a database entry for "opencv_library"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 19 entries,
+You've used 14 entries,
             4087 wiz_defined-function locations,
-            956 strings with 11546 characters,
-and the built_in function-call counts, 13336 in all, are:
-= -- 1076
-> -- 346
-< -- 85
-+ -- 184
-- -- 68
-* -- 636
-:= -- 2097
-add.period$ -- 38
-call.type$ -- 19
-change.case$ -- 18
-chr.to.int$ -- 189
-cite$ -- 19
-duplicate$ -- 952
-empty$ -- 1070
-format.name$ -- 78
-if$ -- 3078
+            917 strings with 9216 characters,
+and the built_in function-call counts, 9167 in all, are:
+= -- 764
+> -- 147
+< -- 76
++ -- 86
+- -- 21
+* -- 403
+:= -- 1420
+add.period$ -- 28
+call.type$ -- 14
+change.case$ -- 12
+chr.to.int$ -- 171
+cite$ -- 14
+duplicate$ -- 678
+empty$ -- 772
+format.name$ -- 26
+if$ -- 2144
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 183
-newline$ -- 100
-num.names$ -- 18
-pop$ -- 434
+int.to.str$ -- 14
+missing$ -- 107
+newline$ -- 65
+num.names$ -- 13
+pop$ -- 236
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1051
+skip$ -- 747
 stack$ -- 0
-substring$ -- 481
-swap$ -- 752
-text.length$ -- 22
+substring$ -- 431
+swap$ -- 530
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 19
+type$ -- 14
 warning$ -- 0
-while$ -- 50
-width$ -- 21
-write$ -- 225
+while$ -- 41
+width$ -- 16
+write$ -- 150
+(There were 4 warnings)
