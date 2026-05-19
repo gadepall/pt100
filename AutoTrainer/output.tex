@@ -1,0 +1,150 @@
+%%\section{Introduction}
+%\section{Getting Started}\label{getting-started}
+%Follow these instructions to get the script up and running on your local machine.
+
+\subsection{Prerequisites}\label{prerequisites}
+\begin{itemize}
+    \item Install DroidCam \cite{droidcam} on your Android device. 
+    \item Install OBS Studio \cite{obsstudio} on your Linux laptop. 
+    \item Connect your Android phone to  your  Linux laptop.
+    \item Open DroidCam on your phone.  Open OBS studio on your laptop and slect DroidCam device from the menu.
+    \item {Install Python Libraries:} Install the necessary packages using \texttt{pip}:
+    \begin{lstlisting}[language=bash]
+    pip install opencv-python easyocr numpy
+    \end{lstlisting}
+        {Note:} \texttt{easyocr} will also install \texttt{PyTorch\cite{pytorch}}, which is a large download and a required dependency.
+	    %: This software (installed in the computer) was used to capture the DroidCam feed and output it as an "OBS Virtual Camera," which was then selected by the Python script.
+\end{itemize}
+
+\iffalse
+Before you run the script, you'll need a few things set up.
+
+\subsubsection*{A Note on the Webcam (Optional)}
+This script will work with any webcam that OpenCV can detect, including built-in laptop cameras or standard USB webcams. The most important factor is a stable, well-positioned camera.
+
+For reference, the development and testing for this project were done using a virtual camera setup:
+Again, this specific setup is not required. It is just one example of how to provide a camera feed to the script. Any simple webcam will work perfectly fine.
+%\subsection{Installation}\label{installation}
+%\begin{itemize}
+  %  \item {Create a Directory for Images:} The script is hardcoded to save debug images to an \texttt{img/} folder. You must create this folder in the same directory as the script for the program to run. Use the following command:
+  %  \begin{lstlisting}[language=bash]
+  %  mkdir img
+  %  \end{lstlisting}
+    
+%\end{itemize}
+\fi
+
+\subsection{Collecting the Dataset}\label{how-to-run}
+\begin{enumerate}
+\item Go to the following directory 
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/tree/main/AutoTrainer/}
+}}
+and 
+    run the script
+    \begin{lstlisting}[language=bash]
+    python3 a.py
+    \end{lstlisting}
+    \item Two windows will appear: \texttt{'Voltage'} and \texttt{'Temperature'}. These show the exact (and processed) regions being sent to the OCR engine.
+    \item To stop the script, make sure one of these windows is active (click on it) and {press the 'q' key}.
+    \item This script uses OpenCV\cite{opencv_library} and EasyOCR\cite{easyocr} to capture video from a webcam, identify and read text from two specific regions (voltage and temperature in this case), and log this data to a file.
+It is designed to be calibrated for a specific, fixed-camera setup, such as this case where we are reading data from an LCD screen and a separate standard thermometer.
+
+%    \item Make sure your webcam is plugged in and positioned correctly to see both your target readings.
+%    \item Open a terminal and navigate to the folder containing \texttt{a.py}.
+\end{enumerate}
+\subsection{Output}\label{output}
+The script generates two types of output:
+\begin{itemize}
+    \item \texttt{out.txt}: A text file that logs the detected readings. Every 15 frames, if text is found in both regions, a new line is added, formatted as: \texttt{[voltage\_reading] [temperature\_reading]}.
+    \item \texttt{img/} Directory: This folder saves \texttt{voltageXX.png} and \texttt{tempXX.png} images. These are the exact frames that were sent to EasyOCR. If you are getting bad readings, check these images to see why. They are perfect for debugging your calibration and fixing the readings.
+
+The directory structure will look similar to this:
+\begin{lstlisting}
+codes/
+|-- out.txt
+|-- img/
+|  |--voltage_1.png
+|  |--temperature_1.png
+|  |--voltage_2.png
+|  |--temperature_2.png
+|  |--voltage_XX.png
+|  |--temperature_XX.png
+\end{lstlisting}
+
+\texttt{out.txt} may not be perfect due to some instances of incorrect character recognition. In such case, the data may have to be manually updated and saved in \texttt{trainingdata.txt}.
+
+\item The final training data is available in the following text file
+\fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/blob/main/AutoTrainer/trainingdata.txt}
+}}
+This was obtained from out.txt after manually modifying some of the incorrect entries.
+\end{itemize}
+
+\subsection{Important: Calibration is Required!}\label{important-calibration-is-required}
+This script {will not work correctly} without calibration.   Following are the adjustments that are necessary in \texttt{a.py}:
+
+\subsubsection{GPU Usage}\label{gpu-usage}
+If you {do not} have a compatible NVIDIA GPU, you must change this line
+\begin{lstlisting}[language=python]
+# From:
+reader = easyocr.Reader(['en'], gpu=True)
+
+# To:
+reader = easyocr.Reader(['en'], gpu=False)
+\end{lstlisting}
+The script will run much slower on the CPU but will still function.
+
+\subsubsection{Frame Cropping}\label{frame-cropping}
+This is the most critical part. The script has to be told where exactly to look for the data.  In the following, the parameters 
+$h/2, w/3$  
+may need to be modified. 
+\begin{lstlisting}[language=python]
+# Change the crop values according to requirement
+voltage_frame = frame[0:int(h/2), :]
+temp_frame = frame[int(h/2):, 0:int(w/3)]
+\end{lstlisting}
+In the above snippet, \texttt{voltage\_frame} is currently set to the top half of the entire camera feed.
+\texttt{temp\_frame} is set to the bottom-left third of the feed.
+These pixel/percentage values to need to be changed to precisely isolate the voltage and temperature readings. The \texttt{Voltage} and \texttt{Temperature} windows show what the script sees in these cropped zones, so the values may be adjusted accordingly and re-run until they are correct.
+
+\subsubsection{Image Processing}\label{image-processing}
+%\begin{enumerate}
+%    \item {Temperature:}
+The following code snippet  for reading the physical thermometer may have to be modified to fit the specific camera, lighting, and display setup.
+%\end{itemize}
+\begin{lstlisting}[language=python]
+# These values need to be calibrated according to requirement
+gray_t = cv2.cvtColor(temp_frame, cv2.COLOR_BGR2GRAY)
+t_lower = 50
+t_upper = 100
+_, thres = cv2.threshold(gray_t, 130, 255, cv2.THRESH_BINARY_INV)
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (11, 11))
+closed_img = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
+pretemp = cv2.bitwise_not(closed_img)
+temp = cv2.GaussianBlur(pretemp, (17, 17), 0)
+\end{lstlisting}
+\tabref{tab:therm-var}
+%\paragraph{Key Values to Change}\label{key-values-to-change}
+lists some of the values that need to be adjusted. 
+\begin{table}[H]
+\centering
+\small
+\label{table:key_variables_table}
+\begin{tabularx}{\columnwidth}{|X|X|}
+\hline
+ \texttt{cv2.threshold(gray\_t,130, 255, cv2.THRESH\_BINARY\_INV)} & 130 is the threshold value. This is highly sensitive to lighting. Adjust it up or down until the text is clearly separated from the background in the \texttt{'Temperature'} window. \\
+\hline
+    \texttt{cv2.getStructuringEleme} \texttt{nt( cv2.MORPH\_RECT, (11,11))} & This is the kernel size for the \texttt{'closing'} operation, which helps connect broken parts of a number. You may need to make it larger or smaller. \\
+\hline
+ \texttt{cv2.GaussianBlur(pretemp, (17,17), 0)} & This is the kernel size for the blur. \\
+\hline
+\end{tabularx}
+\caption{}
+\label{tab:therm-var}
+\end{table}
+
+We need to look at the \texttt{Temperature} window while calibrating. The goal is to make the numbers we want to read clear and solid, while removing as much background noise as possible.
+It is also preferred to hide the decimal point, either physically or by further image processing.
+%\item {Voltage:} In this case, the cropped voltage frame is converted to grayscale before it is used for OCR. Make sure the voltage reading is visible in the voltage frame. It is also preferred to hide the decimal point, either physically or by further image processing.
+%\end{itemize}
+
+
