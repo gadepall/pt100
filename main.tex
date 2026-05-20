@@ -79,11 +79,11 @@
 % \end{abstract}
 
 \begin{abstract}
-Measuring temperature accurately is necessary for many industrial processes. The PT100, a Platinum Resistance Temperature Detector (RTD), is preferred for this purpose for its stability and linearity. Its calibration traditionally requires expensive and dedicated hardware. In this paper, we design and develop a more cost-effective industrial thermometer. This is done by analyzing the suitabilty of different machine learning (ML) techniques: two different types of quadratic Least Squares (LSQ) model, a Stochastic Gradient Descent (SGD) trained model and a non-linear Random Forest Regressor (RFR) by calibrating them with respect to a commercial pen thermometer. This calibration process is also automate by the use of Optical Character Recognition (OCR). Through numerical results, we conclude that the LSQ model is superior to other models and yields a Mean Squared Error (MSE) of 0.009198 and an $R^2$ of 0.999956. We then implement it using the Arduino framework on an Arduino UNO.
+Measuring temperature accurately is necessary for many industrial processes. The PT100, a Platinum Resistance Temperature Detector (RTD), is preferred for this purpose for its stability and linearity. Its calibration traditionally requires expensive and dedicated hardware. In this paper, we design and develop a more cost-effective industrial thermometer. This is done by analysing the suitabilty of different machine learning (ML) techniques: two different types of quadratic Least Squares (LSQ) model, a Stochastic Gradient Descent (SGD) trained model and a non-linear Random Forest Regressor (RFR) by calibrating them with respect to a commercial pen thermometer. This calibration process is also automated by the use of Optical Character Recognition (OCR). Through numerical results, we conclude that the LSQ model is superior to other models and yields a Mean Squared Error (MSE) of 0.009198 and an $R^2$ of 0.999956. We then implement it using the Arduino framework on an Arduino UNO.
 \end{abstract}
 
 \begin{IEEEkeywords}
-PT100, Machine Learning, Optical Character Recognition, , Automated Training.
+PT100, Machine Learning, Optical Character Recognition, Automated Training.
 \end{IEEEkeywords}
 
 % \section{Introduction}
@@ -91,22 +91,22 @@ PT100, Machine Learning, Optical Character Recognition, , Automated Training.
 % The PT100, are widely favored in industrial applications for their linearity and stability. 
 % \cite{paper4}
  % investigated the transient (dynamic) behavior of resistance temperature sensors using two experimental techniques: the Plunge Test and the Self-Heating Test. The goal was to identify the sensor's Transfer Function for use in real-time control systems.
- % Here, the focus  was only on the dynamic modeling (time delay/response) of the sensor, not the static (steady-state) calibration or non-linearity correction, which is critical for overall accuracy across a wide range. Futher, the above approach required specialized dynamic testing equipment.
+ % Here, the focus  was only on the dynamic modeling (time delay/response) of the sensor, not the static (steady-state) calibration or non-linearity correction, which is critical for overall accuracy across a wide range. Futher, the above approach required specialised dynamic testing equipment.
 % \cite{paper1} used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50\degree$C to $150\degree$C. 
 % Achieved $>91\%$ accuracy improvement, reducing error from $\sim 1.3\degree$C to $\sim 0.27\degree$C.
 % In \cite{paper3}, Multisim software was used for the simulation and design of the measurement transducer. 
  
 % Both  the above  works were primarily based on software simulation only. They did not implement or compare against machine learning models, relying solely on theoretical circuit performance, leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed.
-% To address the gap between expensive hardware calibration and superficial software simulations, this paper presents a novel framework for PT100 calibration. Our unique contributions go beyond simply combining standard circuitry with ML models. First, we propose an automated Optical Character Recognition (OCR) based dataset generation pipeline that synchronizes analog readings with sensor voltages, completely circumventing the need for expensive calibration thermal chambers. Second, we present a comparative study evaluating ML models specifically constrained for low-power edge microcontrollers.
+% To address the gap between expensive hardware calibration and superficial software simulations, this paper presents a novel framework for PT100 calibration. Our unique contributions go beyond simply combining standard circuitry with ML models. First, we propose an automated Optical Character Recognition (OCR) based dataset generation pipeline that synchronises analog readings with sensor voltages, completely circumventing the need for expensive calibration thermal chambers. Second, we present a comparative study evaluating ML models specifically constrained for low-power edge microcontrollers.
 
 \section{Introduction}
 Temperature measurement is a fundamental requirement in process control, automotive systems, and instrumentation. Among the various contact temperature sensors available, the Platinum Resistance Temperature Detector (RTD), commonly known as the PT100, is considered the standard for precision thermometry \cite{rtd_theory}. The PT100, are widely favored in industrial applications for their linearity and stability. \cite{paper2} implemented the circuit using dedicated differental amplifiers. 
 
-\cite{paper1} used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50 \degree$C to $150 \degree$C. Both the above works require either expensive hardware testing for accurate dataset generation or specialized analog components and a high-performance microcontroller. They did not implement or compare against machine learning models, relying solely on theoretical circuit performance, leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed. 
+\cite{paper1} used an Artificial Neural Network (ANN) to non-linearly calibrate PT100 sensor readings across $-50 \degree$C to $150 \degree$C. Both the above works require either expensive hardware testing for accurate dataset generation or specialised analog components and a high-performance microcontroller. They did not implement or compare against machine learning models, relying solely on theoretical circuit performance, leaving the real-time processing feasibility and computational overhead on embedded hardware unaddressed. 
 
-To address the gap between expensive hardware calibration and software simulations, this paper presents a novel framework for PT100 calibration. First, we propose an automated Optical Character Recognition (OCR) based dataset generation pipeline that synchronizes analog readings with sensor voltages, completely circumventing the need for expensive thermal calibration chambers. Second, we present a comparative study evaluating various ML models to identify the most robust algorithm for steady-state non-linearity correction.
+To address the gap between expensive hardware calibration and software simulations, this paper presents a novel framework for PT100 calibration. First, we propose an automated Optical Character Recognition (OCR) based dataset generation pipeline that synchronises analog readings with sensor voltages, completely circumventing the need for expensive thermal calibration chambers. Second, we present a comparative study evaluating various ML models to identify the most robust algorithm for steady-state non-linearity correction.
 
-In the process, we detail the calibration and characterization of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC. We also automate the process of generating the dataset by using OCR to capture the readings of the analog thermometer through a mobile phone camera. The parameters for all the above ML techniques are finally hardcoded in the ATMEGA328P microcontroller, using the Arduino UNO board.
+In the process, we detail the calibration and characterisation of a PT100 sensor by comparing two hardware signal conditioning setups: a simple voltage divider and a precision Wheatstone bridge interfaced with an ADS1115 ADC. We also automate the process of generating the dataset by using OCR to capture the readings of the analog thermometer through a mobile phone camera. The parameters for all the above ML techniques are finally hardcoded in the ATMEGA328P microcontroller, using the Arduino UNO board.
 
 \section{PT-100 Fundamentals}
 %\subsection{Fundamental Principles}
@@ -117,7 +117,7 @@ The PT100 is defined by a nominal resistance of $100\,\Omega$ at $0\degree$C. Un
 for temperatures $t > 0\degree$C, where $A$ and $B$ are standard coefficients. This quadratic physical relationship serves as the theoretical justification for using LSQ models in this work.
 
 %\subsection{Measurement Challenges}
-While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/\degree$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This paper aims to optimize this conversion by analyzing different hardware front-ends and software regression models to find an optimal solution for high-precision, low-cost temperature sensing.
+While PT100 sensors offer high stability, the resistance change is relatively small ($\approx 0.385\,\Omega/\degree$C). Consequently, accurate reading requires precise signal conditioning to convert resistance changes into measurable voltage levels \cite{wheatstone_ref}. This paper aims to optimise this conversion by analysing different hardware front-ends and software regression models to find an optimal solution for high-precision, low-cost temperature sensing.
 
 \section{Hardware Setup}
 Two main analog front-ends were tested to evaluate the trade-off between circuit complexity and measurement accuracy. \tabref{table:list_table} lists the components required for both analog front-ends, detailing the specific parts used for high-accuracy and cost-effective implementations. The detailed hardware component list, alongside the pin-connection configurations for the ADS1115 and LCD, are provided in Appendix \ref{app:Hardware} to facilitate reproducibility.
@@ -128,7 +128,7 @@ Two main analog front-ends were tested to evaluate the trade-off between circuit
 	The connection details for integrating the external 16-bit ADS1115 ADC are  available in \tabref{table:ads1115_connections}. 
 	The complete circuit schematic for the high-precision Wheatstone bridge setup is illustrated in \figref{fig:wheatstone_schematic}.
 
-    \item {\em Simple Voltage Divider:} This uses a simple voltage divider utilizing the Arduino's internal 10-bit ADC. 
+    \item {\em Simple Voltage Divider:} This uses a simple voltage divider utilising the Arduino's internal 10-bit ADC. 
 	The complete circuit schematic for the simple voltage divider setup is illustrated in \figref{fig:voltage_divider_schematic}.
 
 \end{itemize}
@@ -343,13 +343,13 @@ The LSQ and SGD models obtained from the dataset derived in the previous section
 \end{table}
 
 \begin{enumerate}
-    \item \textbf{Least Squares (LSQ) and Inverse LSQ Regression:} 	The Callendar-Van Dusen equation gives the relationship between the temperature and resistance. This by extension gives us the relation $Y = aX^2 + bX + c$, which we call \textit{LSQ} model. We also define another model $X = aY^2 + bY + c$, which we refer to as \textit{Inverse LSQ} model. The coefficients for both these models are found by applying the least square regression utilizing the data obtained using the Optical Character Recognition. The \textit{Inverse LSQ} was also chosen to be quadratic to obtain more accuracy.
+    \item \textbf{Least Squares (LSQ) and Inverse LSQ Regression:} 	The Callendar-Van Dusen equation gives the relationship between the temperature and resistance. This by extension gives us the relation $Y = aX^2 + bX + c$, which we call \textit{LSQ} model. We also define another model $X = aY^2 + bY + c$, which we refer to as \textit{Inverse LSQ} model. The coefficients for both these models are found by applying the least square regression utilising the data obtained using the Optical Character Recognition. The \textit{Inverse LSQ} was also chosen to be quadratic to obtain more accuracy.
     
-    \item \textbf{Stochastic Gradient Descent (SGD) Regressor:} SGD is a common iterative optimization algorithm used to fit a linear regression model \cite{SGD}. We include it to test whether a standard linear approximation can effectively map the sensor data without relying on the physical quadratic model. It also highlights the necessity of proper data normalization in ML pipelines.
+    \item \textbf{Stochastic Gradient Descent (SGD) Regressor:} SGD is a common iterative optimisation algorithm used to fit a linear regression model \cite{SGD}. We include it to test whether a standard linear approximation can effectively map the sensor data without relying on the physical quadratic model. It also highlights the necessity of proper data normalisation in ML pipelines.
 	
-	SGD is a regression technique 
+	SGD is an optimisation technique used for approximation of continuous values. Instead of analysing the complete dataset, it generates a model based on a small set of that data 
     
-    \item \textbf{Random Forest Regressor (RFR):} RFR is a standard ensemble learning method based on decision trees \cite{RFR}. It is included to evaluate if a generalized non-linear machine learning model can outperform the physically based LSQ approach. Because tree-based models rely on discrete spatial partitioning (step functions), we investigate their ability to smoothly interpolate continuous analog variables like temperature.
+    \item \textbf{Random Forest Regressor (RFR):} RFR is a standard ensemble learning method based on decision trees \cite{RFR}. It is included to evaluate if a generalised non-linear machine learning model can outperform the physically based LSQ approach. Because tree-based models rely on discrete spatial partitioning (step functions), we investigate their ability to smoothly interpolate continuous analog variables like temperature.
 \end{enumerate}
 
 The models are obtained and implemented using Python and the scikit-learn\cite{scikit-learn} library.
@@ -357,8 +357,8 @@ The implementation of these models and the evaluation of Mean Squared Error (MSE
 
 \section{Model Evaluation and Comparison}
 
-\tabref{tab:model_performance} summarizes the Mean Squared Error (MSE) and R-squared ($R^2$) scores for all evaluated models \cite{MSER2}. 
-MSE was specifically selected to heavily penalize larger temperature prediction deviations—a critical safety requirement in industrial control systems. Conversely, the $R^2$ metric is utilized to measure the proportion of variance in the actual temperature that is predictably explained by the sensor's input voltage. A robust industrial thermometer must achieve an MSE approaching zero and an $R^2$ approaching 1.0. 
+\tabref{tab:model_performance} summarises the Mean Squared Error (MSE) and R-squared ($R^2$) scores for all evaluated models \cite{MSER2}. 
+MSE was specifically selected to heavily penalise larger temperature prediction deviations—a critical safety requirement in industrial control systems. Conversely, the $R^2$ metric is utilised to measure the proportion of variance in the actual temperature that is predictably explained by the sensor's input voltage. A robust industrial thermometer must achieve an MSE approaching zero and an $R^2$ approaching 1.0. 
 Based on these metrics, the LSQ (Quadratic) model for the Wheatstone bridge with ADC vastly outperforms the rest.
     \begin{table}[H]
     \centering
@@ -415,7 +415,7 @@ We thus conclude that the LSQ model is best at predicting the temperature.  Thou
 \tabref{tab:validation_data_subset}
 and
 \figref{fig:wheatstone_model_comparison}
-for brevity and visualization respectively,  the results hold true for all values of practical interest.
+for brevity and visualisation respectively,  the results hold true for all values of practical interest.
 \begin{table}[H]
 \centering
 \caption{Wheatstone Validation Data and Predictions}
@@ -570,12 +570,12 @@ The code for the Arduino, which predicts the temperature from the voltage and fl
 \subsection{Pipeline Architecture and Data Logging}
 The automated data acquisition pipeline was developed using Python. To capture the real-world thermal cycle, a smartphone camera was interfaced with a computer via DroidCam and OBS Studio, providing a continuous video feed of both the analog reference thermometer and the sensor's LCD display. The text extraction was handled using the \texttt{easyocr} \cite{easyocr} library, which relies on PyTorch \cite{pytorch} for deep learning-based inference, accelerated via an NVIDIA GPU. 
 
-During the cooling phase of the thermal cycle, the script continuously monitored the video feed. Every 15 frames, if text was successfully detected in both regions, the script synchronized the readings and logged them into a structured dataset, formatted as paired voltage and temperature values. To facilitate manual debugging, the isolated bounding boxes of the digits were saved as individual image frames. Because the OCR engine is susceptible to occasional character misclassification, the generated dataset (\texttt{out.txt}) was manually reviewed and corrected to produce the final high-fidelity training dataset.
+During the cooling phase of the thermal cycle, the script continuously monitored the video feed. Every 15 frames, if text was successfully detected in both regions, the script synchronised the readings and logged them into a structured dataset, formatted as paired voltage and temperature values. To facilitate manual debugging, the isolated bounding boxes of the digits were saved as individual image frames. Because the OCR engine is susceptible to occasional character misclassification, the generated dataset (\texttt{out.txt}) was manually reviewed and corrected to produce the final high-fidelity training dataset.
 
 \subsection{Image Processing and Region of Interest (ROI) Calibration}
 To achieve high OCR accuracy, the raw video frames required specific preprocessing and spatial cropping. The camera feed was divided into distinct Regions of Interest (ROIs): the voltage display was isolated from the top half of the frame, while the physical thermometer was isolated from the bottom-left third. 
 
-Because the analog thermometer display was highly sensitive to ambient lighting, standard grayscaling was insufficient for reliable digit extraction. Therefore, an inverse binary thresholding operation was applied (with a threshold value of 130) to separate the liquid crystal digits from the background. To reconstruct broken segments within the digital numbers, a morphological closing operation was executed utilizing an $11 \times 11$ rectangular structuring element. Finally, a $17 \times 17$ Gaussian blur was applied to the inverted mask to smooth the edges of the characters, significantly reducing background noise before the frames were passed to the \texttt{easyocr} engine. The further information regarding the installation and setup is provided in \fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/tree/main/AutoTrainer}
+Because the analog thermometer display was highly sensitive to ambient lighting, standard grayscaling was insufficient for reliable digit extraction. Therefore, an inverse binary thresholding operation was applied (with a threshold value of 130) to separate the liquid crystal digits from the background. To reconstruct broken segments within the digital numbers, a morphological closing operation was executed utilising an $11 \times 11$ rectangular structuring element. Finally, a $17 \times 17$ Gaussian blur was applied to the inverted mask to smooth the edges of the characters, significantly reducing background noise before the frames were passed to the \texttt{easyocr} engine. The further information regarding the installation and setup is provided in \fbox{\parbox{\linewidth}{\url{https://github.com/gadepall/pt100/tree/main/AutoTrainer}
 }}.
 
 
@@ -584,5 +584,7 @@ Because the analog thermometer display was highly sensitive to ambient lighting,
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+
+\balance
 
 \end{document}
