@@ -353,7 +353,7 @@ The implementation of these models and the evaluation of Mean Squared Error (MSE
 
 \section{Model Evaluation and Comparison}
 
-\tabref{tab:model_performance} summarises the Mean Squared Error (MSE) and R-squared ($R^2$) scores for all evaluated models \cite{MSER2}. 
+\tabref{tab:model_performance} summarises the Mean Squared Error (MSE) and R-squared ($R^2$) values for all the implemented models \cite{MSER2}. 
 MSE was specifically selected to heavily penalise larger temperature prediction deviations—a critical safety requirement in industrial control systems. Conversely, the $R^2$ metric is utilised to measure the proportion of variance in the actual temperature that is predictably explained by the sensor's input voltage. A robust industrial thermometer must achieve an MSE approaching zero and an $R^2$ approaching 1.0. 
 Based on these metrics, the LSQ (Quadratic) model for the Wheatstone bridge with ADC vastly outperforms the rest.
     \begin{table}[H]
