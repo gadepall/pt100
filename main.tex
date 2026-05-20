@@ -345,9 +345,7 @@ The LSQ and SGD models obtained from the dataset derived in the previous section
     
     \item \textbf{Stochastic Gradient Descent (SGD) Regressor:} SGD is an optimisation technique used for approximation of continuous values \cite{SGD}. Instead of analysing the complete dataset, it generates a model based on a small set of that data and then updates the model as it processes the next subset. This method is preferred over other optimisation techniques because of its real-time processing and efficiency.
     
-    \item \textbf{Random Forest Regressor (RFR):} It is included to evaluate if a generalised non-linear machine learning model can outperform the physically based LSQ approach. Because tree-based models rely on discrete spatial partitioning (step functions), we investigate their ability to smoothly interpolate continuous analog variables like temperature.
-	
-	RFR is a machine learning algorithm that predicts values using decision trees \cite{RFR}. Because it uses data trees, 
+    \item \textbf{Random Forest Regressor (RFR):} RFR is a machine learning algorithm that predicts values using decision trees \cite{RFR}. The training of the model is done by giving it a large dataset to form the decision tees. Because it uses data trees, the values outside the range of dataset cannot be predicted. But this model is included to check if the interpolation of data can give a better model of measurement of temperature than the standard machine learning models.
 \end{enumerate}
 
 The models are obtained and implemented using Python and the scikit-learn\cite{scikit-learn} library.
